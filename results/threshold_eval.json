@@ -1,0 +1,238 @@
+{
+  "M1_immune_sensitive": {
+    "n": 289,
+    "n_pos": 73,
+    "auc": 0.8985920852359208,
+    "ap": 0.7825220064591449,
+    "prob_median_pos": 0.988,
+    "prob_median_neg": 0.0,
+    "thresholds": {
+      "youden": 0.0327,
+      "high_sensitivity": 0.0004,
+      "high_specificity": 0.2879
+    },
+    "operating_points": {
+      "youden": {
+        "threshold": 0.033,
+        "sensitivity": 0.836,
+        "specificity": 0.856,
+        "ppv": 0.663,
+        "npv": 0.939,
+        "tp": 61,
+        "fp": 31,
+        "fn": 12,
+        "tn": 185
+      },
+      "high_sensitivity(>=0.9)": {
+        "threshold": 0.0,
+        "sensitivity": 0.904,
+        "specificity": 0.704,
+        "ppv": 0.508,
+        "npv": 0.956,
+        "tp": 66,
+        "fp": 64,
+        "fn": 7,
+        "tn": 152
+      },
+      "high_specificity(>=0.9)": {
+        "threshold": 0.288,
+        "sensitivity": 0.781,
+        "specificity": 0.907,
+        "ppv": 0.74,
+        "npv": 0.925,
+        "tp": 57,
+        "fp": 20,
+        "fn": 16,
+        "tn": 196
+      },
+      "default_0.5": {
+        "threshold": 0.5,
+        "sensitivity": 0.699,
+        "specificity": 0.917,
+        "ppv": 0.739,
+        "npv": 0.9,
+        "tp": 51,
+        "fp": 18,
+        "fn": 22,
+        "tn": 198
+      }
+    }
+  },
+  "M2_msi": {
+    "n": 289,
+    "n_pos": 47,
+    "auc": 0.8975294531387374,
+    "ap": 0.7199979456766277,
+    "prob_median_pos": 0.9945,
+    "prob_median_neg": 0.0,
+    "thresholds": {
+      "youden": 0.0003,
+      "high_sensitivity": 0.0003,
+      "high_specificity": 0.2016
+    },
+    "operating_points": {
+      "youden": {
+        "threshold": 0.0,
+        "sensitivity": 0.915,
+        "specificity": 0.764,
+        "ppv": 0.43,
+        "npv": 0.979,
+        "tp": 43,
+        "fp": 57,
+        "fn": 4,
+        "tn": 185
+      },
+      "high_sensitivity(>=0.9)": {
+        "threshold": 0.0,
+        "sensitivity": 0.915,
+        "specificity": 0.764,
+        "ppv": 0.43,
+        "npv": 0.979,
+        "tp": 43,
+        "fp": 57,
+        "fn": 4,
+        "tn": 185
+      },
+      "high_specificity(>=0.9)": {
+        "threshold": 0.202,
+        "sensitivity": 0.702,
+        "specificity": 0.909,
+        "ppv": 0.6,
+        "npv": 0.94,
+        "tp": 33,
+        "fp": 22,
+        "fn": 14,
+        "tn": 220
+      },
+      "default_0.5": {
+        "threshold": 0.5,
+        "sensitivity": 0.66,
+        "specificity": 0.926,
+        "ppv": 0.633,
+        "npv": 0.933,
+        "tp": 31,
+        "fp": 18,
+        "fn": 16,
+        "tn": 224
+      }
+    }
+  },
+  "M3_ebv": {
+    "n": 289,
+    "n_pos": 26,
+    "auc": 0.7377888271424393,
+    "ap": 0.4538800770548175,
+    "prob_median_pos": 0.0033499999999999997,
+    "prob_median_neg": 0.0,
+    "thresholds": {
+      "youden": 0.0033,
+      "high_sensitivity": 0.0,
+      "high_specificity": 0.0006
+    },
+    "operating_points": {
+      "youden": {
+        "threshold": 0.003,
+        "sensitivity": 0.538,
+        "specificity": 0.958,
+        "ppv": 0.56,
+        "npv": 0.955,
+        "tp": 14,
+        "fp": 11,
+        "fn": 12,
+        "tn": 252
+      },
+      "high_sensitivity(>=0.9)": {
+        "threshold": 0.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "ppv": 0.09,
+        "npv": 0.0,
+        "tp": 26,
+        "fp": 263,
+        "fn": 0,
+        "tn": 0
+      },
+      "high_specificity(>=0.9)": {
+        "threshold": 0.001,
+        "sensitivity": 0.538,
+        "specificity": 0.909,
+        "ppv": 0.368,
+        "npv": 0.952,
+        "tp": 14,
+        "fp": 24,
+        "fn": 12,
+        "tn": 239
+      },
+      "default_0.5": {
+        "threshold": 0.5,
+        "sensitivity": 0.231,
+        "specificity": 0.992,
+        "ppv": 0.75,
+        "npv": 0.929,
+        "tp": 6,
+        "fp": 2,
+        "fn": 20,
+        "tn": 261
+      }
+    }
+  },
+  "M5_clinical": {
+    "n": 289,
+    "n_pos": 73,
+    "auc": 0.6200532724505327,
+    "ap": 0.3392712986052107,
+    "prob_median_pos": 0.5091,
+    "prob_median_neg": 0.47705,
+    "thresholds": {
+      "youden": 0.4579,
+      "high_sensitivity": 0.3589,
+      "high_specificity": 0.6685
+    },
+    "operating_points": {
+      "youden": {
+        "threshold": 0.458,
+        "sensitivity": 0.822,
+        "specificity": 0.458,
+        "ppv": 0.339,
+        "npv": 0.884,
+        "tp": 60,
+        "fp": 117,
+        "fn": 13,
+        "tn": 99
+      },
+      "high_sensitivity(>=0.9)": {
+        "threshold": 0.359,
+        "sensitivity": 0.918,
+        "specificity": 0.241,
+        "ppv": 0.29,
+        "npv": 0.897,
+        "tp": 67,
+        "fp": 164,
+        "fn": 6,
+        "tn": 52
+      },
+      "high_specificity(>=0.9)": {
+        "threshold": 0.668,
+        "sensitivity": 0.164,
+        "specificity": 0.917,
+        "ppv": 0.4,
+        "npv": 0.764,
+        "tp": 12,
+        "fp": 18,
+        "fn": 61,
+        "tn": 198
+      },
+      "default_0.5": {
+        "threshold": 0.5,
+        "sensitivity": 0.548,
+        "specificity": 0.583,
+        "ppv": 0.308,
+        "npv": 0.792,
+        "tp": 40,
+        "fp": 90,
+        "fn": 33,
+        "tn": 126
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+# —— 敏感信息 ——
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+
+# —— 数据（仓库只放脚本/权重/结果/报告，不放数据）——
+data/
+tcga_stad_uni2h/
+*.h5
+*.svs
+*.tif
+*.tiff
+clinical.csv
+
+# —— Python ——
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# —— 系统/编辑器 ——
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# —— 临时日志/缓存 ——
+*.log
+*_cache.json

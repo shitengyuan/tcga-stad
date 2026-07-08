@@ -1,0 +1,9 @@
+{
+  "n_hard": 10,
+  "abmil_acc": 0.7,
+  "fused_acc": 0.5,
+  "agree_rate": 0.4,
+  "corrected_to_right": 2,
+  "corrected_to_wrong": 4,
+  "net_gain": -2
+}

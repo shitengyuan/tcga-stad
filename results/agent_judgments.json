@@ -1,0 +1,212 @@
+[
+  {
+    "skip": false,
+    "abmil_prob": 0.4973,
+    "abmil_pred": "nonsensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "切片中可见密集聚集的淋巴细胞（TIL）及肿瘤-基质界面处的淋巴细胞浸润，符合MSI-H的Crohn样淋巴细胞反应特征",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"切片中可见密集聚集的淋巴细胞（TIL）及肿瘤-基质界面处的淋巴细胞浸润，符合MSI-H的Crohn样淋巴细胞反应特征\"}"
+    },
+    "fused_prob": 0.6584,
+    "final_pred": "sensitive",
+    "agree": false,
+    "report": "（女，69岁，胃腺癌）镜下见密集聚集的淋巴细胞（TIL）及肿瘤-基质界面浸润，呈Crohn样淋巴细胞反应。综合ABMIL与视觉模型融合分析，倾向为免疫敏感亚型（融合概率0.658，置信度中等）。该形态特征高度提示MSI-H表型，建议行MMR蛋白（MLH1/PMS2/MSH2/MSH6）IHC检测或EBER-ISH检测以明确分子分型及指导免疫治疗。",
+    "patient_id": "TCGA-BR-7707",
+    "true_label": 1,
+    "slide_id": "TCGA-BR-7707-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.5197,
+    "abmil_pred": "sensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "淋巴细胞密集聚集且在肿瘤-基质界面浸润，符合MSI-H的Crohn样淋巴细胞反应特征",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"淋巴细胞密集聚集且在肿瘤-基质界面浸润，符合MSI-H的Crohn样淋巴细胞反应特征\"}"
+    },
+    "fused_prob": 0.6718,
+    "final_pred": "sensitive",
+    "agree": true,
+    "report": "【形态学特征】肿瘤-基质界面见淋巴细胞密集聚集并呈Crohn样浸润。\n【AI预测结论】倾向免疫敏感亚型（融合概率0.672，视觉置信度0.8）。\n【验证建议】该形态高度提示MSI-H或EBV阳性。结合临床STAD_EBV亚型，建议行EBER原位杂交（EBV-ISH）及MMR蛋白（MLH1/MSH2/MSH6/PMS2）免疫组化检测，以明确分子分型并指导免疫治疗。",
+    "patient_id": "TCGA-BR-8366",
+    "true_label": 1,
+    "slide_id": "TCGA-BR-8366-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.587,
+    "abmil_pred": "sensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "切片中可见密集聚集的淋巴细胞（TIL）及肿瘤-基质界面处的淋巴细胞浸润，符合MSI-H的Crohn样淋巴细胞反应特征",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"切片中可见密集聚集的淋巴细胞（TIL）及肿瘤-基质界面处的淋巴细胞浸润，符合MSI-H的Crohn样淋巴细胞反应特征\"}"
+    },
+    "fused_prob": 0.7122,
+    "final_pred": "sensitive",
+    "agree": true,
+    "report": "64岁女性胃腺癌。镜下见密集聚集的淋巴细胞（TIL）及肿瘤-基质界面浸润，呈Crohn样淋巴细胞反应。综合ABMIL与视觉模型，倾向免疫敏感亚型（融合概率0.712，置信度0.8）。该形态高度提示MSI-H表型，建议行MMR蛋白（MLH1/MSH2/MSH6/PMS2）IHC检测验证错配修复缺陷，必要时加做EBER-ISH排除EBV相关性胃癌。",
+    "patient_id": "TCGA-BR-8487",
+    "true_label": 1,
+    "slide_id": "TCGA-BR-8487-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.4329,
+    "abmil_pred": "nonsensitive",
+    "vision": {
+      "til_dense": false,
+      "til_clustered": false,
+      "interface_infiltration": false,
+      "pred": "nonsensitive",
+      "confidence": 0.8,
+      "evidence": "切片中淋巴细胞密度低且未形成密集聚集或肿瘤-基质界面浸润，不符合MSI-H或EBV+的免疫敏感亚型形态特征",
+      "raw": "{\"til_dense\": false, \"til_clustered\": false, \"interface_infiltration\": false, \"pred\": \"nonsensitive\", \"confidence\": 0.8, \"evidence\": \"切片中淋巴细胞密度低且未形成密集聚集或肿瘤-基质界面浸润，不符合MSI-H或EBV+的免疫敏感亚型形态特征\"}"
+    },
+    "fused_prob": 0.2998,
+    "final_pred": "nonsensitive",
+    "agree": true,
+    "report": "55岁女性胃腺癌（NOS，CIN亚型）。形态学示：肿瘤间质内淋巴细胞密度低，缺乏TILs密集聚集及肿瘤-基质界面浸润。结合ABMIL（敏感概率0.433）与视觉模型（置信度0.80），融合判断倾向**免疫不敏感亚型**（概率0.300）。形态缺乏MSI-H或EBV+特征。建议行MMR蛋白（MLH1/PMS2等）免疫组化及EBER原位杂交检测验证，符合CIN亚型常表现为免疫不敏感的分子特征。",
+    "patient_id": "TCGA-BR-8588",
+    "true_label": 0,
+    "slide_id": "TCGA-BR-8588-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.3702,
+    "abmil_pred": "nonsensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "切片中可见密集且聚集的淋巴细胞（TIL）浸润，并明显浸润肿瘤-基质界面，符合MSI-H的Crohn样淋巴细胞反应特征",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"切片中可见密集且聚集的淋巴细胞（TIL）浸润，并明显浸润肿瘤-基质界面，符合MSI-H的Crohn样淋巴细胞反应特征\"}"
+    },
+    "fused_prob": 0.5821,
+    "final_pred": "sensitive",
+    "agree": false,
+    "report": "患者女，75岁，胃腺癌（NOS，CIN型）。镜下见密集聚集的TIL浸润并明显浸润肿瘤-基质界面，呈Crohn样淋巴细胞反应。虽ABMIL模型预测敏感概率低(0.37)，但融合视觉特征后倾向判断为免疫敏感亚型（prob=0.582）。该形态高度提示MSI-H或EBV+，建议加做MMR蛋白（MLH1/PMS2等）IHC或EBER-ISH检测以验证。",
+    "patient_id": "TCGA-CG-4301",
+    "true_label": 0,
+    "slide_id": "TCGA-CG-4301-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.4857,
+    "abmil_pred": "nonsensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "切片中可见密集且成簇的淋巴细胞聚集，并浸润肿瘤-基质界面，符合MSI-H的Crohn样淋巴细胞反应特征",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"切片中可见密集且成簇的淋巴细胞聚集，并浸润肿瘤-基质界面，符合MSI-H的Crohn样淋巴细胞反应特征\"}"
+    },
+    "fused_prob": 0.6514,
+    "final_pred": "sensitive",
+    "agree": false,
+    "report": "胃弥漫型腺癌。AI融合分析提示免疫敏感亚型（概率0.651）。镜下见密集成簇淋巴细胞聚集并浸润肿瘤-基质界面，呈Crohn样淋巴细胞反应，符合MSI-H形态学特征。虽ABMIL概率（0.486）偏低，但视觉模型高置信度（0.8）支持。综合倾向免疫敏感型。建议行MMR蛋白（MLH1等）IHC或EBER-ISH检测以验证分子表型。",
+    "patient_id": "TCGA-CG-4465",
+    "true_label": 1,
+    "slide_id": "TCGA-CG-4465-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.5304,
+    "abmil_pred": "sensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "切片中可见密集且成簇的淋巴细胞聚集，且肿瘤-基质界面有明显的淋巴细胞浸润",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"切片中可见密集且成簇的淋巴细胞聚集，且肿瘤-基质界面有明显的淋巴细胞浸润\"}"
+    },
+    "fused_prob": 0.6782,
+    "final_pred": "sensitive",
+    "agree": true,
+    "report": "患者男，62岁，胃腺癌（NOS，CIN型）。形态学见密集成簇淋巴细胞聚集，伴肿瘤-基质界面明显浸润。结合ABMIL与视觉模型融合分析，倾向为免疫敏感亚型（融合概率0.678，置信度0.8）。建议行MMR蛋白（MLH1/PMS2等）IHC及EBER-ISH检测，以验证是否存在MSI-H或EBV阳性等高免疫原性分子特征，辅助评估免疫治疗获益潜能。",
+    "patient_id": "TCGA-FP-8211",
+    "true_label": 0,
+    "slide_id": "TCGA-FP-8211-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.4222,
+    "abmil_pred": "nonsensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "切片中可见密集且聚集的淋巴细胞浸润，且肿瘤-基质界面有明显的淋巴细胞浸润，符合MSI-H的形态特征",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"切片中可见密集且聚集的淋巴细胞浸润，且肿瘤-基质界面有明显的淋巴细胞浸润，符合MSI-H的形态特征\"}"
+    },
+    "fused_prob": 0.6133,
+    "final_pred": "sensitive",
+    "agree": false,
+    "report": "本例为胃弥漫型腺癌。形态学见密集聚集的淋巴细胞浸润，肿瘤-基质界面淋巴细胞浸润显著，提示免疫微环境活跃。综合AI模型分析，倾向免疫敏感亚型（融合概率0.613，置信度中等）。虽分子分型为STAD_GS，但上述TILs丰富特征提示需警惕错配修复缺陷或EBV感染。建议行MMR蛋白（MLH1/PMS2/MSH2/MSH6）免疫组化及EBER原位杂交进一步验证。",
+    "patient_id": "TCGA-RD-A8N2",
+    "true_label": 0,
+    "slide_id": "TCGA-RD-A8N2-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.4957,
+    "abmil_pred": "nonsensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "切片中可见密集且成簇的淋巴细胞聚集，且肿瘤-基质界面有明显的淋巴细胞浸润，符合MSI-H的Crohn样淋巴细胞反应特征",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"切片中可见密集且成簇的淋巴细胞聚集，且肿瘤-基质界面有明显的淋巴细胞浸润，符合MSI-H的Crohn样淋巴细胞反应特征\"}"
+    },
+    "fused_prob": 0.6574,
+    "final_pred": "sensitive",
+    "agree": false,
+    "report": "患者男，63岁，胃肠型腺癌（CIN亚型）。形态学示肿瘤-基质界面见密集成簇的淋巴细胞浸润，呈Crohn样淋巴细胞反应。综合ABMIL与视觉模型，融合概率0.657，倾向为免疫敏感亚型（中等置信度）。该形态高度提示MSI-H可能，建议行MMR蛋白（MLH1/PMS2/MSH2/MSH6）IHC及EBER-ISH检测以明确分子分型并验证。",
+    "patient_id": "TCGA-VQ-A94R",
+    "true_label": 0,
+    "slide_id": "TCGA-VQ-A94R-01Z-00-DX1"
+  },
+  {
+    "skip": false,
+    "abmil_prob": 0.4985,
+    "abmil_pred": "nonsensitive",
+    "vision": {
+      "til_dense": true,
+      "til_clustered": true,
+      "interface_infiltration": true,
+      "pred": "sensitive",
+      "confidence": 0.8,
+      "evidence": "切片中可见密集且聚集的淋巴细胞（TIL）浸润，并明显浸润肿瘤-基质界面，符合MSI-H的Crohn样淋巴细胞反应特征",
+      "raw": "{\"til_dense\": true, \"til_clustered\": true, \"interface_infiltration\": true, \"pred\": \"sensitive\", \"confidence\": 0.8, \"evidence\": \"切片中可见密集且聚集的淋巴细胞（TIL）浸润，并明显浸润肿瘤-基质界面，符合MSI-H的Crohn样淋巴细胞反应特征\"}"
+    },
+    "fused_prob": 0.6591,
+    "final_pred": "sensitive",
+    "agree": false,
+    "report": "本例胃肠型腺癌（STAD_CIN）组织学见密集聚集的肿瘤浸润淋巴细胞（TIL），明显浸润肿瘤-基质界面，呈Crohn样淋巴细胞反应。综合ABMIL模型与视觉特征，融合判断倾向“免疫敏感”亚型（置信度0.659）。此形态高度提示MSI-H或EBV阳性，建议行MMR蛋白（MLH1/PMS2/MSH2/MSH6）免疫组化及EBER原位杂交检测以验证。",
+    "patient_id": "TCGA-VQ-AA6B",
+    "true_label": 0,
+    "slide_id": "TCGA-VQ-AA6B-01Z-00-DX1"
+  }
+]
