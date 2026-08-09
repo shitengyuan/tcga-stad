@@ -8,12 +8,20 @@ secrets.json
 
 # —— 数据（仓库只放脚本/权重/结果/报告，不放数据）——
 data/
+dataset/
 tcga_stad_uni2h/
 *.h5
 *.svs
 *.tif
 *.tiff
 clinical.csv
+
+# —— 大体积外部验证产物 ——
+results/external_cptac/
+results/external_cptac_feature_infer_20x256_4gpu/
+results/external_cptac_feature_infer_smoke/
+results/external_cptac_features/
+results/external_cptac_features_20x256/
 
 # —— Python ——
 __pycache__/
