@@ -1,0 +1,16 @@
+{
+  "status": "reconstructed_from_current_289_oof_patients",
+  "warning": "Original fold assignment files were not saved; this uses the original seed and code policy but cannot prove exact training-time ordering without clinical.csv.",
+  "n_patients": 289,
+  "n_sites": 8,
+  "n_repeats": 3,
+  "n_folds": 5,
+  "seed": 42,
+  "min_site_for_val": 8,
+  "small_sites": [],
+  "n_small_site_patients_train_only_per_reconstructed_repeat": 0,
+  "patients_missing_reconstructed_val": [],
+  "same_patient_crosses_val_folds_within_repeat": false,
+  "same_site_crosses_val_folds_within_repeat": false,
+  "note_on_oof": "The 289-row OOF CSVs contain only patients with OOF predictions. Patients from small sites that were always train-only in original code would not appear in OOF if clinical.csv contained them."
+}

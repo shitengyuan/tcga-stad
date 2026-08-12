@@ -1,0 +1,315 @@
+{
+  "prediction_dir": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/audit_first_stage/cptac_193_feature_inference",
+  "feature_dir": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/external_cptac_features_20x256",
+  "n_feature_files": 193,
+  "n_predicted_slides": 193,
+  "n_predicted_patients": 50,
+  "threshold_policy": "fixed threshold 0.5; no CPTAC threshold tuning",
+  "aggregation_rule": "patient probability = arithmetic mean of slide probabilities",
+  "n_labeled_evaluable_patients_all_tasks": 47,
+  "tasks": {
+    "M1_immune_sensitive": {
+      "n": 47,
+      "n_pos": 15,
+      "n_neg": 32,
+      "threshold": 0.5,
+      "roc_auc": 0.8375,
+      "pr_auc_average_precision": 0.7211748230489681,
+      "bootstrap_95ci": {
+        "n_boot": 2000,
+        "roc_auc": [
+          0.685482190860215,
+          0.9586703501177184
+        ],
+        "pr_auc_average_precision": [
+          0.495286126278247,
+          0.9282558420198223
+        ],
+        "brier": [
+          0.07131946943889779,
+          0.22675160882932094
+        ]
+      },
+      "accuracy": 0.8723404255319149,
+      "balanced_accuracy": 0.8708333333333333,
+      "sensitivity": 0.8666666666666667,
+      "specificity": 0.875,
+      "ppv": 0.7647058823529411,
+      "npv": 0.9333333333333333,
+      "f1": 0.8125,
+      "confusion_matrix_labels_0_1": [
+        [
+          28,
+          4
+        ],
+        [
+          2,
+          13
+        ]
+      ],
+      "tn": 28,
+      "fp": 4,
+      "fn": 2,
+      "tp": 13,
+      "brier": 0.14268468887385072,
+      "calibration": {
+        "n_bins": 10,
+        "mean_predicted_value": [
+          3.6985472994501834e-05,
+          0.00044827839496021994,
+          0.0019319631473940502,
+          0.00936507167911858,
+          0.0970118997304598,
+          0.293745134543921,
+          0.5050714425695333,
+          0.7224547873872023,
+          0.8140706918357562,
+          0.9934512943029403
+        ],
+        "fraction_of_positives": [
+          0.2,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.4,
+          1.0,
+          0.8,
+          0.6
+        ],
+        "calibration_intercept_slope": {
+          "intercept": -0.33027099796213566,
+          "slope": 0.29087846012643526
+        }
+      }
+    },
+    "M2_msi": {
+      "n": 47,
+      "n_pos": 8,
+      "n_neg": 39,
+      "threshold": 0.5,
+      "roc_auc": 0.8141025641025641,
+      "pr_auc_average_precision": 0.5825717787114846,
+      "bootstrap_95ci": {
+        "n_boot": 2000,
+        "roc_auc": [
+          0.5813953488372093,
+          0.9767573995771669
+        ],
+        "pr_auc_average_precision": [
+          0.26097541407867497,
+          0.8928900266400264
+        ],
+        "brier": [
+          0.08612697195994917,
+          0.24147192880005686
+        ]
+      },
+      "accuracy": 0.7659574468085106,
+      "balanced_accuracy": 0.7596153846153846,
+      "sensitivity": 0.75,
+      "specificity": 0.7692307692307693,
+      "ppv": 0.4,
+      "npv": 0.9375,
+      "f1": 0.5217391304347826,
+      "confusion_matrix_labels_0_1": [
+        [
+          30,
+          9
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "tn": 30,
+      "fp": 9,
+      "fn": 2,
+      "tp": 6,
+      "brier": 0.1561000579477934,
+      "calibration": {
+        "n_bins": 10,
+        "mean_predicted_value": [
+          1.8325891745026486e-06,
+          2.2129875847648843e-05,
+          0.00042678300982615174,
+          0.00567807253287654,
+          0.09793471316235956,
+          0.2114948080814869,
+          0.4100466785010818,
+          0.6772972502773579,
+          0.7753904288510481,
+          0.9726821035146713
+        ],
+        "fraction_of_positives": [
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.25,
+          0.4,
+          0.6
+        ],
+        "calibration_intercept_slope": {
+          "intercept": -1.2225989823798165,
+          "slope": 0.24708423037696844
+        }
+      }
+    },
+    "M3_ebv": {
+      "n": 47,
+      "n_pos": 7,
+      "n_neg": 40,
+      "threshold": 0.5,
+      "roc_auc": 0.9892857142857143,
+      "pr_auc_average_precision": 0.9571428571428571,
+      "bootstrap_95ci": {
+        "n_boot": 2000,
+        "roc_auc": [
+          0.9545454545454545,
+          1.0
+        ],
+        "pr_auc_average_precision": [
+          0.7997916666666667,
+          1.0
+        ],
+        "brier": [
+          0.022444771929052174,
+          0.1294704710205697
+        ]
+      },
+      "accuracy": 0.8936170212765957,
+      "balanced_accuracy": 0.6428571428571428,
+      "sensitivity": 0.2857142857142857,
+      "specificity": 1.0,
+      "ppv": 1.0,
+      "npv": 0.8888888888888888,
+      "f1": 0.4444444444444444,
+      "confusion_matrix_labels_0_1": [
+        [
+          40,
+          0
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "tn": 40,
+      "fp": 0,
+      "fn": 5,
+      "tp": 2,
+      "brier": 0.06989083342879512,
+      "calibration": {
+        "n_bins": 10,
+        "mean_predicted_value": [
+          1.384276444937882e-06,
+          9.982998770775944e-06,
+          3.3932456176977154e-05,
+          7.392405330998894e-05,
+          0.00045692542626052,
+          0.001041212152375175,
+          0.006106165387075899,
+          0.0587303283373633,
+          0.11817689103578832,
+          0.43592781245478057
+        ],
+        "fraction_of_positives": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.4,
+          1.0
+        ],
+        "calibration_intercept_slope": {
+          "intercept": 9.337852341193743,
+          "slope": 4.86654942335356
+        }
+      }
+    },
+    "M4_subtype4": {
+      "n": 47,
+      "classes": [
+        "EBV",
+        "MSI",
+        "GS",
+        "CIN"
+      ],
+      "class_mapping": {
+        "0": "EBV",
+        "1": "MSI",
+        "2": "GS",
+        "3": "CIN"
+      },
+      "label_dist": {
+        "CIN": 18,
+        "MSI": 8,
+        "GS": 14,
+        "EBV": 7
+      },
+      "accuracy": 0.46808510638297873,
+      "balanced_accuracy": 0.4340277777777778,
+      "macro_f1": 0.42437913498568186,
+      "confusion_matrix_rows_true_cols_pred": [
+        [
+          1,
+          3,
+          0,
+          3
+        ],
+        [
+          0,
+          5,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          0,
+          1,
+          6,
+          11
+        ]
+      ],
+      "roc_auc_ovr_macro": 0.7405403026092681,
+      "brier_multiclass_mean_squared": 0.7487197480633052,
+      "log_loss": 1.6231942977684575,
+      "probability_note": "M4 CSV probabilities are rounded; metrics normalize rows before multiclass AUC/log-loss.",
+      "raw_probability_row_sum_min": 0.9999999105930326,
+      "raw_probability_row_sum_max": 1.0000000939326126,
+      "bootstrap_95ci": {
+        "n_boot": 2000,
+        "roc_auc_ovr_macro": [
+          NaN,
+          NaN
+        ],
+        "macro_f1": [
+          0.263130383099938,
+          0.5716694854895148
+        ],
+        "accuracy": [
+          0.3191489361702128,
+          0.6170212765957447
+        ],
+        "brier_multiclass_mean_squared": [
+          0.5534650684118603,
+          0.9388201579658154
+        ]
+      }
+    }
+  }
+}

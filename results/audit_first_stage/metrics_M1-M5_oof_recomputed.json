@@ -1,0 +1,365 @@
+{
+  "M1_immune_sensitive": {
+    "n": 289,
+    "n_pos": 73,
+    "n_neg": 216,
+    "threshold": 0.5,
+    "roc_auc": 0.8985920852359208,
+    "pr_auc_average_precision": 0.7825220064591449,
+    "bootstrap_95ci": {
+      "n_boot": 2000,
+      "roc_auc": [
+        0.8559660932309073,
+        0.9387453173172048
+      ],
+      "pr_auc_average_precision": [
+        0.6875510362302797,
+        0.8651087810440006
+      ],
+      "brier": [
+        0.09053763699221454,
+        0.1610713752681661
+      ]
+    },
+    "accuracy": 0.8615916955017301,
+    "balanced_accuracy": 0.807648401826484,
+    "sensitivity": 0.6986301369863014,
+    "specificity": 0.9166666666666666,
+    "ppv": 0.7391304347826086,
+    "npv": 0.9,
+    "f1": 0.7183098591549296,
+    "confusion_matrix_labels_0_1": [
+      [
+        198,
+        18
+      ],
+      [
+        22,
+        51
+      ]
+    ],
+    "tn": 198,
+    "fp": 18,
+    "fn": 22,
+    "tp": 51,
+    "brier": 0.12469144865051905,
+    "calibration": {
+      "n_bins": 7,
+      "mean_predicted_value": [
+        0.0,
+        0.00010000000000000003,
+        0.0005080000000000001,
+        0.015482758620689655,
+        0.4231344827586207,
+        0.9879285714285713,
+        1.0
+      ],
+      "fraction_of_positives": [
+        0.03007518796992481,
+        0.13333333333333333,
+        0.12,
+        0.20689655172413793,
+        0.5517241379310345,
+        0.5714285714285714,
+        0.9565217391304348
+      ],
+      "calibration_intercept_slope": {
+        "intercept": -0.36025987046994495,
+        "slope": 0.20729520445726923
+      }
+    },
+    "task": "M1_immune_sensitive",
+    "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M1_immune_sensitive.csv"
+  },
+  "M2_msi": {
+    "n": 289,
+    "n_pos": 47,
+    "n_neg": 242,
+    "threshold": 0.5,
+    "roc_auc": 0.8975294531387374,
+    "pr_auc_average_precision": 0.7199979456766277,
+    "bootstrap_95ci": {
+      "n_boot": 2000,
+      "roc_auc": [
+        0.8402735428304114,
+        0.9417511451923044
+      ],
+      "pr_auc_average_precision": [
+        0.5926510827769359,
+        0.8232017774878326
+      ],
+      "brier": [
+        0.07480702777595155,
+        0.14077692437975778
+      ]
+    },
+    "accuracy": 0.8823529411764706,
+    "balanced_accuracy": 0.7925971513979251,
+    "sensitivity": 0.6595744680851063,
+    "specificity": 0.9256198347107438,
+    "ppv": 0.6326530612244898,
+    "npv": 0.9333333333333333,
+    "f1": 0.6458333333333334,
+    "confusion_matrix_labels_0_1": [
+      [
+        224,
+        18
+      ],
+      [
+        16,
+        31
+      ]
+    ],
+    "tn": 224,
+    "fp": 18,
+    "fn": 16,
+    "tp": 31,
+    "brier": 0.1065928444982699,
+    "calibration": {
+      "n_bins": 6,
+      "mean_predicted_value": [
+        0.0,
+        0.00010000000000000002,
+        0.0003523809523809524,
+        0.025582758620689653,
+        0.6739655172413791,
+        0.9998068965517241
+      ],
+      "fraction_of_positives": [
+        0.01744186046511628,
+        0.1111111111111111,
+        0.23809523809523808,
+        0.1724137931034483,
+        0.3793103448275862,
+        0.7586206896551724
+      ],
+      "calibration_intercept_slope": {
+        "intercept": -0.7472659129515324,
+        "slope": 0.19700243257103295
+      }
+    },
+    "task": "M2_msi",
+    "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M2_msi.csv"
+  },
+  "M3_ebv": {
+    "n": 289,
+    "n_pos": 26,
+    "n_neg": 263,
+    "threshold": 0.5,
+    "roc_auc": 0.7377888271424393,
+    "pr_auc_average_precision": 0.4538800770548175,
+    "bootstrap_95ci": {
+      "n_boot": 2000,
+      "roc_auc": [
+        0.6271058118127083,
+        0.8447104984293337
+      ],
+      "pr_auc_average_precision": [
+        0.2705036140652433,
+        0.6423177619959873
+      ],
+      "brier": [
+        0.04533117765743944,
+        0.10175477696972318
+      ]
+    },
+    "accuracy": 0.9238754325259516,
+    "balanced_accuracy": 0.6115823340157941,
+    "sensitivity": 0.23076923076923078,
+    "specificity": 0.9923954372623575,
+    "ppv": 0.75,
+    "npv": 0.9288256227758007,
+    "f1": 0.35294117647058826,
+    "confusion_matrix_labels_0_1": [
+      [
+        261,
+        2
+      ],
+      [
+        20,
+        6
+      ]
+    ],
+    "tn": 261,
+    "fp": 2,
+    "fn": 20,
+    "tp": 6,
+    "brier": 0.07152132339100346,
+    "calibration": {
+      "n_bins": 4,
+      "mean_predicted_value": [
+        0.0,
+        0.00010000000000000002,
+        0.0006428571428571428,
+        0.31776896551724143
+      ],
+      "fraction_of_positives": [
+        0.048034934497816595,
+        0.1,
+        0.0,
+        0.4827586206896552
+      ],
+      "calibration_intercept_slope": {
+        "intercept": 0.04378872136110955,
+        "slope": 0.23055621878499896
+      }
+    },
+    "task": "M3_ebv",
+    "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M3_ebv.csv"
+  },
+  "M5_clinical": {
+    "n": 289,
+    "n_pos": 73,
+    "n_neg": 216,
+    "threshold": 0.5,
+    "roc_auc": 0.6200532724505327,
+    "pr_auc_average_precision": 0.3392712986052107,
+    "bootstrap_95ci": {
+      "n_boot": 2000,
+      "roc_auc": [
+        0.5509296066326217,
+        0.6893307262777846
+      ],
+      "pr_auc_average_precision": [
+        0.2619693859813179,
+        0.4413012309864138
+      ],
+      "brier": [
+        0.22314306759083047,
+        0.25698059012024227
+      ]
+    },
+    "accuracy": 0.5743944636678201,
+    "balanced_accuracy": 0.5656392694063928,
+    "sensitivity": 0.547945205479452,
+    "specificity": 0.5833333333333334,
+    "ppv": 0.3076923076923077,
+    "npv": 0.7924528301886793,
+    "f1": 0.39408866995073893,
+    "confusion_matrix_labels_0_1": [
+      [
+        126,
+        90
+      ],
+      [
+        33,
+        40
+      ]
+    ],
+    "tn": 126,
+    "fp": 90,
+    "fn": 33,
+    "tp": 40,
+    "brier": 0.24004976159169547,
+    "calibration": {
+      "n_bins": 10,
+      "mean_predicted_value": [
+        0.1404241379310345,
+        0.31727241379310334,
+        0.3958068965517241,
+        0.4491793103448276,
+        0.477496551724138,
+        0.5005321428571429,
+        0.5255620689655174,
+        0.56215,
+        0.6230071428571431,
+        0.7495551724137933
+      ],
+      "fraction_of_positives": [
+        0.13793103448275862,
+        0.06896551724137931,
+        0.13793103448275862,
+        0.1724137931034483,
+        0.5172413793103449,
+        0.25,
+        0.3448275862068966,
+        0.1,
+        0.42857142857142855,
+        0.3793103448275862
+      ],
+      "calibration_intercept_slope": {
+        "intercept": -1.0515150410088925,
+        "slope": 0.48655730582167783
+      }
+    },
+    "task": "M5_clinical",
+    "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M5_clinical.csv"
+  },
+  "M4_subtype4": {
+    "n": 289,
+    "classes": [
+      "EBV",
+      "MSI",
+      "GS",
+      "CIN"
+    ],
+    "class_mapping": {
+      "0": "EBV",
+      "1": "MSI",
+      "2": "GS",
+      "3": "CIN"
+    },
+    "label_dist": {
+      "MSI": 47,
+      "GS": 45,
+      "CIN": 171,
+      "EBV": 26
+    },
+    "accuracy": 0.7197231833910035,
+    "balanced_accuracy": 0.5750602980446206,
+    "macro_f1": 0.60447666368719,
+    "confusion_matrix_rows_true_cols_pred": [
+      [
+        9,
+        6,
+        0,
+        11
+      ],
+      [
+        2,
+        30,
+        4,
+        11
+      ],
+      [
+        1,
+        2,
+        20,
+        22
+      ],
+      [
+        0,
+        14,
+        8,
+        149
+      ]
+    ],
+    "roc_auc_ovr_macro": 0.8547701539934327,
+    "brier_multiclass_mean_squared": 0.47126497330863804,
+    "log_loss": 2.088438960301599,
+    "probability_note": "M4 CSV probabilities are rounded; metrics normalize rows before multiclass AUC/log-loss.",
+    "raw_probability_row_sum_min": 0.9998999999999999,
+    "raw_probability_row_sum_max": 1.0001,
+    "bootstrap_95ci": {
+      "n_boot": 2000,
+      "roc_auc_ovr_macro": [
+        0.8122145755786051,
+        0.8940729666212802
+      ],
+      "macro_f1": [
+        0.52604275955862,
+        0.6738721377941896
+      ],
+      "accuracy": [
+        0.6678200692041523,
+        0.7681660899653979
+      ],
+      "brier_multiclass_mean_squared": [
+        0.393358579083108,
+        0.5596173304377018
+      ]
+    },
+    "task": "M4_subtype4",
+    "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M4_subtype4.csv"
+  }
+}

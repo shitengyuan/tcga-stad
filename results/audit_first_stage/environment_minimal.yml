@@ -1,0 +1,25 @@
+name: gastric_msi_pathai
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch=2.4
+  - torchvision
+  - pytorch-cuda=12.1
+  - numpy
+  - pandas
+  - scikit-learn
+  - scipy
+  - pillow
+  - tqdm
+  - h5py
+  - openslide
+  - pcre
+  - lifelines
+  - requests
+  - pip
+  - pip:
+      - timm

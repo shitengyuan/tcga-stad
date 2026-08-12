@@ -1,0 +1,45 @@
+{
+  "status": "development_demo_only",
+  "reason": "run_agent_panel.py provided clinical subtype to the report prompt and current panel visual evidence is disabled.",
+  "no_leakage_policy_for_next_run": [
+    "remove clinical subtype, MSI, EBV, TCGA molecular subtype and labels from Agent input",
+    "keep only patient_id, de-identified clinical variables allowed by analysis plan, and model probabilities",
+    "do not emit TIL/MSI/CIN morphology statements until thumbnails/attention/cluster overlays are real inputs",
+    "final prediction remains M1 fixed-threshold output; Agent may only report confidence and suggested confirmatory tests"
+  ],
+  "current_panel_cases": [
+    {
+      "patient_id": "TCGA-VQ-AA69",
+      "final_pred": "sensitive",
+      "m1_prob": 1.0,
+      "confidence": "low",
+      "visual_module": {
+        "note": "visual module removed (unreliable on overlay images)"
+      },
+      "report_mentions_molecular_or_morphology_without_visual_support": true,
+      "report": "胃癌免疫敏感亚型预测报告：M1主预测为免疫敏感（概率1.000），与M3（EBV概率0.984）高度一致，支持EBV相关免疫敏感表型。M2（MSI概率0.191）存在冲突。形态学可见肠型腺癌背景，符合EBV相关特征。建议行IHC检测MMR蛋白及EBER-ISH以验证EBV状态。"
+    },
+    {
+      "patient_id": "TCGA-VQ-AA6K",
+      "final_pred": "nonsensitive",
+      "m1_prob": 0.0,
+      "confidence": "high",
+      "visual_module": {
+        "note": "visual module removed (unreliable on overlay images)"
+      },
+      "report_mentions_molecular_or_morphology_without_visual_support": true,
+      "report": "胃癌免疫敏感亚型预测：多模型一致（M1、M2、M3概率均为0.0）支持免疫不敏感表型。形态学为胃腺癌（印戒细胞型），CIN亚型，缺乏MSI/EBV相关特征。建议IHC验证MMR蛋白（MLH1/MSH2/MSH6/PMS2）及EBER-ISH以排除微卫星不稳定及EBV相关胃癌。"
+    },
+    {
+      "patient_id": "TCGA-BR-7703",
+      "final_pred": "sensitive",
+      "m1_prob": 0.589,
+      "confidence": "low",
+      "visual_module": {
+        "note": "visual module removed (unreliable on overlay images)"
+      },
+      "report_mentions_molecular_or_morphology_without_visual_support": true,
+      "report": "胃癌免疫敏感亚型预测报告：多模型分析显示M1主预测免疫敏感（概率0.589）与M4亚型4（概率0.93）高度一致，支持免疫微环境激活状态。M2（MSI概率0.141）及M3（EBV概率0.0）呈低概率冲突，临床诊断STAD_MSI亚型需进一步验证。建议行MMR蛋白及EBER-ISH检测以确认MSI/EBV状态，辅助免疫治疗决策。"
+    }
+  ]
+}

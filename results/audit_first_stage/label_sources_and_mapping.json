@@ -1,0 +1,61 @@
+{
+  "tcga_internal_289": {
+    "status": "partially_reconstructed_from_oof",
+    "available_source": "results/oof_preds_M1-M5.csv",
+    "missing_source_file": "clinical.csv is not present in current checkout",
+    "mapping_used_in_code": {
+      "immune_sensitive/M1": "STAD_MSI or STAD_EBV -> 1; STAD_GS or STAD_CIN -> 0; POLE/NO_SUBTYPE/unknown excluded",
+      "MSI/M2": "STAD_MSI -> 1; STAD_EBV/STAD_GS/STAD_CIN -> 0",
+      "EBV/M3": "STAD_EBV -> 1; STAD_MSI/STAD_GS/STAD_CIN -> 0",
+      "M4_subtype4": {
+        "EBV": 0,
+        "MSI": 1,
+        "GS": 2,
+        "CIN": 3
+      }
+    },
+    "unknown_conflict_policy_from_code": "FeatureLoader drops values outside the explicit subtype mapping for each task.",
+    "pole_status": "not recoverable from current OOF files; column set to NA in final_289_patient_cohort.csv"
+  },
+  "cptac_external": {
+    "label_csv": "/share/home/shitengyuan_lustre/medical/dataset/cptac-stad-histopathology/labels/cptac_stad_2026_tcga_subtype_labels_qc_pass.csv",
+    "source_fields": [
+      "subtype4",
+      "genomic_subtype_raw",
+      "immune_sensitive",
+      "msi",
+      "ebv",
+      "ebv_status",
+      "ebv_counts",
+      "msi_status",
+      "msi_score",
+      "source_file",
+      "source_sheet"
+    ],
+    "source_file_recorded_in_labels": "1-s2.0-S2666379126001734-mmc2.xlsx / Derived_Features",
+    "mapping": {
+      "EBV": {
+        "subtype4": 0,
+        "immune_sensitive": 1,
+        "ebv": 1,
+        "msi": 0
+      },
+      "MSI": {
+        "subtype4": 1,
+        "immune_sensitive": 1,
+        "msi": 1,
+        "ebv": 0
+      },
+      "GS": {
+        "subtype4": 2,
+        "immune_sensitive": 0
+      },
+      "CIN": {
+        "subtype4": 3,
+        "immune_sensitive": 0
+      }
+    },
+    "unknown_conflict_policy": "Use passed_QC==1 tumor rows from local label builder output; rows without labels are retained in cohort tables but excluded from supervised metrics.",
+    "label_file_sha256": "c701c2d8173f45f1d0beec6f396f4be28a17fe3a8095f1270c8a3903089db67f"
+  }
+}

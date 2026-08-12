@@ -1,0 +1,38 @@
+{
+  "status": "partially_reconstructed",
+  "reason": "clinical.csv is absent; only the final 289 OOF cohort can be enumerated exactly.",
+  "steps": [
+    {
+      "step": "OOF patients with M1-M5 predictions",
+      "n": 289
+    },
+    {
+      "step": "M1 positive immune-sensitive",
+      "n": 73
+    },
+    {
+      "step": "M1 negative non-sensitive",
+      "n": 216
+    },
+    {
+      "step": "M4 subtype EBV",
+      "n": 26
+    },
+    {
+      "step": "M4 subtype MSI",
+      "n": 47
+    },
+    {
+      "step": "M4 subtype GS",
+      "n": 45
+    },
+    {
+      "step": "M4 subtype CIN",
+      "n": 171
+    }
+  ],
+  "cannot_reconstruct_from_raw_to_289_until_files_restored": [
+    "clinical.csv",
+    "tcga_stad_uni2h/TCGA-STAD/features"
+  ]
+}

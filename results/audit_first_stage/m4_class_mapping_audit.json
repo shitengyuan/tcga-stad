@@ -1,0 +1,58 @@
+{
+  "class_order_confirmed_from_src_feature_loader_and_train_multitask": [
+    "EBV",
+    "MSI",
+    "GS",
+    "CIN"
+  ],
+  "mapping": {
+    "0": "EBV",
+    "1": "MSI",
+    "2": "GS",
+    "3": "CIN"
+  },
+  "all_rows_match_subtype_mapping": true,
+  "n_mismatched_rows": 0,
+  "case_check": [
+    {
+      "patient_id": "TCGA-BR-7703",
+      "subtype": "STAD_MSI",
+      "label": 1,
+      "expected_label_from_subtype": 1,
+      "label_matches_mapping": true,
+      "prob_c0_EBV": 0.0011,
+      "prob_c1_MSI": 0.9299,
+      "prob_c2_GS": 0.0674,
+      "prob_c3_CIN": 0.0016,
+      "pred_class": 1,
+      "pred_subtype": "MSI"
+    },
+    {
+      "patient_id": "TCGA-VQ-AA69",
+      "subtype": "STAD_EBV",
+      "label": 0,
+      "expected_label_from_subtype": 0,
+      "label_matches_mapping": true,
+      "prob_c0_EBV": 0.0943,
+      "prob_c1_MSI": 0.9038,
+      "prob_c2_GS": 0.0016,
+      "prob_c3_CIN": 0.0003,
+      "pred_class": 1,
+      "pred_subtype": "MSI"
+    },
+    {
+      "patient_id": "TCGA-VQ-AA6K",
+      "subtype": "STAD_CIN",
+      "label": 3,
+      "expected_label_from_subtype": 3,
+      "label_matches_mapping": true,
+      "prob_c0_EBV": 0.0,
+      "prob_c1_MSI": 0.0,
+      "prob_c2_GS": 0.0,
+      "prob_c3_CIN": 1.0,
+      "pred_class": 3,
+      "pred_subtype": "CIN"
+    }
+  ],
+  "important_note": "M4 prob_c1 is MSI, not EBV. Any report interpreting AA69 prob_c1=0.9038 as EBV is inconsistent with the training class mapping."
+}
