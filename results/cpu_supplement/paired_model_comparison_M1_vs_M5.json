@@ -1,0 +1,21 @@
+{
+  "model_a": "M1_immune_sensitive",
+  "model_b": "M5_clinical",
+  "endpoint": "immune_sensitive",
+  "n": 289,
+  "model_a_auc": 0.8985920852359208,
+  "model_b_auc": 0.6200532724505327,
+  "paired_bootstrap_auc_difference": {
+    "n_boot": 5000,
+    "auc_a_mean": 0.8986666930087489,
+    "auc_b_mean": 0.6196758020581081,
+    "delta_mean": 0.27899089095064084,
+    "delta_95ci": [
+      0.20240371884735198,
+      0.35550522717011357
+    ],
+    "two_sided_bootstrap_p": 0.0,
+    "interpretation": "paired patient-level bootstrap for AUC difference; positive delta favors model_a"
+  },
+  "note": "This is CPU-only paired bootstrap. DeLong testing is not included to avoid adding another dependency/implementation risk."
+}

@@ -1,0 +1,15 @@
+{
+  "inputs_csv": "agent_no_leakage_inputs_289.csv",
+  "schema_json": "agent_no_leakage_output_schema.json",
+  "prompt_txt": "agent_no_leakage_prompt.txt",
+  "excluded_fields": [
+    "label",
+    "MSI",
+    "EBV",
+    "subtype",
+    "M4_subtype",
+    "M4_label",
+    "POLE"
+  ],
+  "visual_module": "disabled; no morphology statements allowed"
+}

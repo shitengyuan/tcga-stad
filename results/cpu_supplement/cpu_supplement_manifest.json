@@ -1,0 +1,196 @@
+{
+  "errors": {
+    "M1_immune_sensitive": {
+      "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M1_immune_sensitive.csv",
+      "counts": {
+        "TN": 198,
+        "TP": 51,
+        "FN": 22,
+        "FP": 18
+      },
+      "n_errors": 40
+    },
+    "M2_msi": {
+      "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M2_msi.csv",
+      "counts": {
+        "TN": 224,
+        "TP": 31,
+        "FP": 18,
+        "FN": 16
+      },
+      "n_errors": 34
+    },
+    "M3_ebv": {
+      "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M3_ebv.csv",
+      "counts": {
+        "TN": 261,
+        "FN": 20,
+        "TP": 6,
+        "FP": 2
+      },
+      "n_errors": 22
+    },
+    "M5_clinical": {
+      "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M5_clinical.csv",
+      "counts": {
+        "TN": 126,
+        "FP": 90,
+        "TP": 40,
+        "FN": 33
+      },
+      "n_errors": 123
+    },
+    "M4_subtype4": {
+      "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M4_subtype4.csv",
+      "class_order": [
+        "EBV",
+        "MSI",
+        "GS",
+        "CIN"
+      ],
+      "counts": {
+        "correct": 208,
+        "GS_to_CIN": 22,
+        "CIN_to_MSI": 14,
+        "EBV_to_CIN": 11,
+        "MSI_to_CIN": 11,
+        "CIN_to_GS": 8,
+        "EBV_to_MSI": 6,
+        "MSI_to_GS": 4,
+        "MSI_to_EBV": 2,
+        "GS_to_MSI": 2,
+        "GS_to_EBV": 1
+      },
+      "n_errors": 81
+    }
+  },
+  "subgroups": {
+    "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/audit_first_stage/final_289_patient_cohort.csv",
+    "group_by": [
+      "site",
+      "M4_subtype"
+    ],
+    "warning": "Only site and molecular subtype are available without clinical.csv; Lauren/site/stage/quality subgroup analyses remain missing.",
+    "n_rows": 48
+  },
+  "calibration_dca": {
+    "calibration_csv": "calibration_curve_data_oof.csv",
+    "decision_curve_csv": "decision_curve_data_oof.csv",
+    "thresholds": "0.01..0.99"
+  },
+  "m1_vs_m5": {
+    "model_a": "M1_immune_sensitive",
+    "model_b": "M5_clinical",
+    "endpoint": "immune_sensitive",
+    "n": 289,
+    "model_a_auc": 0.8985920852359208,
+    "model_b_auc": 0.6200532724505327,
+    "paired_bootstrap_auc_difference": {
+      "n_boot": 5000,
+      "auc_a_mean": 0.8986666930087489,
+      "auc_b_mean": 0.6196758020581081,
+      "delta_mean": 0.27899089095064084,
+      "delta_95ci": [
+        0.20240371884735198,
+        0.35550522717011357
+      ],
+      "two_sided_bootstrap_p": 0.0,
+      "interpretation": "paired patient-level bootstrap for AUC difference; positive delta favors model_a"
+    },
+    "note": "This is CPU-only paired bootstrap. DeLong testing is not included to avoid adding another dependency/implementation risk."
+  },
+  "agent_no_leakage": {
+    "inputs_csv": "agent_no_leakage_inputs_289.csv",
+    "schema_json": "agent_no_leakage_output_schema.json",
+    "prompt_txt": "agent_no_leakage_prompt.txt",
+    "excluded_fields": [
+      "label",
+      "MSI",
+      "EBV",
+      "subtype",
+      "M4_subtype",
+      "M4_label",
+      "POLE"
+    ],
+    "visual_module": "disabled; no morphology statements allowed"
+  },
+  "model_registry": {
+    "git_commit": "f23ca86eea293e8094b0e874f66a84c5a8689830",
+    "models": [
+      {
+        "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M1_immune_sensitive.pt",
+        "sha256": "8e7b149264144d51b350452a362a40d363a79c4558e8ba8167d2f2f557c05931",
+        "task": "immune_sensitive",
+        "n_classes": 2,
+        "status": "available_last_fold_checkpoint"
+      },
+      {
+        "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M2_msi.pt",
+        "sha256": "134e62fdd8cd904ccc3cf6e8b0b26c3a88f4aa5f9e678ffbbdff28efde6ef7fa",
+        "task": "msi",
+        "n_classes": 2,
+        "status": "available_last_fold_checkpoint"
+      },
+      {
+        "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M3_ebv.pt",
+        "sha256": "2b593c25c8295ca820994c6fdff31ebb407c48dd193ce4b92485a5eefa285232",
+        "task": "ebv",
+        "n_classes": 2,
+        "status": "available_last_fold_checkpoint"
+      },
+      {
+        "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M4_subtype4.pt",
+        "sha256": "1af80cd246ecc09fadae46588a1f053cec2de76ab7c7b89edffa2230ce3fc116",
+        "task": "subtype4",
+        "n_classes": 4,
+        "status": "available_last_fold_checkpoint",
+        "class_order": [
+          "EBV",
+          "MSI",
+          "GS",
+          "CIN"
+        ]
+      }
+    ],
+    "important_note": "M1-M4 .pt files are saved by current training code as the last fold model for each task; per-fold weights and full-data refit weights are not available.",
+    "missing_model_artifacts": [
+      "M1-M4 per-fold weights",
+      "M1-M4 best epoch files",
+      "M5 fitted sklearn pipeline",
+      "M6 survival model weights / OOF risk table",
+      "training logs and hyperparameter search records"
+    ]
+  },
+  "cptac_errors": {
+    "M1_immune_sensitive": {
+      "n": 47,
+      "counts": {
+        "TN": 28,
+        "TP": 13,
+        "FP": 4,
+        "FN": 2
+      }
+    },
+    "M2_msi": {
+      "n": 47,
+      "counts": {
+        "TN": 30,
+        "FP": 9,
+        "TP": 6,
+        "FN": 2
+      }
+    },
+    "M3_ebv": {
+      "n": 47,
+      "counts": {
+        "TN": 40,
+        "FN": 5,
+        "TP": 2
+      }
+    },
+    "slide_exclusions": {
+      "included": 193,
+      "feature_missing": 11
+    }
+  }
+}

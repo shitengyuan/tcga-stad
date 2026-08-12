@@ -1,0 +1,9 @@
+{
+  "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/audit_first_stage/final_289_patient_cohort.csv",
+  "group_by": [
+    "site",
+    "M4_subtype"
+  ],
+  "warning": "Only site and molecular subtype are available without clinical.csv; Lauren/site/stage/quality subgroup analyses remain missing.",
+  "n_rows": 48
+}

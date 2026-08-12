@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "required": [
+    "patient_id",
+    "final_pred",
+    "confidence",
+    "trusted_models",
+    "conflicts",
+    "ihc_suggest",
+    "report"
+  ],
+  "properties": {
+    "patient_id": {
+      "type": "string"
+    },
+    "final_pred": {
+      "enum": [
+        "sensitive",
+        "nonsensitive"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "trusted_models": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ihc_suggest": {
+      "enum": [
+        "MMR",
+        "EBER-ISH",
+        "both",
+        "none"
+      ]
+    },
+    "report": {
+      "type": "string",
+      "description": "No morphology claims unless real visual evidence is supplied."
+    }
+  }
+}

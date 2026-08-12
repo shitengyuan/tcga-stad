@@ -1,0 +1,65 @@
+{
+  "M1_immune_sensitive": {
+    "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M1_immune_sensitive.csv",
+    "counts": {
+      "TN": 198,
+      "TP": 51,
+      "FN": 22,
+      "FP": 18
+    },
+    "n_errors": 40
+  },
+  "M2_msi": {
+    "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M2_msi.csv",
+    "counts": {
+      "TN": 224,
+      "TP": 31,
+      "FP": 18,
+      "FN": 16
+    },
+    "n_errors": 34
+  },
+  "M3_ebv": {
+    "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M3_ebv.csv",
+    "counts": {
+      "TN": 261,
+      "FN": 20,
+      "TP": 6,
+      "FP": 2
+    },
+    "n_errors": 22
+  },
+  "M5_clinical": {
+    "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M5_clinical.csv",
+    "counts": {
+      "TN": 126,
+      "FP": 90,
+      "TP": 40,
+      "FN": 33
+    },
+    "n_errors": 123
+  },
+  "M4_subtype4": {
+    "source": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M4_subtype4.csv",
+    "class_order": [
+      "EBV",
+      "MSI",
+      "GS",
+      "CIN"
+    ],
+    "counts": {
+      "correct": 208,
+      "GS_to_CIN": 22,
+      "CIN_to_MSI": 14,
+      "EBV_to_CIN": 11,
+      "MSI_to_CIN": 11,
+      "CIN_to_GS": 8,
+      "EBV_to_MSI": 6,
+      "MSI_to_GS": 4,
+      "MSI_to_EBV": 2,
+      "GS_to_MSI": 2,
+      "GS_to_EBV": 1
+    },
+    "n_errors": 81
+  }
+}

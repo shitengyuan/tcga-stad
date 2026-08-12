@@ -1,0 +1,32 @@
+{
+  "M1_immune_sensitive": {
+    "n": 47,
+    "counts": {
+      "TN": 28,
+      "TP": 13,
+      "FP": 4,
+      "FN": 2
+    }
+  },
+  "M2_msi": {
+    "n": 47,
+    "counts": {
+      "TN": 30,
+      "FP": 9,
+      "TP": 6,
+      "FN": 2
+    }
+  },
+  "M3_ebv": {
+    "n": 47,
+    "counts": {
+      "TN": 40,
+      "FN": 5,
+      "TP": 2
+    }
+  },
+  "slide_exclusions": {
+    "included": 193,
+    "feature_missing": 11
+  }
+}

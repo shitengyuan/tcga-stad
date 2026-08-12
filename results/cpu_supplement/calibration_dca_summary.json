@@ -1,0 +1,5 @@
+{
+  "calibration_csv": "calibration_curve_data_oof.csv",
+  "decision_curve_csv": "decision_curve_data_oof.csv",
+  "thresholds": "0.01..0.99"
+}

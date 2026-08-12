@@ -1,0 +1,47 @@
+{
+  "git_commit": "f23ca86eea293e8094b0e874f66a84c5a8689830",
+  "models": [
+    {
+      "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M1_immune_sensitive.pt",
+      "sha256": "8e7b149264144d51b350452a362a40d363a79c4558e8ba8167d2f2f557c05931",
+      "task": "immune_sensitive",
+      "n_classes": 2,
+      "status": "available_last_fold_checkpoint"
+    },
+    {
+      "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M2_msi.pt",
+      "sha256": "134e62fdd8cd904ccc3cf6e8b0b26c3a88f4aa5f9e678ffbbdff28efde6ef7fa",
+      "task": "msi",
+      "n_classes": 2,
+      "status": "available_last_fold_checkpoint"
+    },
+    {
+      "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M3_ebv.pt",
+      "sha256": "2b593c25c8295ca820994c6fdff31ebb407c48dd193ce4b92485a5eefa285232",
+      "task": "ebv",
+      "n_classes": 2,
+      "status": "available_last_fold_checkpoint"
+    },
+    {
+      "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M4_subtype4.pt",
+      "sha256": "1af80cd246ecc09fadae46588a1f053cec2de76ab7c7b89edffa2230ce3fc116",
+      "task": "subtype4",
+      "n_classes": 4,
+      "status": "available_last_fold_checkpoint",
+      "class_order": [
+        "EBV",
+        "MSI",
+        "GS",
+        "CIN"
+      ]
+    }
+  ],
+  "important_note": "M1-M4 .pt files are saved by current training code as the last fold model for each task; per-fold weights and full-data refit weights are not available.",
+  "missing_model_artifacts": [
+    "M1-M4 per-fold weights",
+    "M1-M4 best epoch files",
+    "M5 fitted sklearn pipeline",
+    "M6 survival model weights / OOF risk table",
+    "training logs and hyperparameter search records"
+  ]
+}
