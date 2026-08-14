@@ -28,7 +28,6 @@ from pathlib import Path
 
 import numpy as np
 import torch
-import torch.distributed as dist
 from PIL import Image
 from tqdm import tqdm
 
@@ -40,8 +39,6 @@ except ImportError:
 from run_cptac_external_multigpu import (
     DEFAULT_SVS_DIR,
     DEFAULT_UNI_WEIGHTS,
-    distributed_cleanup,
-    distributed_setup,
     load_uni2_encoder,
     log0,
     patient_id_from_slide,
@@ -51,6 +48,20 @@ from run_cptac_external_multigpu import (
 
 BASE = Path(__file__).resolve().parent
 DEFAULT_OUT_DIR = BASE / "results" / "external_cptac_features_20x256"
+
+
+def rank_info_from_env() -> tuple[int, int, int]:
+    """Use torchrun rank envs without initializing a process group.
+
+    Feature extraction is embarrassingly parallel: each rank writes different
+    slide files and no tensor collective is needed. Avoiding process-group
+    setup prevents end-of-job NCCL/TCPStore barrier timeouts when ranks finish
+    at very different times.
+    """
+    world = int(os.environ.get("WORLD_SIZE", "1"))
+    rank = int(os.environ.get("RANK", "0"))
+    local_rank = int(os.environ.get("LOCAL_RANK", "0"))
+    return rank, local_rank, world
 
 
 def is_complete_feature_file(path: Path) -> bool:
@@ -237,7 +248,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    rank, local_rank, world = distributed_setup()
+    rank, local_rank, world = rank_info_from_env()
 
     if torch.cuda.is_available():
         torch.cuda.set_device(local_rank)
@@ -322,13 +333,10 @@ def main():
     err_path.write_text(json.dumps(errors, indent=2), encoding="utf-8")
     print(f"[rank {rank}] wrote manifest={manifest_path} rows={len(rows)} errors={len(errors)}", flush=True)
 
-    if world > 1:
-        dist.barrier()
-    if rank == 0:
+    if world == 1:
         combined = combine_rank_manifests(args.out_dir, world)
         if combined:
             print(f"[rank 0] combined feature manifest: {combined}", flush=True)
-    distributed_cleanup()
 
 
 if __name__ == "__main__":

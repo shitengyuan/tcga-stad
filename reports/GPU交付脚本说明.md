@@ -63,6 +63,14 @@ NUM_GPUS=4 bash run_gpu_deliverables.sh
 MAX_PATCHES=8192 bash run_gpu_deliverables.sh
 ```
 
+如果中途在特征提取末尾遇到 `dist.barrier()`、`NCCL communicator`、`TCPStore Socket Timeout` 一类错误，原因通常是不同GPU处理切片耗时差异太大，先完成的rank在同步点等待超时。当前版本已经取消特征提取阶段的分布式barrier，改为各rank独立写文件，`torchrun` 全部结束后由总控脚本合并 `feature_manifest.rank*.csv`。
+
+中断后直接重跑即可，已有完整 `.pt/.h5` 特征默认会跳过：
+
+```bash
+bash run_gpu_deliverables.sh
+```
+
 如果要按“全部采样组织patch”正式重提特征：
 
 ```bash

@@ -222,6 +222,44 @@ run_cptac_extract() {
     args+=(--overwrite)
   fi
   run_logged "01_extract_cptac_uni2h_20x256" "${args[@]}"
+  combine_feature_manifests
+}
+
+combine_feature_manifests() {
+  "$PY" - <<PY
+import json
+from pathlib import Path
+
+import pandas as pd
+
+out_dir = Path("$FEATURE_DIR")
+world = int("$NUM_GPUS")
+frames = []
+errors = []
+for rank in range(world):
+    manifest = out_dir / f"feature_manifest.rank{rank}.csv"
+    if manifest.exists() and manifest.stat().st_size > 0:
+        frames.append(pd.read_csv(manifest))
+    err = out_dir / f"errors.rank{rank}.json"
+    if err.exists():
+        try:
+            data = json.loads(err.read_text(encoding="utf-8"))
+            if isinstance(data, list):
+                errors.extend(data)
+            else:
+                errors.append({"rank": rank, "error": "errors file is not a list", "path": str(err)})
+        except Exception as e:
+            errors.append({"rank": rank, "error": repr(e), "path": str(err)})
+if not frames:
+    raise SystemExit(f"No feature manifests found under {out_dir}")
+df = pd.concat(frames, ignore_index=True)
+if {"patient_id", "slide_id"}.issubset(df.columns):
+    df = df.sort_values(["patient_id", "slide_id"])
+df.to_csv(out_dir / "feature_manifest.csv", index=False)
+(out_dir / "feature_errors.json").write_text(json.dumps(errors, indent=2, ensure_ascii=False), encoding="utf-8")
+print(f"Wrote feature manifest: {out_dir / 'feature_manifest.csv'} rows={len(df)}", flush=True)
+print(f"Wrote feature errors: {out_dir / 'feature_errors.json'} n={len(errors)}", flush=True)
+PY
 }
 
 run_cptac_infer() {
@@ -364,6 +402,7 @@ make_package() {
   fi
   if [[ -n "$feature_rel" ]]; then
     add_path "$feature_rel/feature_manifest.csv"
+    add_path "$feature_rel/feature_errors.json"
     for f in "$FEATURE_DIR"/feature_manifest.rank*.csv "$FEATURE_DIR"/errors.rank*.json; do
       [[ -e "$f" ]] && printf '%s\n' "${f#$ROOT/}" >> "$list"
     done
