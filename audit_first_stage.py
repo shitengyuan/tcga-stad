@@ -403,17 +403,61 @@ def build_cptac_outputs(n_boot: int, seed: int) -> dict[str, Any]:
     manifest_path = CPTAC_BASE / "cptac_stad_50patients_all_svs.csv"
     manifest = read_csv(manifest_path) if manifest_path.exists() else pd.DataFrame()
 
-    if not manifest.empty:
+    svs_files = sorted(CPTAC_BASE.glob("*.svs"))
+    if svs_files:
+        slide_status = pd.DataFrame(
+            [
+                {
+                    "patient_id": "-".join(p.stem.split("-")[:2]),
+                    "slide_id": p.stem,
+                    "basename": p.name,
+                    "path": str(p),
+                    "size": p.stat().st_size,
+                    "mtime": p.stat().st_mtime,
+                }
+                for p in svs_files
+            ]
+        )
+        slide_status["manifest_source"] = "actual_svs_directory_scan"
+    elif not manifest.empty:
         manifest["slide_id"] = manifest["basename"].str.replace(".svs", "", regex=False)
         slide_status = manifest[["patient_id", "slide_id", "basename", "path", "size", "mtime"]].copy()
-        feature_stems = {p.stem for p in CPTAC_FEATURE_DIR.glob("*.pt")}
-        pred_stems = set(pred_slide["slide_id"])
+        slide_status["manifest_source"] = str(manifest_path)
+    else:
+        slide_status = pd.DataFrame()
+
+    if not slide_status.empty:
+        feature_manifest = CPTAC_FEATURE_DIR / "feature_manifest.csv"
+        if feature_manifest.exists():
+            feat_df = pd.read_csv(feature_manifest)
+            feature_stems = set(feat_df["slide_id"].astype(str))
+        else:
+            feature_stems = {p.stem for p in CPTAC_FEATURE_DIR.glob("*.pt")}
+        feature_error_path = CPTAC_FEATURE_DIR / "feature_errors.json"
+        feature_errors = {}
+        if feature_error_path.exists():
+            try:
+                for row in json.loads(feature_error_path.read_text(encoding="utf-8")):
+                    feature_errors[str(row.get("slide_id"))] = row.get("error", "")
+            except Exception:
+                feature_errors = {}
+        pred_stems = set(pred_slide["slide_id"].astype(str))
         slide_status["feature_status"] = slide_status["slide_id"].map(lambda s: "feature_present" if s in feature_stems else "feature_missing")
         slide_status["prediction_status"] = slide_status["slide_id"].map(lambda s: "predicted" if s in pred_stems else "not_predicted")
-        slide_status["exclusion_reason"] = slide_status.apply(
-            lambda r: "" if r["prediction_status"] == "predicted" else ("feature_missing" if r["feature_status"] == "feature_missing" else "feature_present_but_not_in_current_inference_output"),
-            axis=1,
-        )
+        slide_status["feature_error"] = slide_status["slide_id"].map(lambda s: feature_errors.get(str(s), ""))
+
+        def exclusion_reason(row: pd.Series) -> str:
+            if row["prediction_status"] == "predicted":
+                return ""
+            if row["feature_error"]:
+                if "OpenSlideUnsupportedFormatError" in str(row["feature_error"]):
+                    return "openslide_unsupported_or_missing_image"
+                return "feature_extraction_error"
+            if row["feature_status"] == "feature_missing":
+                return "feature_missing"
+            return "feature_present_but_not_in_current_inference_output"
+
+        slide_status["exclusion_reason"] = slide_status.apply(exclusion_reason, axis=1)
         slide_status.to_csv(OUT / "cptac_slide_cohort_and_exclusions.csv", index=False)
 
     patient = pred_patient.copy()

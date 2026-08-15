@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-08-15T03:08:49.056921",
+  "root": "/share/home/shitengyuan_lustre/medical/tcga-stad",
+  "python": "/gpfsdata/home/shitengyuan/miniconda3/envs/gastric_msi_pathai/bin/python",
+  "python_version": "3.10.20",
+  "git_commit": "fa3814cb274e5c9732a2b493ef5f980e39af20a4",
+  "git_status_short": "?? results/gpu_deliverables/",
+  "num_gpus": 4,
+  "svs_dir": "/gpfsdata/home/shitengyuan/shitengyuan_lustre/medical/dataset/cptac-stad-histopathology",
+  "uni_weights": "/gpfsdata/home/shitengyuan/shitengyuan_lustre/medical/uni2-h-weights/pytorch_model.bin",
+  "model_dir": "/share/home/shitengyuan_lustre/medical/tcga-stad/models",
+  "feature_dir": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/external_cptac_features_20x256",
+  "infer_dir": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/external_cptac_feature_infer_20x256_4gpu",
+  "labels_csv": "/gpfsdata/home/shitengyuan/shitengyuan_lustre/medical/dataset/cptac-stad-histopathology/labels/cptac_stad_2026_tcga_subtype_labels_qc_pass.csv",
+  "max_patches": "8192",
+  "infer_max_patches": "",
+  "batch_size": 64,
+  "patch_size_20x": 256,
+  "encoder_input_size": 224,
+  "target_mpp": 0.5,
+  "stride_factor": 1.0,
+  "tissue_threshold": 0.35,
+  "mask_max_size": 2048,
+  "seed": 42,
+  "n_boot": 2000,
+  "stages": {
+    "run_cptac_extract": "1",
+    "run_cptac_infer": "1",
+    "run_cptac_plots": "1",
+    "run_audit": "1",
+    "run_cpu_supplement": "1",
+    "run_package": "1",
+    "run_internal_train": "0"
+  },
+  "torch": {
+    "version": "2.4.0",
+    "cuda": "12.1",
+    "cuda_available": true,
+    "device_count": 4,
+    "devices": [
+      "NVIDIA GeForce RTX 3090",
+      "NVIDIA GeForce RTX 3090",
+      "NVIDIA GeForce RTX 3090",
+      "NVIDIA GeForce RTX 3090"
+    ]
+  }
+}

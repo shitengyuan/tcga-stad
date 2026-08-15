@@ -115,7 +115,7 @@
     "visual_module": "disabled; no morphology statements allowed"
   },
   "model_registry": {
-    "git_commit": "f23ca86eea293e8094b0e874f66a84c5a8689830",
+    "git_commit": "fa3814cb274e5c9732a2b493ef5f980e39af20a4",
     "models": [
       {
         "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M1_immune_sensitive.pt",
@@ -163,34 +163,35 @@
   },
   "cptac_errors": {
     "M1_immune_sensitive": {
-      "n": 47,
+      "n": 156,
       "counts": {
-        "TN": 28,
-        "TP": 13,
-        "FP": 4,
-        "FN": 2
+        "TN": 100,
+        "TP": 37,
+        "FP": 13,
+        "FN": 6
       }
     },
     "M2_msi": {
-      "n": 47,
+      "n": 156,
       "counts": {
-        "TN": 30,
-        "FP": 9,
-        "TP": 6,
-        "FN": 2
+        "TN": 107,
+        "FP": 19,
+        "TP": 19,
+        "FN": 11
       }
     },
     "M3_ebv": {
-      "n": 47,
+      "n": 156,
       "counts": {
-        "TN": 40,
-        "FN": 5,
-        "TP": 2
+        "TN": 140,
+        "FN": 9,
+        "TP": 4,
+        "FP": 3
       }
     },
     "slide_exclusions": {
-      "included": 193,
-      "feature_missing": 11
+      "included": 666,
+      "openslide_unsupported_or_missing_image": 24
     }
   }
 }

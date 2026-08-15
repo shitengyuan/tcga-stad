@@ -1,6 +1,6 @@
 # First-stage Audit Package
 
-Generated from commit `59bea3917395ca83bbbfb3771ea97ae954bdd9f1`.
+Generated from commit `fa3814cb274e5c9732a2b493ef5f980e39af20a4`.
 
 ## Files
 - `final_289_patient_cohort.csv`: reconstructed TCGA 289-patient OOF cohort.
@@ -13,7 +13,6 @@ Generated from commit `59bea3917395ca83bbbfb3771ea97ae954bdd9f1`.
 - `cptac_*`: external CPTAC cohort, predictions, exclusions and fixed-threshold metrics.
 - `environment_minimal.yml` and `reproducibility_manifest.json`: minimal reproducibility metadata.
 - `../../build_tcga_label_table.py`: reusable script to regenerate TCGA label/cohort tables after `clinical.csv` is restored.
-- `../../reports/第一阶段审计交付清单.md`: Chinese delivery checklist summarizing available and missing materials.
 
 ## Key Caveats
 - `clinical.csv` and internal TCGA feature h5 files are absent from this checkout, so `slide_id`, `POLE`, and original TCGA raw label fields cannot be fully restored here.
