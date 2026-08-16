@@ -1,0 +1,12 @@
+field,missing_rate,n_missing,n_total
+age,0.010169491525423728,3,295
+sex,0.0,0,295
+histological_diagnosis,0.0,0,295
+ajcc_pathologic_tumor_stage,0.0,0,295
+primary_site_patient,0.02711864406779661,8,295
+lymph_node_examined_count,1.0,295,295
+source_lauren_class,0.03728813559322034,11,295
+source_anatomic_region,0.02711864406779661,8,295
+source_tnmstage,0.0,0,295
+os_months,0.023728813559322035,7,295
+dfs_months,0.45084745762711864,133,295

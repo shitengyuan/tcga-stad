@@ -1,0 +1,81 @@
+{
+  "source_label_table": "results/audit_first_stage/tcga_label_table_from_cbioportal_clinical_with_gdc_slides_and_features.csv",
+  "source_feature_manifest": "results/audit_first_stage/tcga_uni2h_feature_manifest.csv",
+  "n_label_patients": 295,
+  "n_feature_matched_patients": 246,
+  "n_missing_feature_patients": 49,
+  "feature_matched_subtype_counts": {
+    "STAD_CIN": 128,
+    "STAD_GS": 50,
+    "STAD_MSI": 45,
+    "STAD_EBV": 23
+  },
+  "missing_feature_subtype_counts": {
+    "STAD_CIN": 19,
+    "STAD_MSI": 19,
+    "STAD_GS": 8,
+    "STAD_EBV": 3
+  },
+  "feature_matched_M1_counts": {
+    "0": 178,
+    "1": 68
+  },
+  "n_sites": 13,
+  "small_sites_train_only_min_site_for_val_8": [
+    "B7",
+    "EQ",
+    "F1",
+    "HF",
+    "HJ",
+    "IN",
+    "IP"
+  ],
+  "cv_folds": 5,
+  "cv_seed": 42,
+  "cv_grouping": "patient-level rows; StratifiedGroupKFold groups by TCGA tissue source site; sites with <8 patients are train-only",
+  "fold_summary": [
+    {
+      "fold": 1,
+      "n_val": 26,
+      "positive_M1": 12,
+      "n_sites": 1,
+      "patch_median": 2775.0
+    },
+    {
+      "fold": 2,
+      "n_val": 29,
+      "positive_M1": 5,
+      "n_sites": 1,
+      "patch_median": 5120.0
+    },
+    {
+      "fold": 3,
+      "n_val": 110,
+      "positive_M1": 32,
+      "n_sites": 1,
+      "patch_median": 7363.5
+    },
+    {
+      "fold": 4,
+      "n_val": 32,
+      "positive_M1": 6,
+      "n_sites": 1,
+      "patch_median": 8038.5
+    },
+    {
+      "fold": 5,
+      "n_val": 34,
+      "positive_M1": 7,
+      "n_sites": 2,
+      "patch_median": 1593.5
+    }
+  ],
+  "outputs": {
+    "cohort": "results/audit_first_stage/tcga_public_feature_matched_246_cohort.csv",
+    "folds": "results/audit_first_stage/tcga_public_feature_matched_cv_folds.csv",
+    "fold_summary": "results/audit_first_stage/tcga_public_feature_matched_cv_fold_summary.csv",
+    "missing_features": "results/audit_first_stage/tcga_public_label_patients_missing_uni2h_features.csv",
+    "qc_by_subtype": "results/audit_first_stage/tcga_public_feature_qc_by_subtype.csv",
+    "qc_by_site": "results/audit_first_stage/tcga_public_feature_qc_by_site.csv"
+  }
+}

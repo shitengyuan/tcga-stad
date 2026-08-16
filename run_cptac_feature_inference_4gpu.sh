@@ -5,14 +5,26 @@ ROOT="/gpfsdata/home/shitengyuan/shitengyuan_lustre/medical/tcga-stad"
 
 # Override at runtime if needed:
 #   FEATURE_DIR=/path/to/features OUT_DIR=/path/to/out NUM_GPUS=4 bash run_cptac_feature_inference_4gpu.sh
+#   GPU_IDS=2,3,4,5 FEATURE_DIR=/path/to/features bash run_cptac_feature_inference_4gpu.sh
 PY="${PY:-/gpfsdata/home/shitengyuan/miniconda3/envs/gastric_msi_pathai/bin/python}"
 FEATURE_DIR="${FEATURE_DIR:-$ROOT/results/external_cptac_features_20x256}"
 MODEL_DIR="${MODEL_DIR:-$ROOT/models}"
 OUT_DIR="${OUT_DIR:-$ROOT/results/external_cptac_feature_infer_20x256_4gpu}"
 NUM_GPUS="${NUM_GPUS:-4}"
+GPU_IDS="${GPU_IDS:-}"
 PATTERN="${PATTERN:-*}"
 MAX_PATCHES="${MAX_PATCHES:-}"
 LABELS_CSV="${LABELS_CSV:-}"
+
+if [ -n "$GPU_IDS" ]; then
+  IFS=',' read -r -a GPU_ARRAY <<< "$GPU_IDS"
+  NUM_GPUS="${#GPU_ARRAY[@]}"
+else
+  GPU_ARRAY=()
+  for rank in $(seq 0 $((NUM_GPUS - 1))); do
+    GPU_ARRAY+=("$rank")
+  done
+fi
 
 if [ ! -x "$PY" ]; then
   echo "Python not executable: $PY" >&2
@@ -71,8 +83,9 @@ for rank in $(seq 0 $((NUM_GPUS - 1))); do
     args+=(--labels_csv "$LABELS_CSV")
   fi
 
-  echo "Starting rank $rank on CUDA_VISIBLE_DEVICES=$rank"
-  CUDA_VISIBLE_DEVICES="$rank" "$PY" "${args[@]}" > "$rank_out/infer.log" 2>&1 &
+  gpu="${GPU_ARRAY[$rank]}"
+  echo "Starting rank $rank on CUDA_VISIBLE_DEVICES=$gpu"
+  CUDA_VISIBLE_DEVICES="$gpu" "$PY" "${args[@]}" > "$rank_out/infer.log" 2>&1 &
   pids+=("$!")
 done
 

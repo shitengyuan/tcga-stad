@@ -1,77 +1,47 @@
 {
-  "n": 289,
-  "classes": [
-    "EBV",
-    "MSI",
-    "GS",
-    "CIN"
-  ],
-  "class_mapping": {
-    "0": "EBV",
-    "1": "MSI",
-    "2": "GS",
-    "3": "CIN"
-  },
+  "task": "subtype4",
+  "name": "M4_subtype4",
+  "n_classes": 4,
+  "n_samples": 231,
   "label_dist": {
-    "MSI": 47,
-    "GS": 45,
-    "CIN": 171,
-    "EBV": 26
+    "1": 45,
+    "2": 50,
+    "3": 128,
+    "0": 23
   },
-  "accuracy": 0.7197231833910035,
-  "balanced_accuracy": 0.5750602980446206,
-  "macro_f1": 0.60447666368719,
-  "confusion_matrix_rows_true_cols_pred": [
-    [
-      9,
-      6,
-      0,
-      11
-    ],
-    [
-      2,
-      30,
-      4,
-      11
-    ],
-    [
-      1,
-      2,
-      20,
-      22
-    ],
-    [
-      0,
-      14,
-      8,
-      149
-    ]
+  "fold_scores": [
+    0.942550505050505,
+    0.9411622807017543,
+    0.8574876962863975,
+    0.8705266878060997,
+    0.986842105263158,
+    0.8816048534798535,
+    0.9967320261437909,
+    0.925,
+    0.9253219599542744,
+    0.8623766132857043
   ],
-  "roc_auc_ovr_macro": 0.8547701539934327,
-  "brier_multiclass_mean_squared": 0.47126497330863804,
-  "log_loss": 2.088438960301599,
-  "probability_note": "M4 CSV probabilities are rounded; metrics normalize rows before multiclass AUC/log-loss.",
-  "raw_probability_row_sum_min": 0.9998999999999999,
-  "raw_probability_row_sum_max": 1.0001,
-  "bootstrap_95ci": {
-    "n_boot": 2000,
-    "roc_auc_ovr_macro": [
-      0.8122145755786051,
-      0.8940729666212802
-    ],
-    "macro_f1": [
-      0.52604275955862,
-      0.6738721377941896
-    ],
-    "accuracy": [
-      0.6678200692041523,
-      0.7681660899653979
-    ],
-    "brier_multiclass_mean_squared": [
-      0.393358579083108,
-      0.5596173304377018
-    ]
+  "fold_mean": 0.9189604727971539,
+  "fold_std": 0.04743900723257297,
+  "oof_auc": 0.8205758338134339,
+  "oof_ap": null,
+  "oof_macrof1": 0.5734172972800984,
+  "bootstrap_auc": NaN,
+  "bootstrap_ci": [
+    NaN,
+    NaN
+  ],
+  "config": {
+    "max_patches": 8000,
+    "epochs": 30,
+    "n_repeats": 2,
+    "n_folds": 5,
+    "seed": 42,
+    "hidden": 256,
+    "dropout": 0.25,
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "min_site_for_val": 8
   },
-  "task": "M4_subtype4",
-  "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M4_subtype4.csv"
+  "per_fold_checkpoint_dir": "models/per_fold/M4_subtype4"
 }

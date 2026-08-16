@@ -2,20 +2,29 @@
   "task": "survival",
   "name": "M6_survival",
   "n_classes": 1,
-  "n_samples": 280,
-  "n_events": 111,
+  "n_samples": 224,
+  "n_events": 34,
   "fold_cindex": [
-    0.544932079414838,
-    0.5891927083333334,
-    0.296028880866426,
-    0.47752808988764045,
-    0.6672384219554031
+    0.49056603773584906,
+    0.42857142857142855,
+    1.0,
+    0.2,
+    0.5072463768115942
   ],
-  "fold_mean": 0.5149840360915282,
-  "fold_std": 0.1256419661221913,
-  "oof_cindex": 0.551818950930626,
+  "fold_mean": 0.5252767686237744,
+  "fold_std": 0.2615526621072416,
+  "oof_cindex": 0.4846673596673597,
   "config": {
-    "max_patches": 999999,
-    "epochs": 20
-  }
+    "max_patches": 4000,
+    "epochs": 15,
+    "n_folds": 5,
+    "seed": 42,
+    "hidden": 256,
+    "dropout": 0.25,
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "min_site_for_val": 8
+  },
+  "oof_predictions_csv": "results/oof_preds_M6_survival.csv",
+  "fold_registry_csv": "results/fold_registry_M6_survival.csv"
 }

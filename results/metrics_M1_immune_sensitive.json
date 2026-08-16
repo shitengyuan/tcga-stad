@@ -1,72 +1,45 @@
 {
-  "n": 289,
-  "n_pos": 73,
-  "n_neg": 216,
-  "threshold": 0.5,
-  "roc_auc": 0.8985920852359208,
-  "pr_auc_average_precision": 0.7825220064591449,
-  "bootstrap_95ci": {
-    "n_boot": 2000,
-    "roc_auc": [
-      0.8559660932309073,
-      0.9387453173172048
-    ],
-    "pr_auc_average_precision": [
-      0.6875510362302797,
-      0.8651087810440006
-    ],
-    "brier": [
-      0.09053763699221454,
-      0.1610713752681661
-    ]
+  "task": "immune_sensitive",
+  "name": "M1_immune_sensitive",
+  "n_classes": 2,
+  "n_samples": 231,
+  "label_dist": {
+    "1": 68,
+    "0": 178
   },
-  "accuracy": 0.8615916955017301,
-  "balanced_accuracy": 0.807648401826484,
-  "sensitivity": 0.6986301369863014,
-  "specificity": 0.9166666666666666,
-  "ppv": 0.7391304347826086,
-  "npv": 0.9,
-  "f1": 0.7183098591549296,
-  "confusion_matrix_labels_0_1": [
-    [
-      198,
-      18
-    ],
-    [
-      22,
-      51
-    ]
+  "fold_scores": [
+    0.9583333333333334,
+    0.8083333333333333,
+    0.905849358974359,
+    1.0,
+    0.962962962962963,
+    1.0,
+    0.9605263157894738,
+    1.0,
+    0.8333333333333333,
+    0.9224308300395258
   ],
-  "tn": 198,
-  "fp": 18,
-  "fn": 22,
-  "tp": 51,
-  "brier": 0.12469144865051905,
-  "calibration": {
-    "n_bins": 7,
-    "mean_predicted_value": [
-      0.0,
-      0.00010000000000000003,
-      0.0005080000000000001,
-      0.015482758620689655,
-      0.4231344827586207,
-      0.9879285714285713,
-      1.0
-    ],
-    "fraction_of_positives": [
-      0.03007518796992481,
-      0.13333333333333333,
-      0.12,
-      0.20689655172413793,
-      0.5517241379310345,
-      0.5714285714285714,
-      0.9565217391304348
-    ],
-    "calibration_intercept_slope": {
-      "intercept": -0.36025987046994495,
-      "slope": 0.20729520445726923
-    }
+  "fold_mean": 0.9351769467766322,
+  "fold_std": 0.06483899359146118,
+  "oof_auc": 0.9079022714258446,
+  "oof_ap": 0.8460538721079355,
+  "oof_macrof1": null,
+  "bootstrap_auc": 0.9090987623112933,
+  "bootstrap_ci": [
+    0.858749478339104,
+    0.9521346242785887
+  ],
+  "config": {
+    "max_patches": 8000,
+    "epochs": 30,
+    "n_repeats": 2,
+    "n_folds": 5,
+    "seed": 42,
+    "hidden": 256,
+    "dropout": 0.25,
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "min_site_for_val": 8
   },
-  "task": "M1_immune_sensitive",
-  "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M1_immune_sensitive.csv"
+  "per_fold_checkpoint_dir": "models/per_fold/M1_immune_sensitive"
 }

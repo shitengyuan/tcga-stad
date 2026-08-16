@@ -10,6 +10,7 @@ secrets.json
 data/
 dataset/
 tcga_stad_uni2h/
+external_downloads/
 *.h5
 *.svs
 *.tif

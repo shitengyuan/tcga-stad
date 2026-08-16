@@ -1,0 +1,14 @@
+{
+  "n_cases": 20,
+  "group_counts": {
+    "TP": 6,
+    "FN": 6,
+    "TN": 4,
+    "FP": 4
+  },
+  "selection_rule": "Up to 4 closest-to-threshold cases from each TP/TN/FP/FN group, then filled by global boundary distance using existing M1 OOF predictions.",
+  "outputs": {
+    "candidate_package": "results/cpu_supplement/representative_case_candidate_package_20.csv"
+  },
+  "limitations": "This is a candidate/evidence index, not a rendered visual case package. Thumbnail/attention/cluster overlay need OpenSlide plus attention export."
+}

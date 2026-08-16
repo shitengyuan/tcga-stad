@@ -1,0 +1,8 @@
+cohort,model,n,n_pos,brier_score,source
+internal_oof,M1_immune_sensitive,231,62,0.11167328419913419,results/oof_preds_M1_immune_sensitive.csv
+internal_oof,M2_msi,231,39,0.11175637186147186,results/oof_preds_M2_msi.csv
+internal_oof,M3_ebv,231,23,0.0691058683982684,results/oof_preds_M3_ebv.csv
+internal_oof,M5_clinical,277,83,0.25296041083032494,results/oof_preds_M5_clinical.csv
+cptac_qc_labeled,M1_immune_sensitive,42,14,0.1128376398185804,results/external_cptac_feature_infer_20x256_4gpu/figures/cptac_patient_predictions_with_qc_labels.csv
+cptac_qc_labeled,M2_msi,42,7,0.15827806265058839,results/external_cptac_feature_infer_20x256_4gpu/figures/cptac_patient_predictions_with_qc_labels.csv
+cptac_qc_labeled,M3_ebv,42,7,0.07824401717337366,results/external_cptac_feature_infer_20x256_4gpu/figures/cptac_patient_predictions_with_qc_labels.csv

@@ -1,0 +1,20 @@
+{
+  "thresholds": {
+    "csv": "results/cpu_supplement/high_sensitivity_thresholds_oof.csv",
+    "json": "results/cpu_supplement/high_sensitivity_thresholds_oof.json",
+    "rows": 12
+  },
+  "showcase": {
+    "csv": "results/cpu_supplement/showcase_cases_existing_evidence.csv",
+    "json": "results/cpu_supplement/showcase_cases_existing_evidence.json",
+    "rows": 3
+  },
+  "tasks": {
+    "csv": "results/cpu_supplement/missing_materials_task_list.csv",
+    "json": "results/cpu_supplement/missing_materials_task_list.json",
+    "rows": 12
+  },
+  "report": {
+    "md": "reports/不可交付材料任务清单与执行进展.md"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "clinical_csv": "external_downloads/tcga_stad/clinical_with_gdc_slides.csv",
+  "feature_dir": "tcga_stad_uni2h/TCGA-STAD/features",
+  "n_raw_patients": 295,
+  "subtype_counts_raw": {
+    "STAD_CIN": 147,
+    "STAD_MSI": 64,
+    "STAD_GS": 58,
+    "STAD_EBV": 26
+  },
+  "include_status_counts": {
+    "included": 295
+  },
+  "include_exclude_reason_counts": {
+    "mapped subtype in EBV/MSI/GS/CIN": 295
+  },
+  "feature_status_counts": {
+    "all_slides_have_features": 246,
+    "missing_features": 49
+  }
+}

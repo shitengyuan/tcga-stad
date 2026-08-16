@@ -1,47 +1,522 @@
 {
-  "git_commit": "fa3814cb274e5c9732a2b493ef5f980e39af20a4",
+  "generated_at": "2026-08-17T00:52:54",
+  "git_commit": "d9fd184fc1c0e586da5840feb899454262879555",
+  "git_status_short": "M .gitignore\n M models/M1_immune_sensitive.pt\n M models/M2_msi.pt\n M models/M3_ebv.pt\n M models/M4_subtype4.pt\n M results/cpu_supplement/model_registry_current.json\n M results/metrics_M1_immune_sensitive.json\n M results/metrics_M2_msi.json\n M results/metrics_M3_ebv.json\n M results/metrics_M4_subtype4.json\n M results/metrics_M5_clinical.json\n M results/metrics_M6_survival.json\n M results/oof_preds_M1_immune_sensitive.csv\n M results/oof_preds_M2_msi.csv\n M results/oof_preds_M3_ebv.csv\n M results/oof_preds_M4_subtype4.csv\n M results/oof_preds_M5_clinical.csv\n M run_cptac_feature_inference_4gpu.sh\n M src/feature_loader.py\n M src/train_clinical.py\n M src/train_multitask.py\n M src/train_survival.py\n?? attach_gdc_slide_metadata.py\n?? audit_tcga_feature_h5.py\n?? build_clinical_from_cbioportal.py\n?? finalize_delivery_materials.py\n?? generate_cluster_numeric_evidence.py\n?? generate_missing_materials_followup.py\n?? generate_visual_evidence_package.py\n?? models/per_fold/\n?? \"reports/\\344\\270\\215\\345\\217\\257\\344\\272\\244\\344\\273\\230\\346\\235\\220\\346\\226\\231\\344\\273\\273\\345\\212\\241\\346\\270\\205\\345\\215\\225\\344\\270\\216\\346\\211\\247\\350\\241\\214\\350\\277\\233\\345\\261\\225.md\"\n?? \"reports/\\344\\272\\244\\344\\273\\230\\346\\235\\220\\346\\226\\231\\346\\234\\200\\347\\273\\210\\346\\240\\270\\345\\257\\271\\344\\270\\216\\350\\241\\245\\351\\275\\220\\350\\277\\233\\345\\261\\225_20260817.md\"\n?? \"reports/\\346\\235\\220\\346\\226\\231\\351\\234\\200\\346\\261\\202\\351\\200\\220\\351\\241\\271\\345\\257\\271\\347\\205\\247\\344\\272\\244\\344\\273\\230\\350\\257\\264\\346\\230\\216.md\"\n?? \"reports/\\346\\235\\220\\346\\226\\231\\351\\275\\220\\345\\244\\207\\346\\200\\247\\346\\240\\270\\345\\257\\271_20260816.md\"\n?? results/M5_clinical_feature_missingness.csv\n?? results/audit_first_stage/tcga_case_flow_from_cbioportal_clinical.json\n?? results/audit_first_stage/tcga_case_flow_from_cbioportal_clinical_with_gdc_slides.json\n?? results/audit_first_stage/tcga_case_flow_from_cbioportal_clinical_with_gdc_slides_and_features.json\n?? results/audit_first_stage/tcga_case_flow_from_cbioportal_clinical_with_gdc_slides_and_features_after_gpu_run.json\n?? results/audit_first_stage/tcga_label_table_from_cbioportal_clinical.csv\n?? results/audit_first_stage/tcga_label_table_from_cbioportal_clinical_with_gdc_slides.csv\n?? results/audit_first_stage/tcga_label_table_from_cbioportal_clinical_with_gdc_slides_and_features.csv\n?? results/audit_first_stage/tcga_label_table_from_cbioportal_clinical_with_gdc_slides_and_features_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_M5_clinical_feature_missingness.csv\n?? results/audit_first_stage/tcga_public_M5_clinical_preprocessing_summary.json\n?? results/audit_first_stage/tcga_public_feature_matched_246_cohort.csv\n?? results/audit_first_stage/tcga_public_feature_matched_246_cohort_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_feature_matched_audit_summary.json\n?? results/audit_first_stage/tcga_public_feature_matched_audit_summary_after_gpu_run.json\n?? results/audit_first_stage/tcga_public_feature_matched_cv_fold_summary.csv\n?? results/audit_first_stage/tcga_public_feature_matched_cv_fold_summary_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_feature_matched_cv_folds.csv\n?? results/audit_first_stage/tcga_public_feature_matched_cv_folds_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_feature_qc_by_site.csv\n?? results/audit_first_stage/tcga_public_feature_qc_by_subtype.csv\n?? results/audit_first_stage/tcga_public_label_patients_missing_uni2h_features.csv\n?? results/audit_first_stage/tcga_public_label_patients_missing_uni2h_features_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_raw_clinical_missingness.csv\n?? results/audit_first_stage/tcga_uni2h_feature_manifest.csv\n?? results/audit_first_stage/tcga_uni2h_feature_manifest_after_gpu_run.csv\n?? results/audit_first_stage/tcga_uni2h_feature_manifest_after_gpu_run_summary.json\n?? results/audit_first_stage/tcga_uni2h_feature_manifest_summary.json\n?? results/audit_first_stage/uni2h_feature_extraction_config_current.json\n?? results/cpu_supplement/agent_no_leakage_outputs/\n?? results/cpu_supplement/brier_scores.csv\n?? results/cpu_supplement/brier_scores.json\n?? results/cpu_supplement/delivery_completion_matrix_20260817.csv\n?? results/cpu_supplement/delivery_completion_matrix_20260817.json\n?? results/cpu_supplement/high_sensitivity_thresholds_oof.csv\n?? results/cpu_supplement/high_sensitivity_thresholds_oof.json\n?? results/cpu_supplement/missing_materials_followup_manifest.json\n?? results/cpu_supplement/missing_materials_task_list.csv\n?? results/cpu_supplement/missing_materials_task_list.json\n?? results/cpu_supplement/public_source_download_manifest.json\n?? results/cpu_supplement/representative_case_candidate_package_20.csv\n?? results/cpu_supplement/representative_case_candidate_package_20_summary.json\n?? results/cpu_supplement/showcase_cases_evidence_with_h5_svs.csv\n?? results/cpu_supplement/showcase_cases_evidence_with_h5_svs.json\n?? results/cpu_supplement/showcase_cases_existing_evidence.csv\n?? results/cpu_supplement/showcase_cases_existing_evidence.json\n?? results/cpu_supplement/showcase_svs_tiffinfo_head.txt\n?? results/cpu_supplement/unsupervised_cluster_numeric_evidence/\n?? results/delivery_package/\n?? results/fold_registry_M1_immune_sensitive.csv\n?? results/fold_registry_M2_msi.csv\n?? results/fold_registry_M3_ebv.csv\n?? results/fold_registry_M4_subtype4.csv\n?? results/fold_registry_M5_clinical.csv\n?? results/fold_registry_M6_survival.csv\n?? results/gpu_deliverables/package/gpu_deliverables_20260815_040518.tar.gz\n?? results/logs/\n?? results/oof_preds_M6_survival.csv\n?? results/visual_evidence_package/\n?? run_agent_no_leakage.py\n?? run_all_gpu_tasks.sh\n?? run_internal_public_retrain.sh\n?? run_remaining_gpu_tasks.sh",
+  "is_clean_git_version": false,
+  "latest_gpu_log_dir": "results/logs/all_gpu_tasks_20260816_223904",
   "models": [
     {
-      "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M1_immune_sensitive.pt",
-      "sha256": "8e7b149264144d51b350452a362a40d363a79c4558e8ba8167d2f2f557c05931",
+      "name": "M1_immune_sensitive",
+      "file": "models/M1_immune_sensitive.pt",
       "task": "immune_sensitive",
       "n_classes": 2,
-      "status": "available_last_fold_checkpoint"
+      "metrics_json": "results/metrics_M1_immune_sensitive.json",
+      "oof_csv": "results/oof_preds_M1_immune_sensitive.csv",
+      "fold_registry_csv": "results/fold_registry_M1_immune_sensitive.csv",
+      "sha256": "2454d217ec8305c9b569adb34d8799a1ed57d976907c6f0a68862905880c9351",
+      "exists": true,
+      "metrics_summary": {
+        "n_samples": 231,
+        "fold_scores": [
+          0.9583333333333334,
+          0.8083333333333333,
+          0.905849358974359,
+          1.0,
+          0.962962962962963,
+          1.0,
+          0.9605263157894738,
+          1.0,
+          0.8333333333333333,
+          0.9224308300395258
+        ],
+        "fold_mean": 0.9351769467766322,
+        "fold_std": 0.06483899359146118,
+        "oof_auc": 0.9079022714258446,
+        "oof_ap": 0.8460538721079355,
+        "bootstrap_ci": [
+          0.858749478339104,
+          0.9521346242785887
+        ],
+        "config": {
+          "max_patches": 8000,
+          "epochs": 30,
+          "n_repeats": 2,
+          "n_folds": 5,
+          "seed": 42,
+          "hidden": 256,
+          "dropout": 0.25,
+          "lr": 0.0001,
+          "weight_decay": 1e-05,
+          "min_site_for_val": 8
+        }
+      },
+      "fold_registry_rows": 2460,
+      "folds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repeats": [
+        1,
+        2
+      ],
+      "per_fold_checkpoints": [
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep1_fold1.pt",
+          "sha256": "4595ee0294ca936b86812018f4ae1c9b67affa8a1819a793c72d1c0c64899fbf"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep1_fold2.pt",
+          "sha256": "c5e168626e660087673690e70a8d0f2abf9725b3be5a7580c8fd9d9dfa5817bf"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep1_fold3.pt",
+          "sha256": "4f1e2a57a1bebc129428d55ae264b9096723b2f5f107aa85d632d489df82012e"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep1_fold4.pt",
+          "sha256": "bfe6cd0deadd4d430542dffa7832d54a9c122f5aaf9dba3404f0c1badd320a6d"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep1_fold5.pt",
+          "sha256": "0e24d218736a464b21e7d910c2dee8062e86fbb80e135bb178cc4f6d89796166"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep2_fold1.pt",
+          "sha256": "4ea2951a7ea9fbbcf48c80ddd504c6218f3a84d2be22a03016a50648673f5c97"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep2_fold2.pt",
+          "sha256": "23bfae8fa22b0514e8ceb3b50b86aa22f6f120533a856d6367d165ad4d6898fa"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep2_fold3.pt",
+          "sha256": "8834093dd55714095af1700817f27d6e30add65999542f6359e43eae0607a1be"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep2_fold4.pt",
+          "sha256": "28c5a2963326e0dd86f6d64ce8a6c34e45f6df9d7a294a689f4630586a80be35"
+        },
+        {
+          "path": "models/per_fold/M1_immune_sensitive/M1_immune_sensitive_rep2_fold5.pt",
+          "sha256": "2d53af4d53cbffaca2b787675c2393337e7b1c27ccfca95e52febba0e45b6ad1"
+        }
+      ]
     },
     {
-      "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M2_msi.pt",
-      "sha256": "134e62fdd8cd904ccc3cf6e8b0b26c3a88f4aa5f9e678ffbbdff28efde6ef7fa",
+      "name": "M2_msi",
+      "file": "models/M2_msi.pt",
       "task": "msi",
       "n_classes": 2,
-      "status": "available_last_fold_checkpoint"
+      "metrics_json": "results/metrics_M2_msi.json",
+      "oof_csv": "results/oof_preds_M2_msi.csv",
+      "fold_registry_csv": "results/fold_registry_M2_msi.csv",
+      "sha256": "74533980303c5e2724b46a0c95e545e059c310bd1fccfe44e5240866322fe976",
+      "exists": true,
+      "metrics_summary": {
+        "n_samples": 231,
+        "fold_scores": [
+          0.9294444444444444,
+          0.9375,
+          0.9400000000000001,
+          0.9333333333333333,
+          0.9605263157894737,
+          1.0,
+          0.9500000000000001,
+          0.9736842105263158,
+          0.9302325581395349,
+          0.9377777777777777
+        ],
+        "fold_mean": 0.9492498640010879,
+        "fold_std": 0.021593543544118684,
+        "oof_auc": 0.9042467948717948,
+        "oof_ap": 0.669521679114138,
+        "bootstrap_ci": [
+          0.8569346836264374,
+          0.9439431207846386
+        ],
+        "config": {
+          "max_patches": 8000,
+          "epochs": 30,
+          "n_repeats": 2,
+          "n_folds": 5,
+          "seed": 42,
+          "hidden": 256,
+          "dropout": 0.25,
+          "lr": 0.0001,
+          "weight_decay": 1e-05,
+          "min_site_for_val": 8
+        }
+      },
+      "fold_registry_rows": 2460,
+      "folds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repeats": [
+        1,
+        2
+      ],
+      "per_fold_checkpoints": [
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep1_fold1.pt",
+          "sha256": "5761659da2999665f91125e6b735862e3a33573107edf227295c8f83c9334939"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep1_fold2.pt",
+          "sha256": "9ac466fc2972f970b7b5d4be56d481ed7905beecd48fcac0510c2935eae98665"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep1_fold3.pt",
+          "sha256": "793214f859853ceabc6f228de1d7306c1eb2a7f8b5b359fcec680f9b035ba346"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep1_fold4.pt",
+          "sha256": "2d8a424e063c2fa918537473c8ad6d2016d7324986a03b94f85b7cfeaed9e9b3"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep1_fold5.pt",
+          "sha256": "93bd67d51e413e6414f76da66e34c1ea52fd3f7ba0426137631a82aa181b8124"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep2_fold1.pt",
+          "sha256": "b08bd0ebb76c8dacbb61ecc56f6a5b1b1f6fd63c67d8b34dfe79294bce485965"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep2_fold2.pt",
+          "sha256": "cfb0f4ad1a23ff8fb9b8499bdecd9f691b5fffe71c927479209e00e878a1bf4e"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep2_fold3.pt",
+          "sha256": "7822aeb9b642d7abbaba85736569cbb68517b4e3f60e606642dffa5f217efb1f"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep2_fold4.pt",
+          "sha256": "d3082084eca1a141027dac8f1fb2b8cdfc4a6d875599ae1b1d1c91c8014120db"
+        },
+        {
+          "path": "models/per_fold/M2_msi/M2_msi_rep2_fold5.pt",
+          "sha256": "cce5cf2b04552ad9da70e531a949062d44e92b7a5bba4a7ca4d66d252711525f"
+        }
+      ]
     },
     {
-      "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M3_ebv.pt",
-      "sha256": "2b593c25c8295ca820994c6fdff31ebb407c48dd193ce4b92485a5eefa285232",
+      "name": "M3_ebv",
+      "file": "models/M3_ebv.pt",
       "task": "ebv",
       "n_classes": 2,
-      "status": "available_last_fold_checkpoint"
+      "metrics_json": "results/metrics_M3_ebv.json",
+      "oof_csv": "results/oof_preds_M3_ebv.csv",
+      "fold_registry_csv": "results/fold_registry_M3_ebv.csv",
+      "sha256": "9447a58c3181754bb51cf6c6f90bd8563ae8f7bc74db5ffc267ccbfcab4dd300",
+      "exists": true,
+      "metrics_summary": {
+        "n_samples": 231,
+        "fold_scores": [
+          0.8035714285714285,
+          1.0,
+          0.9204545454545454,
+          0.9369369369369369,
+          null,
+          1.0,
+          null,
+          0.9017857142857144,
+          0.936,
+          0.8163265306122448
+        ],
+        "fold_mean": 0.9143843944826088,
+        "fold_std": 0.06867163437842605,
+        "oof_auc": 0.7951505016722408,
+        "oof_ap": 0.6100161967109037,
+        "bootstrap_ci": [
+          0.6829959577954231,
+          0.9171612970375131
+        ],
+        "config": {
+          "max_patches": 8000,
+          "epochs": 30,
+          "n_repeats": 2,
+          "n_folds": 5,
+          "seed": 42,
+          "hidden": 256,
+          "dropout": 0.25,
+          "lr": 0.0001,
+          "weight_decay": 1e-05,
+          "min_site_for_val": 8
+        }
+      },
+      "fold_registry_rows": 2460,
+      "folds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repeats": [
+        1,
+        2
+      ],
+      "per_fold_checkpoints": [
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep1_fold1.pt",
+          "sha256": "176f13e84cb2187cbed27d13f6ab7f3a46b47138432c25986990a3d6213d930d"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep1_fold2.pt",
+          "sha256": "a21421d4733ebd01e7f2b2a10f775d233b6acf6c71c9fa1b8ed79414ffce7717"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep1_fold3.pt",
+          "sha256": "a3629d63a6beda4265b929641dd1dc656a7eb81d59f76158dc5336ada8680258"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep1_fold4.pt",
+          "sha256": "6881d08f4245c586b22c733c8a883b61640ab11898175b09c4a584805fed00e4"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep1_fold5.pt",
+          "sha256": "0c798d923828c5c695498e61dd9c24939615988f882634d019f0c7454b9e3bdb"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep2_fold1.pt",
+          "sha256": "bcbda2e922a1a6f71e5604e3152ede050becf6b10e61b3098a60fc5a37b1422a"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep2_fold2.pt",
+          "sha256": "98b41d109f6d841588b492f7e2157345fd2867400fb812335337f146678b7fd1"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep2_fold3.pt",
+          "sha256": "e06202c104bbf39b7b35cfae898e545966043bcdf89bc02f7b1bd0189a6ced2d"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep2_fold4.pt",
+          "sha256": "769877511c9f298a4a60a1177bf0e0a7d7076b6415526c3b060b7582ba09bc52"
+        },
+        {
+          "path": "models/per_fold/M3_ebv/M3_ebv_rep2_fold5.pt",
+          "sha256": "4b576ac8fb8f855f3f0d2096f5cc1c3e787cfcb327305c112c9abbc5ab5ad7ee"
+        }
+      ]
     },
     {
-      "file": "/share/home/shitengyuan_lustre/medical/tcga-stad/models/M4_subtype4.pt",
-      "sha256": "1af80cd246ecc09fadae46588a1f053cec2de76ab7c7b89edffa2230ce3fc116",
+      "name": "M4_subtype4",
+      "file": "models/M4_subtype4.pt",
       "task": "subtype4",
       "n_classes": 4,
-      "status": "available_last_fold_checkpoint",
       "class_order": [
         "EBV",
         "MSI",
         "GS",
         "CIN"
+      ],
+      "metrics_json": "results/metrics_M4_subtype4.json",
+      "oof_csv": "results/oof_preds_M4_subtype4.csv",
+      "fold_registry_csv": "results/fold_registry_M4_subtype4.csv",
+      "sha256": "17312144ec0a258c07ac8648e943139b4751082425a10fd8bd96dc392f508b3f",
+      "exists": true,
+      "metrics_summary": {
+        "n_samples": 231,
+        "fold_scores": [
+          0.942550505050505,
+          0.9411622807017543,
+          0.8574876962863975,
+          0.8705266878060997,
+          0.986842105263158,
+          0.8816048534798535,
+          0.9967320261437909,
+          0.925,
+          0.9253219599542744,
+          0.8623766132857043
+        ],
+        "fold_mean": 0.9189604727971539,
+        "fold_std": 0.04743900723257297,
+        "oof_auc": 0.8205758338134339,
+        "oof_ap": null,
+        "bootstrap_ci": [
+          NaN,
+          NaN
+        ],
+        "config": {
+          "max_patches": 8000,
+          "epochs": 30,
+          "n_repeats": 2,
+          "n_folds": 5,
+          "seed": 42,
+          "hidden": 256,
+          "dropout": 0.25,
+          "lr": 0.0001,
+          "weight_decay": 1e-05,
+          "min_site_for_val": 8
+        }
+      },
+      "fold_registry_rows": 2460,
+      "folds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repeats": [
+        1,
+        2
+      ],
+      "per_fold_checkpoints": [
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep1_fold1.pt",
+          "sha256": "ae1b1cee369695100c0ad9bd13286e15d51badbbb499449faddf5afe4e64d84e"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep1_fold2.pt",
+          "sha256": "52d344eeb4188a3f6d1723a8d88ad7fc85584b622ca459c5343c92f7201520da"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep1_fold3.pt",
+          "sha256": "e9e5b6da812a7866df1dafffe099e54557a2a1362d0d3e138f6e4d80ba839033"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep1_fold4.pt",
+          "sha256": "4a8da8684a35b35e20c991f316754f56011e0ce3c9d686d58a9901398eae638c"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep1_fold5.pt",
+          "sha256": "20770fe5329d9482b45b6faebd7713ea54c401350a8e705dad3c9745b809b713"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep2_fold1.pt",
+          "sha256": "3b004e4d945d708ca41ab6bffa1639bf90648bd3ed078ac0dc9eadf8dea3af61"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep2_fold2.pt",
+          "sha256": "ba76a4c3c6542063db1ddad064878096b07928d59a2bc6d5a3a7ad5359e29b8d"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep2_fold3.pt",
+          "sha256": "125f2f57415647393b149307fa10ca3aa18315bf7b64fbe7cd0e71f2add9a95f"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep2_fold4.pt",
+          "sha256": "cc5ee0cf5df2ece50cca1dc415fb45a5d35317979a76720d7cf5e08a7b6dbf3e"
+        },
+        {
+          "path": "models/per_fold/M4_subtype4/M4_subtype4_rep2_fold5.pt",
+          "sha256": "02d902a2674693ea644f16356c42d885ad4cec54c106b38c5eea1b9a2d90cb98"
+        }
       ]
+    },
+    {
+      "name": "M5_clinical",
+      "task": "clinical",
+      "n_classes": 2,
+      "metrics_json": "results/metrics_M5_clinical.json",
+      "oof_csv": "results/oof_preds_M5_clinical.csv",
+      "fold_registry_csv": "results/fold_registry_M5_clinical.csv",
+      "metrics_summary": {
+        "n_samples": 277,
+        "fold_mean": 0.4968408618408618,
+        "fold_std": 0.10552590704459441,
+        "oof_auc": 0.5491864364675195,
+        "oof_ap": 0.30975877597601104,
+        "bootstrap_ci": [
+          0.48479828534336894,
+          0.6243215796493562
+        ],
+        "config": {
+          "n_folds": 5,
+          "seed": 42,
+          "model": "LogisticRegression",
+          "class_weight": "balanced",
+          "C": 0.5
+        }
+      },
+      "fold_registry_rows": 1475,
+      "folds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repeats": [
+        1
+      ],
+      "per_fold_pipelines": [
+        {
+          "path": "models/per_fold/M5_clinical/M5_clinical_fold1.joblib",
+          "sha256": "5791d0363d792a6bb95c5b531a9221b2bbf028268fa39539049ca657a073f6a2"
+        },
+        {
+          "path": "models/per_fold/M5_clinical/M5_clinical_fold2.joblib",
+          "sha256": "fe01ae7907d049ee4d2d55443185fd1fceae7a5a85ca066362e0bd2686a0e0b8"
+        },
+        {
+          "path": "models/per_fold/M5_clinical/M5_clinical_fold3.joblib",
+          "sha256": "6fe5c59e43df476293b68ec9e4e3f44a51bdbde293c6f4aff81824e56c9c6003"
+        },
+        {
+          "path": "models/per_fold/M5_clinical/M5_clinical_fold4.joblib",
+          "sha256": "35ebfbb4451116d7c7cd9f9c7458bd5cb2b3b6f6b81716d08537491579b15a03"
+        },
+        {
+          "path": "models/per_fold/M5_clinical/M5_clinical_fold5.joblib",
+          "sha256": "aeaf90fb040afcc55876e483e3fba6383c02874a747aa780c0cd3187a02c23dc"
+        }
+      ]
+    },
+    {
+      "name": "M6_survival",
+      "task": "survival",
+      "n_classes": 1,
+      "metrics_json": "results/metrics_M6_survival.json",
+      "oof_csv": "results/oof_preds_M6_survival.csv",
+      "fold_registry_csv": "results/fold_registry_M6_survival.csv",
+      "metrics_summary": {
+        "n_samples": 224,
+        "fold_cindex": [
+          0.49056603773584906,
+          0.42857142857142855,
+          1.0,
+          0.2,
+          0.5072463768115942
+        ],
+        "fold_mean": 0.5252767686237744,
+        "fold_std": 0.2615526621072416,
+        "oof_cindex": 0.4846673596673597,
+        "config": {
+          "max_patches": 4000,
+          "epochs": 15,
+          "n_folds": 5,
+          "seed": 42,
+          "hidden": 256,
+          "dropout": 0.25,
+          "lr": 0.0001,
+          "weight_decay": 1e-05,
+          "min_site_for_val": 8
+        }
+      },
+      "fold_registry_rows": 1190,
+      "folds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "repeats": [],
+      "per_fold_artifacts": []
     }
   ],
-  "important_note": "M1-M4 .pt files are saved by current training code as the last fold model for each task; per-fold weights and full-data refit weights are not available.",
-  "missing_model_artifacts": [
-    "M1-M4 per-fold weights",
-    "M1-M4 best epoch files",
-    "M5 fitted sklearn pipeline",
-    "M6 survival model weights / OOF risk table",
-    "training logs and hyperparameter search records"
+  "remaining_model_gaps": [
+    "M6 per-fold survival artifacts are only complete after rerunning patched src/train_survival.py.",
+    "M1-M4 per-epoch CSV logs are only complete after rerunning patched src/train_multitask.py.",
+    "No hyperparameter-search record is present.",
+    "No multi-seed formal experiment registry is present."
   ]
 }

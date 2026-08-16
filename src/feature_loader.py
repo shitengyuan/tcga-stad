@@ -23,6 +23,9 @@ from typing import Dict, List, Optional
 import h5py
 import numpy as np
 import pandas as pd
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class FeatureLoader:
@@ -43,19 +46,45 @@ class FeatureLoader:
         self.clinical = pd.read_csv(clinical_csv).set_index("patient_id")
         # slide_id -> h5 路径
         self.slide_paths = {f.stem: f for f in self.feature_dir.glob("*.h5")}
+        self.patient_to_slides: Dict[str, List[str]] = {}
+        for slide_id in sorted(self.slide_paths):
+            patient_id = slide_id[:12]
+            self.patient_to_slides.setdefault(patient_id, []).append(slide_id)
 
     # ── 公开接口 ─────────────────────────────────────────────
 
     def list_slides(self) -> List[str]:
         return sorted(self.slide_paths.keys())
 
-    def load_slide(self, slide_id: str) -> Dict[str, np.ndarray]:
+    def load_slide(
+        self,
+        slide_id: str,
+        max_patches: Optional[int] = None,
+        rng: Optional[np.random.Generator] = None,
+    ) -> Dict[str, np.ndarray]:
         """加载单个 slide: features (N,1536), coords (N,2)。"""
         path = self.slide_paths[slide_id]
         try:
             with h5py.File(path, "r") as h:
-                feat = h["features"][0].astype(np.float32)        # (N,1536)
-                coords = h["coords_patching"][:].astype(np.int64)  # (N,2)
+                features_ds = h["features"]
+                coords_ds = h["coords_patching"]
+                n_patches = features_ds.shape[1] if len(features_ds.shape) == 3 else features_ds.shape[0]
+                if max_patches is not None and n_patches > max_patches:
+                    if rng is None:
+                        rng = np.random.default_rng(42)
+                    idx = rng.choice(n_patches, max_patches, replace=False)
+                    idx.sort()
+                    if len(features_ds.shape) == 3:
+                        feat = features_ds[0, idx, :].astype(np.float32)
+                    else:
+                        feat = features_ds[idx, :].astype(np.float32)
+                    coords = coords_ds[idx, :].astype(np.int64)
+                else:
+                    if len(features_ds.shape) == 3:
+                        feat = features_ds[0].astype(np.float32)
+                    else:
+                        feat = features_ds[:].astype(np.float32)
+                    coords = coords_ds[:].astype(np.int64)
         except Exception as e:
             logger.warning(f"slide {slide_id} 加载失败({e}), 返回空")
             return {"features": np.zeros((1, self.FEAT_DIM), dtype=np.float32),
@@ -88,16 +117,11 @@ class FeatureLoader:
                                            row.get("label_immune_sensitive", ""))
             if not keep:
                 continue
-            slide_ids = [s for s in str(row["slide_id"]).split(";") if s]
-            slide_ids = [s for s in slide_ids if s in self.slide_paths]
+            slide_ids = self._resolve_slide_ids(pid, row.get("slide_id", ""))
             if not slide_ids:
                 continue
-            data = self.load_slide(slide_ids[0])
+            data = self.load_slide(slide_ids[0], max_patches=max_patches, rng=rng)
             feat, coords = data["features"], data["coords"]
-            if max_patches is not None and feat.shape[0] > max_patches:
-                idx = rng.choice(feat.shape[0], max_patches, replace=False)
-                idx.sort()
-                feat, coords = feat[idx], coords[idx]
             dataset[pid] = {
                 "features": feat,
                 "coords": coords,
@@ -130,6 +154,21 @@ class FeatureLoader:
         raise ValueError(f"未知任务: {task}")
 
 
+    def _resolve_slide_ids(self, pid: str, slide_field) -> List[str]:
+        """Prefer explicit slide_id; fall back to TCGA patient barcode prefix."""
+        slide_ids = []
+        if pd.notna(slide_field):
+            slide_ids = [
+                s.strip()
+                for s in str(slide_field).split(";")
+                if s.strip() and s.strip().lower() != "nan"
+            ]
+            slide_ids = [s for s in slide_ids if s in self.slide_paths]
+        if slide_ids:
+            return slide_ids
+        return list(self.patient_to_slides.get(str(pid), []))
+
+
     def get_site(self, pid: str) -> str:
         """TCGA barcode 第 2 段 = tissue source site (用于 site-stratified CV)。"""
         return pid.split("-")[1] if "-" in pid else "UNK"
@@ -143,6 +182,8 @@ class FeatureLoader:
         labels = Counter(v["label"] for v in dataset.values())
         patch_counts = np.array([v["n_patches"] for v in dataset.values()])
         sites = len(set(self.get_site(p) for p in dataset))
+        if n == 0:
+            return "样本数: 0  (没有样本通过标签和特征匹配过滤)"
         lines = [
             f"样本数: {n}  (标签分布: {dict(labels)})",
             f"patch 数: 中位 {int(np.median(patch_counts))}, "

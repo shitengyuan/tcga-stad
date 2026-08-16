@@ -1,0 +1,23 @@
+{
+  "n_label_patients": 295,
+  "n_feature_matched_patients": 246,
+  "n_missing_feature_patients": 49,
+  "feature_matched_subtype_counts": {
+    "STAD_CIN": 128,
+    "STAD_GS": 50,
+    "STAD_MSI": 45,
+    "STAD_EBV": 23
+  },
+  "missing_feature_subtype_counts": {
+    "STAD_CIN": 19,
+    "STAD_MSI": 19,
+    "STAD_GS": 8,
+    "STAD_EBV": 3
+  },
+  "outputs": {
+    "cohort": "results/audit_first_stage/tcga_public_feature_matched_246_cohort_after_gpu_run.csv",
+    "folds": "results/audit_first_stage/tcga_public_feature_matched_cv_folds_after_gpu_run.csv",
+    "fold_summary": "results/audit_first_stage/tcga_public_feature_matched_cv_fold_summary_after_gpu_run.csv",
+    "missing_features": "results/audit_first_stage/tcga_public_label_patients_missing_uni2h_features_after_gpu_run.csv"
+  }
+}

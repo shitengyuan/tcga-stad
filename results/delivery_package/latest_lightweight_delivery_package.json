@@ -1,0 +1,7 @@
+{
+  "tar": "results/delivery_package/tcga_stad_delivery_lightweight_20260817_005445.tar.gz",
+  "filelist": "results/delivery_package/delivery_filelist_20260817.txt",
+  "n_files": 326,
+  "sha256": "639b3b50c211aff72ba114ef46625fc3db3e2f1b43761045c1ef331193805494",
+  "note": "Lightweight package excludes raw WSI, h5/pt features and large external downloads."
+}

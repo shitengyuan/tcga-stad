@@ -1,0 +1,17 @@
+{
+  "feature_dir": "tcga_stad_uni2h/TCGA-STAD/features",
+  "n_files": 400,
+  "n_patients": 375,
+  "read_ok": 400,
+  "has_coords": 400,
+  "feature_dim_counts": {
+    "1536": 400
+  },
+  "patch_count_summary": {
+    "min": 180,
+    "median": 7363.5,
+    "max": 31458,
+    "sum": 3187624
+  },
+  "total_file_size": 19952493530
+}

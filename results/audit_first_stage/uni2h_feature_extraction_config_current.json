@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-08-17T00:52:54",
+  "encoder": "UNI2-h",
+  "weights_path": "/gpfsdata/home/shitengyuan/shitengyuan_lustre/medical/uni2-h-weights/pytorch_model.bin",
+  "weights_sha256": "6e077eda234bebc595868d918d3458d9dd32a050199b0ff04443b2f46a0a3b1e",
+  "tcga_feature_manifest_summary": "results/audit_first_stage/tcga_uni2h_feature_manifest_summary.json",
+  "tcga_feature_manifest": "results/audit_first_stage/tcga_uni2h_feature_manifest.csv",
+  "cptac_feature_manifest": "results/external_cptac_features_20x256/feature_manifest.csv",
+  "feature_dim": 1536,
+  "tcga_hf_archive": {
+    "path": "external_downloads/hf_uni2h/TCGA/TCGA-STAD.tar.gz",
+    "sha256": "c222adf692dc1be5f9ab14fc51b07c873fbf3f3173f0041a3abf52cec6ed1109"
+  },
+  "cptac_extraction_config": {
+    "script": "extract_cptac_uni2h_20x256.py",
+    "script_sha256": "4770563e898ec4e847f36ef484f38b311f46acbd0b58eb10bf1889bedfc185e5",
+    "target_mpp": 0.5,
+    "magnification": "20x-equivalent",
+    "patch_size_20x": 256,
+    "encoder_input_size": 224,
+    "stride_factor": 1.0,
+    "tissue_threshold": 0.35,
+    "mask_max_size": 2048,
+    "max_patches_default": 0,
+    "format_default": "pt"
+  },
+  "environment": {
+    "python": "3.10.20",
+    "modules": {
+      "torch": "2.4.0",
+      "numpy": "2.2.5",
+      "pandas": "2.3.3",
+      "sklearn": "1.7.2",
+      "h5py": "3.16.0",
+      "openslide": "1.3.1",
+      "timm": "1.0.28",
+      "PIL": "11.3.0"
+    },
+    "torch_cuda": {
+      "cuda": "12.1",
+      "cuda_available": false,
+      "device_count": 0,
+      "devices": []
+    }
+  },
+  "tcga_feature_summary": {
+    "feature_dir": "tcga_stad_uni2h/TCGA-STAD/features",
+    "n_files": 400,
+    "n_patients": 375,
+    "read_ok": 400,
+    "has_coords": 400,
+    "feature_dim_counts": {
+      "1536": 400
+    },
+    "patch_count_summary": {
+      "min": 180,
+      "median": 7363.5,
+      "max": 31458,
+      "sum": 3187624
+    },
+    "total_file_size": 19952493530
+  },
+  "cptac_feature_summary": {
+    "n_feature_rows": 666,
+    "n_patients": 167,
+    "status_counts": {
+      "skipped_existing": 639,
+      "written": 27
+    }
+  }
+}

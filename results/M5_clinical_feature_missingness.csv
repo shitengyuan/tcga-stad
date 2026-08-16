@@ -1,0 +1,17 @@
+feature,missing_rate,n_missing,n_total
+age,0.010169491525423728,3,295
+ln_examined,1.0,295,295
+lauren_intestinal,0.0,0,295
+lauren_other,0.0,0,295
+lauren_nan,0.0,0,295
+sex_Female,0.0,0,295
+sex_Male,0.0,0,295
+sex_nan,0.0,0,295
+stage_Sta,0.0,0,295
+stage_X,0.0,0,295
+stage_nan,0.0,0,295
+site_ANTRUM,0.0,0,295
+site_FUNDUS_BODY,0.0,0,295
+site_GEJ_CARDIA,0.0,0,295
+site_unknown,0.0,0,295
+site_nan,0.0,0,295

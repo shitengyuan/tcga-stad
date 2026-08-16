@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-08-17T00:49:32.369527",
+  "out_dir": "results/visual_evidence_package",
+  "n_cases": 22,
+  "thumbnail_generated": 3,
+  "attention_generated": 22,
+  "cluster_generated": 15,
+  "important_limitation": "Attention and cluster figures are coordinate plots. Pathology naming of clusters still requires rendered representative patches and pathologist review."
+}

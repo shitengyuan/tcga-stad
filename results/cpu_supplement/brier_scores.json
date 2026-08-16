@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-08-17T00:54:45",
+  "rows": [
+    {
+      "cohort": "internal_oof",
+      "model": "M1_immune_sensitive",
+      "n": 231,
+      "n_pos": 62,
+      "brier_score": 0.11167328419913419,
+      "source": "results/oof_preds_M1_immune_sensitive.csv"
+    },
+    {
+      "cohort": "internal_oof",
+      "model": "M2_msi",
+      "n": 231,
+      "n_pos": 39,
+      "brier_score": 0.11175637186147186,
+      "source": "results/oof_preds_M2_msi.csv"
+    },
+    {
+      "cohort": "internal_oof",
+      "model": "M3_ebv",
+      "n": 231,
+      "n_pos": 23,
+      "brier_score": 0.0691058683982684,
+      "source": "results/oof_preds_M3_ebv.csv"
+    },
+    {
+      "cohort": "internal_oof",
+      "model": "M5_clinical",
+      "n": 277,
+      "n_pos": 83,
+      "brier_score": 0.25296041083032494,
+      "source": "results/oof_preds_M5_clinical.csv"
+    },
+    {
+      "cohort": "cptac_qc_labeled",
+      "model": "M1_immune_sensitive",
+      "n": 42,
+      "n_pos": 14,
+      "brier_score": 0.1128376398185804,
+      "source": "results/external_cptac_feature_infer_20x256_4gpu/figures/cptac_patient_predictions_with_qc_labels.csv"
+    },
+    {
+      "cohort": "cptac_qc_labeled",
+      "model": "M2_msi",
+      "n": 42,
+      "n_pos": 7,
+      "brier_score": 0.15827806265058839,
+      "source": "results/external_cptac_feature_infer_20x256_4gpu/figures/cptac_patient_predictions_with_qc_labels.csv"
+    },
+    {
+      "cohort": "cptac_qc_labeled",
+      "model": "M3_ebv",
+      "n": 42,
+      "n_pos": 7,
+      "brier_score": 0.07824401717337366,
+      "source": "results/external_cptac_feature_infer_20x256_4gpu/figures/cptac_patient_predictions_with_qc_labels.csv"
+    }
+  ],
+  "csv": "results/cpu_supplement/brier_scores.csv"
+}

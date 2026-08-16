@@ -1,0 +1,13 @@
+{
+  "clinical_csv": "external_downloads/tcga_stad/clinical_with_gdc_slides.csv",
+  "n_patients": 295,
+  "model_feature_shape": [
+    295,
+    16
+  ],
+  "preprocessing": "age and lymph_node_examined_count numeric; Lauren derived from histological_diagnosis; sex/stage/site one-hot encoded; model script imputes numeric features with median and standardizes before logistic regression",
+  "outputs": {
+    "model_feature_missingness": "results/audit_first_stage/tcga_public_M5_clinical_feature_missingness.csv",
+    "raw_clinical_missingness": "results/audit_first_stage/tcga_public_raw_clinical_missingness.csv"
+  }
+}

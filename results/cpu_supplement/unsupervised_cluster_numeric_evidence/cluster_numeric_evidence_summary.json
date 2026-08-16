@@ -1,0 +1,18 @@
+{
+  "cohort_csv": "results/audit_first_stage/tcga_public_feature_matched_246_cohort.csv",
+  "feature_dir": "tcga_stad_uni2h/TCGA-STAD/features",
+  "n_patients": 246,
+  "n_clusters": 8,
+  "sample_per_slide": 200,
+  "n_sampled_patches": 49200,
+  "feature_dim": 1536,
+  "seed": 42,
+  "important_limitation": "Numeric unsupervised clusters are not pathology names. TIL/tumor/stroma/necrosis labels require rendered representative patches and pathologist review.",
+  "outputs": {
+    "cluster_centers": "results/cpu_supplement/unsupervised_cluster_numeric_evidence/cluster_centers.npy",
+    "representative_patch_coords": "results/cpu_supplement/unsupervised_cluster_numeric_evidence/cluster_representative_patch_coords.csv",
+    "sampled_assignments": "results/cpu_supplement/unsupervised_cluster_numeric_evidence/sampled_patch_cluster_assignments.csv",
+    "distribution_by_subtype": "results/cpu_supplement/unsupervised_cluster_numeric_evidence/cluster_distribution_by_subtype_sampled.csv",
+    "patient_cluster_fractions": "results/cpu_supplement/unsupervised_cluster_numeric_evidence/patient_cluster_fractions.csv"
+  }
+}

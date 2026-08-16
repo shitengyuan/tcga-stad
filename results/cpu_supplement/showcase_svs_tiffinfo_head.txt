@@ -1,0 +1,487 @@
+### external_downloads/tcga_stad/showcase_primary_tumor_svs/TCGA-BR-7703-01A-01-BS1.1da06762-09f6-4f37-ae9c-5e5dc9a9a4c5.svs
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x82244b4 (136463540)
+  Subfile Type: (0 = 0x0)
+  Image Width: 50840 Image Length: 49765 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+53000x49865 [0,100 50840x49765] (256x256) J2K/YUV16 Q=70|AppMag = 40|StripeWidth = 1000|ScanScope ID = SS1302|Filename = 31343|Date = 11/18/11|Time = 19:07:52|Time Zone = GMT-07:00|User = ddd77fb4-965a-4264-8d44-34d2100c80e1|MPP = 0.2520|Left = 41.351418|Top = 18.124720|LineCameraSkew = -0.000389|LineAreaXOffset = 0.000000|LineAreaYOffset = 0.000000|Focus Offset = 0.000000|DSR ID = ap1546-dsr|ImageID = 31343|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 53000|OriginalHeight = 49865|ICC Profile = ScanScope v1
+  ICC Profile: <present>, 141992 bytes
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x82d01f0 (137167344)
+  Subfile Type: (0 = 0x0)
+  Image Width: 784 Image Length: 768 Image Depth: 1
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Rows/Strip: 16
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+50840x49765 -> 784x768 - |AppMag = 40|StripeWidth = 1000|ScanScope ID = SS1302|Filename = 31343|Date = 11/18/11|Time = 19:07:52|Time Zone = GMT-07:00|User = ddd77fb4-965a-4264-8d44-34d2100c80e1|MPP = 0.2520|Left = 41.351418|Top = 18.124720|LineCameraSkew = -0.000389|LineAreaXOffset = 0.000000|LineAreaYOffset = 0.000000|Focus Offset = 0.000000|DSR ID = ap1546-dsr|ImageID = 31343|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 53000|OriginalHeight = 49865|ICC Profile = ScanScope v1
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0x9550a44 (156568132)
+  Subfile Type: (0 = 0x0)
+  Image Width: 12710 Image Length: 12441 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+53000x49865 [0,100 50840x49765] (256x256) -> 12710x12441 J2K/YUV16 Q=70
+
+=== TIFF directory 3 ===
+TIFF Directory at offset 0x97159cc (158423500)
+  Subfile Type: (0 = 0x0)
+  Image Width: 3177 Image Length: 3110 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+53000x49865 [0,100 50840x49765] (256x256) -> 3177x3110 J2K/YUV16 Q=70
+
+=== TIFF directory 4 ===
+TIFF Directory at offset 0x97975a0 (158954912)
+  Subfile Type: (0 = 0x0)
+  Image Width: 1588 Image Length: 1555 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+53000x49865 [0,100 50840x49765] (256x256) -> 1588x1555 J2K/YUV16 Q=70
+
+### external_downloads/tcga_stad/showcase_primary_tumor_svs/TCGA-BR-7703-01A-01-TS1.320d23d5-8b59-4998-9628-42a1a4cd44c3.svs
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8e43344 (149173060)
+  Subfile Type: (0 = 0x0)
+  Image Width: 47003 Image Length: 48977 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+49000x49077 [0,100 47003x48977] (256x256) J2K/YUV16 Q=70|AppMag = 40|StripeWidth = 1000|ScanScope ID = SS1302|Filename = 31342|Date = 11/18/11|Time = 18:59:17|Time Zone = GMT-07:00|User = ddd77fb4-965a-4264-8d44-34d2100c80e1|MPP = 0.2520|Left = 22.805414|Top = 18.916481|LineCameraSkew = -0.000389|LineAreaXOffset = 0.000000|LineAreaYOffset = 0.000000|Focus Offset = 0.000000|DSR ID = ap1546-dsr|ImageID = 31342|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 49000|OriginalHeight = 49077|ICC Profile = ScanScope v1
+  ICC Profile: <present>, 141992 bytes
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x8ef9148 (149918024)
+  Subfile Type: (0 = 0x0)
+  Image Width: 737 Image Length: 768 Image Depth: 1
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Rows/Strip: 16
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+47003x48977 -> 737x768 - |AppMag = 40|StripeWidth = 1000|ScanScope ID = SS1302|Filename = 31342|Date = 11/18/11|Time = 18:59:17|Time Zone = GMT-07:00|User = ddd77fb4-965a-4264-8d44-34d2100c80e1|MPP = 0.2520|Left = 22.805414|Top = 18.916481|LineCameraSkew = -0.000389|LineAreaXOffset = 0.000000|LineAreaYOffset = 0.000000|Focus Offset = 0.000000|DSR ID = ap1546-dsr|ImageID = 31342|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 49000|OriginalHeight = 49077|ICC Profile = ScanScope v1
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0xa412fac (172044204)
+  Subfile Type: (0 = 0x0)
+  Image Width: 11750 Image Length: 12244 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+49000x49077 [0,100 47003x48977] (256x256) -> 11750x12244 J2K/YUV16 Q=70
+
+=== TIFF directory 3 ===
+TIFF Directory at offset 0xa6326ea (174270186)
+  Subfile Type: (0 = 0x0)
+  Image Width: 2937 Image Length: 3061 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+49000x49077 [0,100 47003x48977] (256x256) -> 2937x3061 J2K/YUV16 Q=70
+
+### external_downloads/tcga_stad/showcase_primary_tumor_svs/TCGA-BR-7703-01Z-00-DX1.405deaeb-de87-480f-b676-3657d92d1f68.svs
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x820d1ac (136368556)
+  Subfile Type: (0 = 0x0)
+  Image Width: 49880 Image Length: 57872 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+52000x57972 [0,100 49880x57872] (256x256) J2K/YUV16 Q=70|AppMag = 40|StripeWidth = 1000|ScanScope ID = SS1302|Filename = 27646|Date = 12/01/11|Time = 22:44:19|Time Zone = GMT-07:00|User = f645cf3e-82b0-4dc9-b147-ff899581922b|Parmset = EPC|MPP = 0.2520|Left = 27.982994|Top = 18.234829|LineCameraSkew = -0.000389|LineAreaXOffset = 0.000000|LineAreaYOffset = 0.000000|Focus Offset = 0.000000|DSR ID = aperio01|ImageID = 27646|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 52000|OriginalHeight = 57972|ICC Profile = ScanScope v1
+  ICC Profile: <present>, 141992 bytes
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x82ad12e (137023790)
+  Subfile Type: (0 = 0x0)
+  Image Width: 661 Image Length: 768 Image Depth: 1
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Rows/Strip: 16
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+49880x57872 -> 661x768 - |AppMag = 40|StripeWidth = 1000|ScanScope ID = SS1302|Filename = 27646|Date = 12/01/11|Time = 22:44:19|Time Zone = GMT-07:00|User = f645cf3e-82b0-4dc9-b147-ff899581922b|Parmset = EPC|MPP = 0.2520|Left = 27.982994|Top = 18.234829|LineCameraSkew = -0.000389|LineAreaXOffset = 0.000000|LineAreaYOffset = 0.000000|Focus Offset = 0.000000|DSR ID = aperio01|ImageID = 27646|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 52000|OriginalHeight = 57972|ICC Profile = ScanScope v1
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0x94aa096 (155885718)
+  Subfile Type: (0 = 0x0)
+  Image Width: 12470 Image Length: 14468 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+52000x57972 [0,100 49880x57872] (256x256) -> 12470x14468 J2K/YUV16 Q=70
+
+=== TIFF directory 3 ===
+TIFF Directory at offset 0x96352e0 (157504224)
+  Subfile Type: (0 = 0x0)
+  Image Width: 3117 Image Length: 3617 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+52000x57972 [0,100 49880x57872] (256x256) -> 3117x3617 J2K/YUV16 Q=70
+
+=== TIFF directory 4 ===
+TIFF Directory at offset 0x969dea6 (157933222)
+  Subfile Type: (0 = 0x0)
+  Image Width: 1558 Image Length: 1808 Image Depth: 1
+  Tile Width: 256 Tile Length: 256
+  Bits/Sample: 8
+  Compression Scheme: 33003 (0x80eb)
+  Photometric Interpretation: RGB color
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v10.2.41
+52000x57972 [0,100 49880x57872] (256x256) -> 1558x1808 J2K/YUV16 Q=70
+
+### external_downloads/tcga_stad/showcase_primary_tumor_svs/TCGA-VQ-AA69-01A-01-TS1.8F5A2985-C33E-4F77-AD0D-434A5F445977.svs
+=== TIFF directory 0 ===
+TIFF Directory at offset 0xd8afa98 (227211928)
+  Subfile Type: (0 = 0x0)
+  Image Width: 81672 Image Length: 35761 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+83312x35861 [0,100 81672x35761] (240x240) JPEG/RGB Q=30|AppMag = 40|StripeWidth = 2032|ScanScope ID = SS1763CNTLR|Filename = TCGA-VQ-AA69-01A-01-TS1|Title = TCGA-VQ-AA69-01A-01-TS1|Date = 03/05/14|Time = 09:02:12|Time Zone = GMT-05:00|User = 05fec7be-042d-4b98-9dc9-283ed6c6b42e|Parmset = GOG136 on O: Drive|MPP = 0.2525|Left = 15.924325|Top = 17.826590|LineCameraSkew = 0.000000|LineAreaXOffset = 0.006121|LineAreaYOffset = -0.001548|Focus Offset = 0.000000|DSR ID = resc3-dsr2|ImageID = 152337|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 83312|OriginalHeight = 35861|ICC Profile = ScanScope v1
+  ICC Profile: <present>, 141992 bytes
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0xd952ba6 (227879846)
+  Subfile Type: (0 = 0x0)
+  Image Width: 1024 Image Length: 448 Image Depth: 1
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Rows/Strip: 16
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+81672x35761 -> 1024x448 - |AppMag = 40|StripeWidth = 2032|ScanScope ID = SS1763CNTLR|Filename = TCGA-VQ-AA69-01A-01-TS1|Title = TCGA-VQ-AA69-01A-01-TS1|Date = 03/05/14|Time = 09:02:12|Time Zone = GMT-05:00|User = 05fec7be-042d-4b98-9dc9-283ed6c6b42e|Parmset = GOG136 on O: Drive|MPP = 0.2525|Left = 15.924325|Top = 17.826590|LineCameraSkew = 0.000000|LineAreaXOffset = 0.006121|LineAreaYOffset = -0.001548|Focus Offset = 0.000000|DSR ID = resc3-dsr2|ImageID = 152337|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 83312|OriginalHeight = 35861|ICC Profile = ScanScope v1
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0xfa27a2a (262306346)
+  Subfile Type: (0 = 0x0)
+  Image Width: 20418 Image Length: 8940 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+83312x35861 [0,100 81672x35761] (240x240) -> 20418x8940 JPEG/RGB Q=65
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 3 ===
+TIFF Directory at offset 0xfdebc9c (266255516)
+  Subfile Type: (0 = 0x0)
+  Image Width: 5104 Image Length: 2235 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+83312x35861 [0,100 81672x35761] (240x240) -> 5104x2235 JPEG/RGB Q=82
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 4 ===
+TIFF Directory at offset 0xff3a0a0 (267624608)
+  Subfile Type: (0 = 0x0)
+  Image Width: 2552 Image Length: 1117 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+83312x35861 [0,100 81672x35761] (240x240) -> 2552x1117 JPEG/RGB Q=91
+  JPEG Tables: (289 bytes)
+
+### external_downloads/tcga_stad/showcase_primary_tumor_svs/TCGA-VQ-AA69-01Z-00-DX1.1EEF2AD7-6470-44B5-9E87-E77AE47262F0.svs
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x37527bce (928152526)
+  Subfile Type: (0 = 0x0)
+  Image Width: 81672 Image Length: 64705 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+83312x64805 [0,100 81672x64705] (240x240) JPEG/RGB Q=30|AppMag = 40|StripeWidth = 2032|ScanScope ID = SS1763CNTLR|Filename = TCGA-VQ-AA69-01Z-00-DX1|Title = TCGA-VQ-AA69-01Z-00-DX1|Date = 07/23/14|Time = 05:19:37|Time Zone = GMT-04:00|User = 9cf2d30e-64f2-4cb1-bfa3-32ecfa556ed9|Parmset = GOG136 on O: Drive|MPP = 0.2525|Left = 18.809731|Top = 19.972723|LineCameraSkew = 0.000000|LineAreaXOffset = 0.006121|LineAreaYOffset = -0.001548|Focus Offset = 0.000000|DSR ID = resc3-dsr1|ImageID = 160008|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 83312|OriginalHeight = 64805|ICC Profile = ScanScope v1
+  ICC Profile: <present>, 141992 bytes
+  JPEG Tables: (574 bytes)
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x37651640 (929371712)
+  Subfile Type: (0 = 0x0)
+  Image Width: 969 Image Length: 768 Image Depth: 1
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Rows/Strip: 16
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+81672x64705 -> 969x768 - |AppMag = 40|StripeWidth = 2032|ScanScope ID = SS1763CNTLR|Filename = TCGA-VQ-AA69-01Z-00-DX1|Title = TCGA-VQ-AA69-01Z-00-DX1|Date = 07/23/14|Time = 05:19:37|Time Zone = GMT-04:00|User = 9cf2d30e-64f2-4cb1-bfa3-32ecfa556ed9|Parmset = GOG136 on O: Drive|MPP = 0.2525|Left = 18.809731|Top = 19.972723|LineCameraSkew = 0.000000|LineAreaXOffset = 0.006121|LineAreaYOffset = -0.001548|Focus Offset = 0.000000|DSR ID = resc3-dsr1|ImageID = 160008|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 83312|OriginalHeight = 64805|ICC Profile = ScanScope v1
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0x402dd472 (1076745330)
+  Subfile Type: (0 = 0x0)
+  Image Width: 20418 Image Length: 16176 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+83312x64805 [0,100 81672x64705] (240x240) -> 20418x16176 JPEG/RGB Q=65
+  JPEG Tables: (574 bytes)
+
+=== TIFF directory 3 ===
+TIFF Directory at offset 0x411c5940 (1092376896)
+  Subfile Type: (0 = 0x0)
+  Image Width: 5104 Image Length: 4044 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+83312x64805 [0,100 81672x64705] (240x240) -> 5104x4044 JPEG/RGB Q=82
+  JPEG Tables: (574 bytes)
+
+=== TIFF directory 4 ===
+TIFF Directory at offset 0x416b5466 (1097552998)
+  Subfile Type: (0 = 0x0)
+  Image Width: 2552 Image Length: 2022 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+83312x64805 [0,100 81672x64705] (240x240) -> 2552x2022 JPEG/RGB Q=91
+  JPEG Tables: (574 bytes)
+
+### external_downloads/tcga_stad/showcase_primary_tumor_svs/TCGA-VQ-AA6K-01A-01-TS1.F9DED64B-48DE-47DE-92AE-33E837F78429.svs
+=== TIFF directory 0 ===
+TIFF Directory at offset 0xc934e34 (210980404)
+  Subfile Type: (0 = 0x0)
+  Image Width: 93623 Image Length: 27217 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+95504x27317 [0,100 93623x27217] (240x240) JPEG/RGB Q=30|AppMag = 40|StripeWidth = 2032|ScanScope ID = SS1764CNTLR|Filename = TCGA-VQ-AA6K-01A-01-TS1|Title = TCGA-VQ-AA6K-01A-01-TS1|Date = 03/06/14|Time = 08:52:13|Time Zone = GMT-05:00|User = fb73be9f-1953-419b-a9ff-a0b8b6098f3b|Parmset = GOG136 on O: Drive|MPP = 0.2527|Left = 26.703777|Top = 15.071869|LineCameraSkew = -0.000153|LineAreaXOffset = 0.011464|LineAreaYOffset = -0.002805|Focus Offset = 0.000000|DSR ID = resc3-dsr2|ImageID = 152410|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 95504|OriginalHeight = 27317|ICC Profile = ScanScope v1
+  ICC Profile: <present>, 141992 bytes
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0xc9c6ff6 (211578870)
+  Subfile Type: (0 = 0x0)
+  Image Width: 1024 Image Length: 297 Image Depth: 1
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Rows/Strip: 16
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+93623x27217 -> 1024x297 - |AppMag = 40|StripeWidth = 2032|ScanScope ID = SS1764CNTLR|Filename = TCGA-VQ-AA6K-01A-01-TS1|Title = TCGA-VQ-AA6K-01A-01-TS1|Date = 03/06/14|Time = 08:52:13|Time Zone = GMT-05:00|User = fb73be9f-1953-419b-a9ff-a0b8b6098f3b|Parmset = GOG136 on O: Drive|MPP = 0.2527|Left = 26.703777|Top = 15.071869|LineCameraSkew = -0.000153|LineAreaXOffset = 0.011464|LineAreaYOffset = -0.002805|Focus Offset = 0.000000|DSR ID = resc3-dsr2|ImageID = 152410|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 95504|OriginalHeight = 27317|ICC Profile = ScanScope v1
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0xe84b190 (243577232)
+  Subfile Type: (0 = 0x0)
+  Image Width: 23405 Image Length: 6804 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+95504x27317 [0,100 93623x27217] (240x240) -> 23405x6804 JPEG/RGB Q=65
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 3 ===
+TIFF Directory at offset 0xec210a8 (247599272)
+  Subfile Type: (0 = 0x0)
+  Image Width: 5851 Image Length: 1701 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+95504x27317 [0,100 93623x27217] (240x240) -> 5851x1701 JPEG/RGB Q=82
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 4 ===
+TIFF Directory at offset 0xed8b58c (249083276)
+  Subfile Type: (0 = 0x0)
+  Image Width: 2925 Image Length: 850 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.11 
+95504x27317 [0,100 93623x27217] (240x240) -> 2925x850 JPEG/RGB Q=91
+  JPEG Tables: (289 bytes)
+
+### external_downloads/tcga_stad/showcase_primary_tumor_svs/TCGA-VQ-AA6K-01Z-00-DX1.8AF14797-0C31-4DF3-94A4-868EC96E7BB1.svs
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x4d3829a (80970394)
+  Subfile Type: (0 = 0x0)
+  Image Width: 27888 Image Length: 30186 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+28448x30286 [0,100 27888x30186] (240x240) JPEG/RGB Q=30|AppMag = 40|StripeWidth = 2032|ScanScope ID = SS1763CNTLR|Filename = TCGA-VQ-AA6K-01Z-00-DX1|Title = TCGA-VQ-AA6K-01Z-00-DX1|Date = 07/23/14|Time = 06:38:39|Time Zone = GMT-04:00|User = 9cf2d30e-64f2-4cb1-bfa3-32ecfa556ed9|Parmset = GOG136 on O: Drive|MPP = 0.2525|Left = 21.414978|Top = 15.379165|LineCameraSkew = 0.000000|LineAreaXOffset = 0.006121|LineAreaYOffset = -0.001548|Focus Offset = 0.000000|DSR ID = resc3-dsr1|ImageID = 160016|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 28448|OriginalHeight = 30286|ICC Profile = ScanScope v1
+  ICC Profile: <present>, 141992 bytes
+  JPEG Tables: (574 bytes)
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x4da5546 (81417542)
+  Subfile Type: (0 = 0x0)
+  Image Width: 709 Image Length: 768 Image Depth: 1
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Rows/Strip: 16
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+27888x30186 -> 709x768 - |AppMag = 40|StripeWidth = 2032|ScanScope ID = SS1763CNTLR|Filename = TCGA-VQ-AA6K-01Z-00-DX1|Title = TCGA-VQ-AA6K-01Z-00-DX1|Date = 07/23/14|Time = 06:38:39|Time Zone = GMT-04:00|User = 9cf2d30e-64f2-4cb1-bfa3-32ecfa556ed9|Parmset = GOG136 on O: Drive|MPP = 0.2525|Left = 21.414978|Top = 15.379165|LineCameraSkew = 0.000000|LineAreaXOffset = 0.006121|LineAreaYOffset = -0.001548|Focus Offset = 0.000000|DSR ID = resc3-dsr1|ImageID = 160016|Exposure Time = 109|Exposure Scale = 0.000001|DisplayColor = 0|OriginalWidth = 28448|OriginalHeight = 30286|ICC Profile = ScanScope v1
+  JPEG Tables: (289 bytes)
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0x5952626 (93660710)
+  Subfile Type: (0 = 0x0)
+  Image Width: 6972 Image Length: 7546 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+28448x30286 [0,100 27888x30186] (240x240) -> 6972x7546 JPEG/RGB Q=65
+  JPEG Tables: (574 bytes)
+
+=== TIFF directory 3 ===
+TIFF Directory at offset 0x5ab3288 (95105672)
+  Subfile Type: (0 = 0x0)
+  Image Width: 1743 Image Length: 1886 Image Depth: 1
+  Tile Width: 240 Tile Length: 240
+  Bits/Sample: 8
+  Compression Scheme: JPEG
+  Photometric Interpretation: RGB color
+  YCbCr Subsampling: 2, 2
+  Samples/Pixel: 3
+  Planar Configuration: single image plane
+  ImageDescription: Aperio Image Library v12.0.15 
+28448x30286 [0,100 27888x30186] (240x240) -> 1743x1886 JPEG/RGB Q=82
+  JPEG Tables: (574 bytes)
+

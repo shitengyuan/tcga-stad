@@ -1,0 +1,98 @@
+[
+  {
+    "item": "公开246例patient-slide-label-feature清单",
+    "status": "complete",
+    "path": "results/audit_first_stage/tcga_public_feature_matched_246_cohort_after_gpu_run.csv",
+    "next_action": ""
+  },
+  {
+    "item": "历史289例OOF队列原始slide_id/POLE",
+    "status": "partial",
+    "path": "results/audit_first_stage/final_289_patient_cohort.csv",
+    "next_action": "需要历史训练用clinical或用公开246例替代说明"
+  },
+  {
+    "item": "M1-M4 OOF/metrics/fold registry/per-fold权重",
+    "status": "complete",
+    "path": "results/oof_preds_M*_*.csv; results/fold_registry_M*.csv; models/per_fold/M1-M4",
+    "next_action": ""
+  },
+  {
+    "item": "M1-M4逐epoch日志",
+    "status": "script_ready_gpu_rerun_required",
+    "path": "src/train_multitask.py; run_remaining_gpu_tasks.sh",
+    "next_action": "GPU重跑RUN_M1_M4=1生成results/training_epoch_logs/M1-M4"
+  },
+  {
+    "item": "M5临床变量/缺失率/per-fold pipeline",
+    "status": "complete",
+    "path": "results/M5_clinical_feature_missingness.csv; models/per_fold/M5_clinical",
+    "next_action": ""
+  },
+  {
+    "item": "M6 OOF/fold registry",
+    "status": "complete",
+    "path": "results/oof_preds_M6_survival.csv; results/fold_registry_M6_survival.csv",
+    "next_action": ""
+  },
+  {
+    "item": "M6 per-fold survival权重",
+    "status": "script_ready_gpu_rerun_required",
+    "path": "src/train_survival.py; run_remaining_gpu_tasks.sh",
+    "next_action": "GPU重跑RUN_M6=1生成models/per_fold/M6_survival"
+  },
+  {
+    "item": "UNI2-h配置/权重hash",
+    "status": "complete",
+    "path": "results/audit_first_stage/uni2h_feature_extraction_config_current.json",
+    "next_action": ""
+  },
+  {
+    "item": "Brier score",
+    "status": "complete",
+    "path": "results/cpu_supplement/brier_scores.csv",
+    "next_action": ""
+  },
+  {
+    "item": "CPTAC推理/评估/图表",
+    "status": "complete",
+    "path": "results/external_cptac_feature_infer_20x256_4gpu",
+    "next_action": "注意可评估QC标签42例，完整推理167例/666 slides"
+  },
+  {
+    "item": "展示病例视觉证据",
+    "status": "partial",
+    "path": "results/visual_evidence_package",
+    "next_action": "已生成coordinate-level thumbnail/attention/cluster证据；病理命名和rendered patch验证仍需人工确认"
+  },
+  {
+    "item": "Agent无泄漏全量结构化输出",
+    "status": "partial_rule_based_complete",
+    "path": "results/cpu_supplement/agent_no_leakage_outputs",
+    "next_action": "规则版无标签泄漏结构化输出已生成；如需正式DeepSeek/GLM Agent结论，仍需配置FRIDAY_APP_ID后重跑LLM版"
+  },
+  {
+    "item": "图像+临床融合模型",
+    "status": "missing_model_not_implemented",
+    "path": "",
+    "next_action": "需单独设计并训练融合模型"
+  },
+  {
+    "item": "多seed/失败实验登记",
+    "status": "missing_experiment_required",
+    "path": "",
+    "next_action": "需按实验矩阵重跑并登记"
+  },
+  {
+    "item": "最新轻量交付包",
+    "status": "complete",
+    "path": "results/delivery_package/tcga_stad_delivery_lightweight_20260817_005445.tar.gz",
+    "next_action": ""
+  },
+  {
+    "item": "干净Git固定版本",
+    "status": "missing_commit_required",
+    "path": "",
+    "next_action": "过滤数据后git add/commit/push"
+  }
+]

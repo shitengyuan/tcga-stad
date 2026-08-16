@@ -1,0 +1,204 @@
+{
+  "generated_at": "2026-08-16T00:36:01",
+  "case_ids": [
+    "TCGA-VQ-AA69",
+    "TCGA-VQ-AA6K",
+    "TCGA-BR-7703"
+  ],
+  "m4_class_order": [
+    "EBV",
+    "MSI",
+    "GS",
+    "CIN"
+  ],
+  "important_note": "This is not a complete visual evidence package. Thumbnail, attention heatmap, cluster overlay, and representative patches are absent in the current checkout.",
+  "cases": [
+    {
+      "summary": {
+        "patient_id": "TCGA-VQ-AA69",
+        "in_289_oof_cohort": true,
+        "has_agent_panel_output": true,
+        "subtype": "STAD_EBV",
+        "M1_label": "1",
+        "MSI": "0",
+        "EBV": "1",
+        "M4_subtype": "EBV",
+        "fold": "4",
+        "M1_immune_sensitive_prob_c1": "1.0",
+        "M2_msi_prob_c1": "0.1909",
+        "M3_ebv_prob_c1": "0.9842",
+        "M4_subtype4_prob_c0_EBV": "0.0943",
+        "M4_subtype4_prob_c1_MSI": "0.9038",
+        "M4_subtype4_prob_c2_GS": "0.0016",
+        "M4_subtype4_prob_c3_CIN": "0.0003",
+        "M5_clinical_prob_c1": "0.1181",
+        "agent_final_pred": "sensitive",
+        "agent_confidence": "low",
+        "agent_trusted_models": "M1;M3",
+        "agent_conflicts": "M2(MSI)",
+        "agent_visual_status": "visual module removed (unreliable on overlay images)",
+        "wsi_thumbnail": "missing",
+        "attention_heatmap": "missing",
+        "cluster_overlay": "missing",
+        "representative_patches": "missing",
+        "evidence_status": "partial_existing_non_visual_evidence_only"
+      },
+      "agent_panel_raw": {
+        "patient_id": "TCGA-VQ-AA69",
+        "final_pred": "sensitive",
+        "m1_prob": 1.0,
+        "model_panel": {
+          "M1_immune_sensitive": 1.0,
+          "M2_msi": 0.1909,
+          "M3_ebv": 0.9842,
+          "M4_subtype4": 0.9038,
+          "M5_clinical": 0.1181
+        },
+        "agent_selection": {
+          "trusted_models": [
+            "M1",
+            "M3"
+          ],
+          "confidence": "low",
+          "reasoning": "M1预测敏感(prob=1.00); 支持:M3(EBV); 冲突:M2(MSI); 置信low",
+          "ihc_suggest": "both",
+          "supports": [
+            "M3(EBV)"
+          ],
+          "conflicts": [
+            "M2(MSI)"
+          ],
+          "method": "rule-based"
+        },
+        "visual_evidence": {
+          "note": "visual module removed (unreliable on overlay images)"
+        },
+        "report": "胃癌免疫敏感亚型预测报告：M1主预测为免疫敏感（概率1.000），与M3（EBV概率0.984）高度一致，支持EBV相关免疫敏感表型。M2（MSI概率0.191）存在冲突。形态学可见肠型腺癌背景，符合EBV相关特征。建议行IHC检测MMR蛋白及EBER-ISH以验证EBV状态。"
+      }
+    },
+    {
+      "summary": {
+        "patient_id": "TCGA-VQ-AA6K",
+        "in_289_oof_cohort": true,
+        "has_agent_panel_output": true,
+        "subtype": "STAD_CIN",
+        "M1_label": "0",
+        "MSI": "0",
+        "EBV": "0",
+        "M4_subtype": "CIN",
+        "fold": "4",
+        "M1_immune_sensitive_prob_c1": "0.0",
+        "M2_msi_prob_c1": "0.0",
+        "M3_ebv_prob_c1": "0.0",
+        "M4_subtype4_prob_c0_EBV": "0.0",
+        "M4_subtype4_prob_c1_MSI": "0.0",
+        "M4_subtype4_prob_c2_GS": "0.0",
+        "M4_subtype4_prob_c3_CIN": "1.0",
+        "M5_clinical_prob_c1": "0.3281",
+        "agent_final_pred": "nonsensitive",
+        "agent_confidence": "high",
+        "agent_trusted_models": "M1;M2;M3",
+        "agent_conflicts": "",
+        "agent_visual_status": "visual module removed (unreliable on overlay images)",
+        "wsi_thumbnail": "missing",
+        "attention_heatmap": "missing",
+        "cluster_overlay": "missing",
+        "representative_patches": "missing",
+        "evidence_status": "partial_existing_non_visual_evidence_only"
+      },
+      "agent_panel_raw": {
+        "patient_id": "TCGA-VQ-AA6K",
+        "final_pred": "nonsensitive",
+        "m1_prob": 0.0,
+        "model_panel": {
+          "M1_immune_sensitive": 0.0,
+          "M2_msi": 0.0,
+          "M3_ebv": 0.0,
+          "M4_subtype4": 0.0,
+          "M5_clinical": 0.3281
+        },
+        "agent_selection": {
+          "trusted_models": [
+            "M1",
+            "M2",
+            "M3"
+          ],
+          "confidence": "high",
+          "reasoning": "M1预测不敏感(prob=0.00); 支持:M2(MSI),M3(EBV); 置信high",
+          "ihc_suggest": "none",
+          "supports": [
+            "M2(MSI)",
+            "M3(EBV)"
+          ],
+          "conflicts": [],
+          "method": "rule-based"
+        },
+        "visual_evidence": {
+          "note": "visual module removed (unreliable on overlay images)"
+        },
+        "report": "胃癌免疫敏感亚型预测：多模型一致（M1、M2、M3概率均为0.0）支持免疫不敏感表型。形态学为胃腺癌（印戒细胞型），CIN亚型，缺乏MSI/EBV相关特征。建议IHC验证MMR蛋白（MLH1/MSH2/MSH6/PMS2）及EBER-ISH以排除微卫星不稳定及EBV相关胃癌。"
+      }
+    },
+    {
+      "summary": {
+        "patient_id": "TCGA-BR-7703",
+        "in_289_oof_cohort": true,
+        "has_agent_panel_output": true,
+        "subtype": "STAD_MSI",
+        "M1_label": "1",
+        "MSI": "1",
+        "EBV": "0",
+        "M4_subtype": "MSI",
+        "fold": "3",
+        "M1_immune_sensitive_prob_c1": "0.589",
+        "M2_msi_prob_c1": "0.1411",
+        "M3_ebv_prob_c1": "0.0",
+        "M4_subtype4_prob_c0_EBV": "0.0011",
+        "M4_subtype4_prob_c1_MSI": "0.9299",
+        "M4_subtype4_prob_c2_GS": "0.0674",
+        "M4_subtype4_prob_c3_CIN": "0.0016",
+        "M5_clinical_prob_c1": "0.4756",
+        "agent_final_pred": "sensitive",
+        "agent_confidence": "low",
+        "agent_trusted_models": "M1",
+        "agent_conflicts": "M2(MSI);M3(EBV)",
+        "agent_visual_status": "visual module removed (unreliable on overlay images)",
+        "wsi_thumbnail": "missing",
+        "attention_heatmap": "missing",
+        "cluster_overlay": "missing",
+        "representative_patches": "missing",
+        "evidence_status": "partial_existing_non_visual_evidence_only"
+      },
+      "agent_panel_raw": {
+        "patient_id": "TCGA-BR-7703",
+        "final_pred": "sensitive",
+        "m1_prob": 0.589,
+        "model_panel": {
+          "M1_immune_sensitive": 0.589,
+          "M2_msi": 0.1411,
+          "M3_ebv": 0.0,
+          "M4_subtype4": 0.9299,
+          "M5_clinical": 0.4756
+        },
+        "agent_selection": {
+          "trusted_models": [
+            "M1"
+          ],
+          "confidence": "low",
+          "reasoning": "M1预测敏感(prob=0.59); 冲突:M2(MSI),M3(EBV); 置信low",
+          "ihc_suggest": "both",
+          "supports": [],
+          "conflicts": [
+            "M2(MSI)",
+            "M3(EBV)"
+          ],
+          "method": "rule-based"
+        },
+        "visual_evidence": {
+          "note": "visual module removed (unreliable on overlay images)"
+        },
+        "report": "胃癌免疫敏感亚型预测报告：多模型分析显示M1主预测免疫敏感（概率0.589）与M4亚型4（概率0.93）高度一致，支持免疫微环境激活状态。M2（MSI概率0.141）及M3（EBV概率0.0）呈低概率冲突，临床诊断STAD_MSI亚型需进一步验证。建议行MMR蛋白及EBER-ISH检测以确认MSI/EBV状态，辅助免疫治疗决策。"
+      }
+    }
+  ]
+}

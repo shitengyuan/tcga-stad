@@ -1,66 +1,45 @@
 {
-  "n": 289,
-  "n_pos": 26,
-  "n_neg": 263,
-  "threshold": 0.5,
-  "roc_auc": 0.7377888271424393,
-  "pr_auc_average_precision": 0.4538800770548175,
-  "bootstrap_95ci": {
-    "n_boot": 2000,
-    "roc_auc": [
-      0.6271058118127083,
-      0.8447104984293337
-    ],
-    "pr_auc_average_precision": [
-      0.2705036140652433,
-      0.6423177619959873
-    ],
-    "brier": [
-      0.04533117765743944,
-      0.10175477696972318
-    ]
+  "task": "ebv",
+  "name": "M3_ebv",
+  "n_classes": 2,
+  "n_samples": 231,
+  "label_dist": {
+    "0": 223,
+    "1": 23
   },
-  "accuracy": 0.9238754325259516,
-  "balanced_accuracy": 0.6115823340157941,
-  "sensitivity": 0.23076923076923078,
-  "specificity": 0.9923954372623575,
-  "ppv": 0.75,
-  "npv": 0.9288256227758007,
-  "f1": 0.35294117647058826,
-  "confusion_matrix_labels_0_1": [
-    [
-      261,
-      2
-    ],
-    [
-      20,
-      6
-    ]
+  "fold_scores": [
+    0.8035714285714285,
+    1.0,
+    0.9204545454545454,
+    0.9369369369369369,
+    null,
+    1.0,
+    null,
+    0.9017857142857144,
+    0.936,
+    0.8163265306122448
   ],
-  "tn": 261,
-  "fp": 2,
-  "fn": 20,
-  "tp": 6,
-  "brier": 0.07152132339100346,
-  "calibration": {
-    "n_bins": 4,
-    "mean_predicted_value": [
-      0.0,
-      0.00010000000000000002,
-      0.0006428571428571428,
-      0.31776896551724143
-    ],
-    "fraction_of_positives": [
-      0.048034934497816595,
-      0.1,
-      0.0,
-      0.4827586206896552
-    ],
-    "calibration_intercept_slope": {
-      "intercept": 0.04378872136110955,
-      "slope": 0.23055621878499896
-    }
+  "fold_mean": 0.9143843944826088,
+  "fold_std": 0.06867163437842605,
+  "oof_auc": 0.7951505016722408,
+  "oof_ap": 0.6100161967109037,
+  "oof_macrof1": null,
+  "bootstrap_auc": 0.7968931831282278,
+  "bootstrap_ci": [
+    0.6829959577954231,
+    0.9171612970375131
+  ],
+  "config": {
+    "max_patches": 8000,
+    "epochs": 30,
+    "n_repeats": 2,
+    "n_folds": 5,
+    "seed": 42,
+    "hidden": 256,
+    "dropout": 0.25,
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "min_site_for_val": 8
   },
-  "task": "M3_ebv",
-  "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M3_ebv.csv"
+  "per_fold_checkpoint_dir": "models/per_fold/M3_ebv"
 }

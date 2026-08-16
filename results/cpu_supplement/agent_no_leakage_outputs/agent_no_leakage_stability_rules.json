@@ -1,0 +1,10 @@
+{
+  "backend": "deterministic_rules_no_llm",
+  "input_csv": "results/cpu_supplement/agent_no_leakage_inputs_289.csv",
+  "n_patients": 289,
+  "repeats": 3,
+  "stable_across_repeats": true,
+  "output_jsonl": "results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_rules.jsonl",
+  "output_csv": "results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_rules.csv",
+  "important_note": "This is a formal no-leakage structured Agent output, but it is rule-based and not a DeepSeek/GLM LLM run."
+}

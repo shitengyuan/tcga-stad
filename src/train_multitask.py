@@ -19,6 +19,7 @@ agent (run_agent_panel.py) 读取各模型的 OOF 预测做编排。
 """
 from __future__ import annotations
 import argparse
+import csv
 import json
 import logging
 from pathlib import Path
@@ -83,8 +84,11 @@ def train_one_fold(tr_pids, va_pids, dataset, args, n_classes, device):
 
     rng = np.random.default_rng(args.seed)
     best_score = -1.0
+    best_epoch = None
+    best_state = None
     val_preds = {}  # pid -> proba vector (二分类存正类概率, 多分类存各类概率)
     can_eval = len(set(dataset[p]["label"] for p in va_pids)) >= 2 and len(va_pids) >= 5
+    epoch_history = []
 
     for epoch in range(args.epochs):
         model.train()
@@ -118,12 +122,25 @@ def train_one_fold(tr_pids, va_pids, dataset, args, n_classes, device):
                 # 多分类: macro AUC (one-vs-rest)
                 score = _macro_auc(y_true, np.array([preds[p] for p in va_pids]))
             if score > best_score:
-                best_score = score; val_preds = dict(preds)
+                best_score = score
+                best_epoch = epoch + 1
+                best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+                val_preds = dict(preds)
             if (epoch + 1) % 5 == 0 or epoch == 0:
                 log.info(f"  epoch {epoch+1:2d}: loss={total_loss/len(order):.4f} val_score={score:.3f}")
+        else:
+            score = float("nan")
+        epoch_history.append({
+            "epoch": epoch + 1,
+            "train_loss": float(total_loss / len(order)) if order else float("nan"),
+            "val_score": None if np.isnan(score) else float(score),
+        })
     if not can_eval:
         best_score = float('nan')
-    return val_preds, best_score, model
+        best_epoch = args.epochs
+    elif best_state is not None:
+        model.load_state_dict(best_state)
+    return val_preds, best_score, best_epoch, model, epoch_history
 
 
 def _macro_auc(y_true, y_proba):
@@ -182,6 +199,12 @@ def run_task(task, args):
 
     all_oof = {}
     fold_scores = []
+    fold_registry = []
+    model_dir = BASE / "models"
+    per_fold_dir = model_dir / "per_fold" / cfg["name"]
+    per_fold_dir.mkdir(parents=True, exist_ok=True)
+    epoch_log_dir = RESULTS / "training_epoch_logs" / cfg["name"]
+    epoch_log_dir.mkdir(parents=True, exist_ok=True)
     kf = StratifiedGroupKFold(n_splits=args.n_folds, shuffle=True, random_state=args.seed)
     cv_idx = np.where(cv_mask)[0]
     y_cv = y[cv_mask]; sites_cv = sites[cv_mask]
@@ -197,12 +220,47 @@ def run_task(task, args):
             va_pids = [pids[i] for i in va_full]
             log.info(f"=== {task} rep{rep+1} fold{fold_i+1}/{args.n_folds} "
                      f"(train {len(tr_pids)} / val {len(va_pids)}) ===")
-            val_preds, fscore, fold_model = train_one_fold(tr_pids, va_pids, dataset, args, n_classes, device)
+            val_preds, fscore, best_epoch, fold_model, epoch_history = train_one_fold(
+                tr_pids, va_pids, dataset, args, n_classes, device
+            )
+            epoch_log_path = epoch_log_dir / f"{cfg['name']}_rep{rep+1}_fold{fold_i+1}_epochs.csv"
+            with epoch_log_path.open("w", newline="") as f:
+                w = csv.DictWriter(f, fieldnames=["epoch", "train_loss", "val_score"])
+                w.writeheader()
+                w.writerows(epoch_history)
             fold_scores.append(fscore)
             for pid, prob in val_preds.items():
                 all_oof.setdefault(pid, []).append(prob)
             log.info(f"  fold score = {fscore:.3f}" if not np.isnan(fscore) else "  fold score = N/A")
-            # 保存最后一个 fold 的模型 (代表该任务)
+            checkpoint_path = per_fold_dir / f"{cfg['name']}_rep{rep+1}_fold{fold_i+1}.pt"
+            torch.save({"model_state": fold_model.state_dict(),
+                        "config": {"in_dim": 1536, "hidden": args.hidden,
+                                   "n_classes": n_classes, "dropout": args.dropout},
+                        "task": task, "name": cfg["name"],
+                        "repeat": rep + 1, "fold": fold_i + 1,
+                        "seed": seed_r, "best_epoch": best_epoch,
+                        "best_score": None if np.isnan(fscore) else float(fscore),
+                        "train_patients": tr_pids, "val_patients": va_pids},
+                       checkpoint_path)
+            for split, split_pids in (("train", tr_pids), ("val", va_pids)):
+                for pid in split_pids:
+                    fold_registry.append({
+                        "task": task,
+                        "repeat": rep + 1,
+                        "fold": fold_i + 1,
+                        "split": split,
+                        "patient_id": pid,
+                        "site": fl.get_site(pid),
+                        "label": dataset[pid]["label"],
+                        "subtype": dataset[pid]["subtype"],
+                        "small_site_train_only": pid in {pids[i] for i in small_train},
+                        "seed": seed_r,
+                        "best_epoch": best_epoch,
+                        "best_score": None if np.isnan(fscore) else float(fscore),
+                        "checkpoint": str(checkpoint_path.relative_to(BASE)),
+                        "epoch_log": str(epoch_log_path.relative_to(BASE)),
+                    })
+            # 保存最后一个 fold 的模型 (兼容旧推理脚本)
             last_model = fold_model
 
     # OOF 聚合
@@ -240,12 +298,18 @@ def run_task(task, args):
            "oof_ap": float(oof_ap) if oof_ap else None,
            "oof_macrof1": float(oof_f1) if n_classes>2 else None,
            "bootstrap_auc": bm, "bootstrap_ci": [clo, chi],
-           "config": {"max_patches": args.max_patches, "epochs": args.epochs, "n_repeats": args.n_repeats}}
+           "config": {"max_patches": args.max_patches, "epochs": args.epochs,
+                      "n_repeats": args.n_repeats, "n_folds": args.n_folds,
+                      "seed": args.seed, "hidden": args.hidden,
+                      "dropout": args.dropout, "lr": args.lr,
+                      "weight_decay": args.weight_decay,
+                      "min_site_for_val": args.min_site_for_val},
+           "per_fold_checkpoint_dir": str(per_fold_dir.relative_to(BASE))}
+    out["epoch_log_dir"] = str(epoch_log_dir.relative_to(BASE))
     with open(RESULTS / f"metrics_{cfg['name']}.json", "w") as f:
         json.dump(out, f, indent=2, ensure_ascii=False, default=str)
 
     # 保存模型权重 (最后一个 fold)
-    model_dir = BASE / "models"
     model_dir.mkdir(exist_ok=True)
     torch.save({"model_state": last_model.state_dict(),
                 "config": {"in_dim": 1536, "hidden": args.hidden,
@@ -254,8 +318,16 @@ def run_task(task, args):
                model_dir / f"{cfg['name']}.pt")
     log.info(f"模型已保存: models/{cfg['name']}.pt")
 
+    with open(RESULTS / f"fold_registry_{cfg['name']}.csv", "w", newline="") as f:
+        fieldnames = ["task", "repeat", "fold", "split", "patient_id", "site", "label",
+                      "subtype", "small_site_train_only", "seed", "best_epoch",
+                      "best_score", "checkpoint", "epoch_log"]
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w.writeheader()
+        w.writerows(fold_registry)
+    log.info(f"fold registry已保存: results/fold_registry_{cfg['name']}.csv")
+
     # OOF 预测 (供 agent 编排)
-    import csv
     with open(RESULTS / f"oof_preds_{cfg['name']}.csv", "w", newline="") as f:
         w = csv.writer(f)
         header = ["patient_id", "label", "subtype"] + [f"prob_c{c}" for c in range(n_classes)]

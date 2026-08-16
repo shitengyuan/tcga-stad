@@ -1,78 +1,31 @@
 {
-  "n": 289,
-  "n_pos": 73,
-  "n_neg": 216,
-  "threshold": 0.5,
-  "roc_auc": 0.6200532724505327,
-  "pr_auc_average_precision": 0.3392712986052107,
-  "bootstrap_95ci": {
-    "n_boot": 2000,
-    "roc_auc": [
-      0.5509296066326217,
-      0.6893307262777846
-    ],
-    "pr_auc_average_precision": [
-      0.2619693859813179,
-      0.4413012309864138
-    ],
-    "brier": [
-      0.22314306759083047,
-      0.25698059012024227
-    ]
-  },
-  "accuracy": 0.5743944636678201,
-  "balanced_accuracy": 0.5656392694063928,
-  "sensitivity": 0.547945205479452,
-  "specificity": 0.5833333333333334,
-  "ppv": 0.3076923076923077,
-  "npv": 0.7924528301886793,
-  "f1": 0.39408866995073893,
-  "confusion_matrix_labels_0_1": [
-    [
-      126,
-      90
-    ],
-    [
-      33,
-      40
-    ]
+  "task": "clinical",
+  "name": "M5_clinical",
+  "n_classes": 2,
+  "n_samples": 277,
+  "fold_aucs": [
+    0.6293706293706294,
+    0.3583333333333333,
+    0.48333333333333334,
+    0.41025641025641024,
+    0.6029106029106028
   ],
-  "tn": 126,
-  "fp": 90,
-  "fn": 33,
-  "tp": 40,
-  "brier": 0.24004976159169547,
-  "calibration": {
-    "n_bins": 10,
-    "mean_predicted_value": [
-      0.1404241379310345,
-      0.31727241379310334,
-      0.3958068965517241,
-      0.4491793103448276,
-      0.477496551724138,
-      0.5005321428571429,
-      0.5255620689655174,
-      0.56215,
-      0.6230071428571431,
-      0.7495551724137933
-    ],
-    "fraction_of_positives": [
-      0.13793103448275862,
-      0.06896551724137931,
-      0.13793103448275862,
-      0.1724137931034483,
-      0.5172413793103449,
-      0.25,
-      0.3448275862068966,
-      0.1,
-      0.42857142857142855,
-      0.3793103448275862
-    ],
-    "calibration_intercept_slope": {
-      "intercept": -1.0515150410088925,
-      "slope": 0.48655730582167783
-    }
+  "fold_mean": 0.4968408618408618,
+  "fold_std": 0.10552590704459441,
+  "oof_auc": 0.5491864364675195,
+  "oof_ap": 0.30975877597601104,
+  "bootstrap_auc": 0.5497624208162872,
+  "bootstrap_ci": [
+    0.48479828534336894,
+    0.6243215796493562
+  ],
+  "config": {
+    "n_folds": 5,
+    "seed": 42,
+    "model": "LogisticRegression",
+    "class_weight": "balanced",
+    "C": 0.5
   },
-  "task": "M5_clinical",
-  "source_csv": "/share/home/shitengyuan_lustre/medical/tcga-stad/results/oof_preds_M5_clinical.csv"
+  "feature_missingness_csv": "results/M5_clinical_feature_missingness.csv",
+  "per_fold_checkpoint_dir": "models/per_fold/M5_clinical"
 }

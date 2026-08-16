@@ -20,6 +20,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import joblib
 from sklearn.model_selection import GroupKFold
 from lifelines import CoxPHFitter
 from lifelines.utils import concordance_index
@@ -65,9 +66,11 @@ def train_abmil_encoder(dataset, train_pids, args, device):
     lbl_c = Counter(dataset[p]["label"] for p in train_pids if "label" in dataset[p])
     # 若无标签, 跳过预训练
     rng = np.random.default_rng(args.seed)
+    epoch_history = []
     for epoch in range(args.epochs):
         order = [p for p in train_pids if "label" in dataset[p]]
         rng.shuffle(order)
+        total_loss = 0.0
         for pid in order:
             d = dataset[pid]
             x = torch.from_numpy(d["features"]).to(device)
@@ -76,7 +79,12 @@ def train_abmil_encoder(dataset, train_pids, args, device):
             logit = clf(z.unsqueeze(0))
             loss = F.cross_entropy(logit, y)
             opt.zero_grad(); loss.backward(); opt.step()
-    return enc
+            total_loss += float(loss.item())
+        epoch_history.append({
+            "epoch": epoch + 1,
+            "train_loss": float(total_loss / len(order)) if order else float("nan"),
+        })
+    return enc, epoch_history
 
 
 def main():
@@ -130,7 +138,13 @@ def main():
     gkf = GroupKFold(n_splits=args.n_folds)
 
     oof_risk = np.full(len(pids), np.nan)
+    oof_fold = np.full(len(pids), -1)
     fold_cidx = []
+    fold_registry = []
+    model_dir = BASE / "models" / "per_fold" / "M6_survival"
+    model_dir.mkdir(parents=True, exist_ok=True)
+    epoch_log_dir = RESULTS / "training_epoch_logs" / "M6_survival"
+    epoch_log_dir.mkdir(parents=True, exist_ok=True)
 
     for fi, (tr_cv, va_cv) in enumerate(gkf.split(np.zeros(len(cv_idx)),
                                                    [surv[pids[c]]["os_event"] for c in cv_idx],
@@ -141,8 +155,14 @@ def main():
         va_pids = [pids[i] for i in va_full]
 
         # 1. 训练 ABMIL encoder (免疫敏感辅助监督)
-        enc = train_abmil_encoder(dataset, tr_pids, args, device)
+        enc, epoch_history = train_abmil_encoder(dataset, tr_pids, args, device)
         enc.eval()
+        epoch_log_path = epoch_log_dir / f"M6_survival_fold{fi+1}_epochs.csv"
+        with epoch_log_path.open("w", newline="") as f:
+            import csv
+            w = csv.DictWriter(f, fieldnames=["epoch", "train_loss"])
+            w.writeheader()
+            w.writerows(epoch_history)
 
         # 2. 提取 patient 向量
         def embed(pids_sub):
@@ -178,10 +198,49 @@ def main():
             va_df["age"] = [surv[p]["age"] for p in va_pids]
             risk = cph.predict_partial_hazard(va_df).values
             oof_risk[va_full] = risk
+            oof_fold[va_full] = fi + 1
             yt = [surv[p]["os_event"] for p in va_pids]
             yt_dur = [surv[p]["os_months"] for p in va_pids]
             ci = concordance_index(yt_dur, -risk, yt)  # lifelines: 高risk应短生存
             fold_cidx.append(ci)
+            encoder_path = model_dir / f"M6_survival_fold{fi+1}.pt"
+            cox_path = model_dir / f"M6_survival_fold{fi+1}_pca_cox.joblib"
+            torch.save({
+                "encoder_state": enc.state_dict(),
+                "config": {"in_dim": 1536, "hidden": args.hidden, "dropout": args.dropout},
+                "task": "survival",
+                "name": "M6_survival",
+                "fold": fi + 1,
+                "seed": args.seed,
+                "train_patients": tr_pids,
+                "val_patients": va_pids,
+                "fold_cindex": float(ci),
+            }, encoder_path)
+            joblib.dump({
+                "pca": pca,
+                "cox": cph,
+                "pca_columns": [f"pc{i}" for i in range(tr_pca.shape[1])],
+                "uses_age": True,
+                "fold": fi + 1,
+                "seed": args.seed,
+            }, cox_path)
+            for split, split_idxs in (("train", tr_full), ("val", va_full)):
+                for idx in split_idxs:
+                    pid = pids[idx]
+                    fold_registry.append({
+                        "task": "survival",
+                        "fold": fi + 1,
+                        "split": split,
+                        "patient_id": pid,
+                        "site": sites[idx],
+                        "os_months": surv[pid]["os_months"],
+                        "os_event": surv[pid]["os_event"],
+                        "seed": args.seed,
+                        "fold_cindex": float(ci),
+                        "encoder_checkpoint": str(encoder_path.relative_to(BASE)),
+                        "cox_checkpoint": str(cox_path.relative_to(BASE)),
+                        "epoch_log": str(epoch_log_path.relative_to(BASE)),
+                    })
             log.info(f"  fold {fi+1}: C-index={ci:.3f} (train {len(tr_pids)} / val {len(va_pids)})")
         except Exception as e:
             log.warning(f"  fold {fi+1} 失败: {e}")
@@ -191,8 +250,10 @@ def main():
         yt_dur = np.array([surv[pids[i]]["os_months"] for i in range(len(pids)) if mask[i]])
         yt_evt = np.array([surv[pids[i]]["os_event"] for i in range(len(pids)) if mask[i]])
         oof_ci = concordance_index(yt_dur, -oof_risk[mask], yt_evt)
+        n_events = int(yt_evt.sum())
     else:
         oof_ci = float('nan')
+        n_events = 0
 
     log.info("="*60)
     log.info(f"M6 生存: per-fold C-index {np.mean(fold_cidx):.3f}±{np.std(fold_cidx):.3f}")
@@ -200,14 +261,38 @@ def main():
     log.info("="*60)
 
     out = {"task":"survival","name":"M6_survival","n_classes":1,
-           "n_samples": int(mask.sum()), "n_events": int(yt_evt.sum()),
+           "n_samples": int(mask.sum()), "n_events": n_events,
            "fold_cindex":[float(c) for c in fold_cidx],
            "fold_mean": float(np.mean(fold_cidx)),"fold_std": float(np.std(fold_cidx)),
            "oof_cindex": float(oof_ci),
-           "config": {"max_patches":args.max_patches,"epochs":args.epochs}}
+           "config": {"max_patches":args.max_patches,"epochs":args.epochs,
+                      "n_folds": args.n_folds, "seed": args.seed,
+                      "hidden": args.hidden, "dropout": args.dropout,
+                      "lr": args.lr, "weight_decay": args.weight_decay,
+                      "min_site_for_val": args.min_site_for_val},
+           "per_fold_checkpoint_dir": "models/per_fold/M6_survival",
+           "epoch_log_dir": "results/training_epoch_logs/M6_survival",
+           "oof_predictions_csv": "results/oof_preds_M6_survival.csv",
+           "fold_registry_csv": "results/fold_registry_M6_survival.csv"}
     with open(RESULTS/"metrics_M6_survival.json","w") as f:
         json.dump(out, f, indent=2, ensure_ascii=False)
-    log.info("保存: metrics_M6_survival.json")
+
+    import csv
+    with open(RESULTS/"oof_preds_M6_survival.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["patient_id", "site", "os_months", "os_event", "risk", "fold"])
+        for i, pid in enumerate(pids):
+            if mask[i]:
+                w.writerow([pid, sites[i], surv[pid]["os_months"], surv[pid]["os_event"],
+                            float(oof_risk[i]), int(oof_fold[i])])
+    with open(RESULTS/"fold_registry_M6_survival.csv", "w", newline="") as f:
+        fieldnames = ["task", "fold", "split", "patient_id", "site", "os_months",
+                      "os_event", "seed", "fold_cindex", "encoder_checkpoint",
+                      "cox_checkpoint", "epoch_log"]
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w.writeheader()
+        w.writerows(fold_registry)
+    log.info("保存: metrics_M6_survival.json, oof_preds_M6_survival.csv, fold_registry_M6_survival.csv")
 
 
 if __name__ == "__main__":

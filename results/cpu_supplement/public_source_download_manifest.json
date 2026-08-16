@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-08-16",
+  "downloaded_public_sources": [
+    {
+      "source": "cBioPortal API / study stad_tcga_pub",
+      "purpose": "TCGA-STAD public clinical labels and covariates",
+      "outputs": [
+        "clinical.csv",
+        "external_downloads/tcga_stad/cbioportal_stad_tcga_pub_clinical_sample_wide.csv",
+        "external_downloads/tcga_stad/cbioportal_stad_tcga_pub_clinical_patient_wide.csv",
+        "external_downloads/tcga_stad/cbioportal_public_clinical_build_audit.json"
+      ],
+      "counts": {
+        "patients": 295,
+        "STAD_EBV": 26,
+        "STAD_MSI": 64,
+        "STAD_GS": 58,
+        "STAD_CIN": 147
+      }
+    },
+    {
+      "source": "GDC API / TCGA-STAD files endpoint",
+      "purpose": "public Slide Image metadata and patient-slide mapping",
+      "outputs": [
+        "external_downloads/tcga_stad/gdc_tcga_stad_slide_files.tsv",
+        "external_downloads/tcga_stad/clinical_with_gdc_slides.csv",
+        "external_downloads/tcga_stad/gdc_tcga_stad_slide_label_map.csv",
+        "external_downloads/tcga_stad/gdc_tcga_stad_slide_label_audit.json"
+      ],
+      "counts": {
+        "slide_rows": 1197,
+        "slide_patients": 443,
+        "primary_tumor_slide_rows": 1074,
+        "diagnostic_slide_rows": 442,
+        "clinical_patients_with_primary_tumor_slide": 295,
+        "clinical_patients_with_diagnostic_slide": 285
+      }
+    },
+    {
+      "source": "HuggingFace API / MahmoodLab/UNI2-h-features",
+      "purpose": "attempt to download TCGA-STAD UNI2-h pretrained features",
+      "outputs": [
+        "external_downloads/hf_uni2h/TCGA/TCGA-STAD.tar.gz",
+        "external_downloads/hf_uni2h/tcga_stad_aria2_runtime.json",
+        "tcga_stad_uni2h/TCGA-STAD/features/",
+        "results/audit_first_stage/tcga_uni2h_feature_manifest.csv",
+        "results/audit_first_stage/tcga_uni2h_feature_manifest_summary.json"
+      ],
+      "status": "completed_verified_after_authorized_token",
+      "target_file": {
+        "path": "TCGA/TCGA-STAD.tar.gz",
+        "size_bytes": 18262777244,
+        "sha256": "c222adf692dc1be5f9ab14fc51b07c873fbf3f3173f0041a3abf52cec6ed1109"
+      },
+      "verified": {
+        "size_ok": true,
+        "sha256_ok": true,
+        "n_h5_files": 400,
+        "n_h5_patients": 375
+      }
+    },
+    {
+      "source": "GDC API / TCGA-STAD data endpoint",
+      "purpose": "download raw SVS for three showcase cases AA69, AA6K, BR-7703",
+      "outputs": [
+        "external_downloads/tcga_stad/showcase_primary_tumor_svs/",
+        "external_downloads/tcga_stad/gdc_showcase_svs_download_audit.csv",
+        "external_downloads/tcga_stad/gdc_showcase_svs_download_audit.json"
+      ],
+      "counts": {
+        "primary_tumor_svs": 7,
+        "size_bytes": 2205315415,
+        "md5_ok": 7,
+        "size_ok": 7
+      },
+      "limitation": "OpenSlide shared library is not available in the current environment, so thumbnails were not generated here."
+    }
+  ],
+  "key_limitation": "These public-source files supplement missing artifacts but do not reconstruct historical fold assignments, historical per-fold weights/logs, WSI QC, attention heatmaps, cluster overlays, or no-leakage Agent reruns.",
+  "download_manifests": {
+    "primary_tumor_all": "external_downloads/tcga_stad/gdc_tcga_stad_primary_tumor_slide_manifest.txt",
+    "diagnostic_primary_tumor_all": "external_downloads/tcga_stad/gdc_tcga_stad_diagnostic_primary_tumor_slide_manifest.txt",
+    "showcase_primary_tumor": "external_downloads/tcga_stad/gdc_tcga_stad_showcase_primary_tumor_manifest.txt"
+  },
+  "updated_after_authorized_hf_download": "2026-08-16"
+}
