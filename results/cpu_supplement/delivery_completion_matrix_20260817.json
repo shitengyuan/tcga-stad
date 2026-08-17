@@ -19,9 +19,9 @@
   },
   {
     "item": "M1-M4逐epoch日志",
-    "status": "script_ready_gpu_rerun_required",
-    "path": "src/train_multitask.py; run_remaining_gpu_tasks.sh",
-    "next_action": "GPU重跑RUN_M1_M4=1生成results/training_epoch_logs/M1-M4"
+    "status": "complete",
+    "path": "results/training_epoch_logs/M1-M4; src/train_multitask.py",
+    "next_action": ""
   },
   {
     "item": "M5临床变量/缺失率/per-fold pipeline",
@@ -37,9 +37,9 @@
   },
   {
     "item": "M6 per-fold survival权重",
-    "status": "script_ready_gpu_rerun_required",
-    "path": "src/train_survival.py; run_remaining_gpu_tasks.sh",
-    "next_action": "GPU重跑RUN_M6=1生成models/per_fold/M6_survival"
+    "status": "complete",
+    "path": "models/per_fold/M6_survival; results/training_epoch_logs/M6_survival",
+    "next_action": ""
   },
   {
     "item": "UNI2-h配置/权重hash",
@@ -86,7 +86,7 @@
   {
     "item": "最新轻量交付包",
     "status": "complete",
-    "path": "results/delivery_package/tcga_stad_delivery_lightweight_20260817_005445.tar.gz",
+    "path": "results/delivery_package/tcga_stad_delivery_lightweight_20260817_200008.tar.gz",
     "next_action": ""
   },
   {

@@ -43,5 +43,6 @@
     "weight_decay": 1e-05,
     "min_site_for_val": 8
   },
-  "per_fold_checkpoint_dir": "models/per_fold/M4_subtype4"
+  "per_fold_checkpoint_dir": "models/per_fold/M4_subtype4",
+  "epoch_log_dir": "results/training_epoch_logs/M4_subtype4"
 }

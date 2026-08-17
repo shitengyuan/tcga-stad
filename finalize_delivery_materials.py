@@ -139,12 +139,27 @@ def model_registry() -> dict[str, Any]:
             files = sorted((ROOT / "models" / "per_fold" / name).glob("*"))
             entry["per_fold_artifacts"] = [{"path": str(p.relative_to(ROOT)), "sha256": sha256(p)} for p in files if p.is_file()]
         registry["models"].append(entry)
-    registry["remaining_model_gaps"] = [
-        "M6 per-fold survival artifacts are only complete after rerunning patched src/train_survival.py.",
-        "M1-M4 per-epoch CSV logs are only complete after rerunning patched src/train_multitask.py.",
+    remaining_gaps = []
+    expected_epoch_counts = {
+        "M1_immune_sensitive": 10,
+        "M2_msi": 10,
+        "M3_ebv": 10,
+        "M4_subtype4": 10,
+    }
+    for name, expected in expected_epoch_counts.items():
+        got = len(list((RESULTS / "training_epoch_logs" / name).glob("*_epochs.csv")))
+        if got < expected:
+            remaining_gaps.append(f"{name} per-epoch CSV logs incomplete: {got}/{expected}.")
+    m6_artifacts = list((ROOT / "models" / "per_fold" / "M6_survival").glob("*"))
+    m6_pt = len([p for p in m6_artifacts if p.suffix == ".pt"])
+    m6_joblib = len([p for p in m6_artifacts if p.suffix == ".joblib"])
+    if m6_pt < 5 or m6_joblib < 5:
+        remaining_gaps.append(f"M6 per-fold survival artifacts incomplete: pt={m6_pt}/5 joblib={m6_joblib}/5.")
+    remaining_gaps.extend([
         "No hyperparameter-search record is present.",
         "No multi-seed formal experiment registry is present.",
-    ]
+    ])
+    registry["remaining_model_gaps"] = remaining_gaps
     write_json(CPU / "model_registry_current.json", registry)
     return registry
 
@@ -271,7 +286,13 @@ def package_latest_lightweight() -> dict[str, Any]:
         "results/cpu_supplement",
         "results/figures",
         "results/visual_evidence_package",
+        "results/training_epoch_logs",
         "results/external_cptac_feature_infer_20x256_4gpu",
+        "models/M1_immune_sensitive.pt",
+        "models/M2_msi.pt",
+        "models/M3_ebv.pt",
+        "models/M4_subtype4.pt",
+        "models/per_fold",
         "results/logs",
         "results/metrics_M1_immune_sensitive.json",
         "results/metrics_M2_msi.json",
@@ -319,6 +340,28 @@ def package_latest_lightweight() -> dict[str, Any]:
 
 
 def completion_matrix(registry: dict[str, Any], uni_cfg: dict[str, Any], brier: dict[str, Any], package: dict[str, Any]) -> list[dict[str, Any]]:
+    expected_epoch_counts = {
+        "M1_immune_sensitive": 10,
+        "M2_msi": 10,
+        "M3_ebv": 10,
+        "M4_subtype4": 10,
+    }
+    epoch_counts = {
+        name: len(list((RESULTS / "training_epoch_logs" / name).glob("*_epochs.csv")))
+        for name in expected_epoch_counts
+    }
+    m1_m4_epoch_complete = all(epoch_counts[name] >= expected for name, expected in expected_epoch_counts.items())
+    m1_m4_epoch_status = "complete" if m1_m4_epoch_complete else "script_ready_gpu_rerun_required"
+    m1_m4_epoch_next = "" if m1_m4_epoch_complete else f"GPU重跑RUN_M1_M4=1；当前epoch日志={epoch_counts}"
+
+    m6_dir = ROOT / "models" / "per_fold" / "M6_survival"
+    m6_pt = len(list(m6_dir.glob("M6_survival_fold*.pt")))
+    m6_joblib = len(list(m6_dir.glob("M6_survival_fold*_pca_cox.joblib")))
+    m6_epoch = len(list((RESULTS / "training_epoch_logs" / "M6_survival").glob("*_epochs.csv")))
+    m6_complete = m6_pt >= 5 and m6_joblib >= 5 and m6_epoch >= 5
+    m6_status = "complete" if m6_complete else "script_ready_gpu_rerun_required"
+    m6_next = "" if m6_complete else f"GPU重跑RUN_M6=1；当前pt={m6_pt}/5 joblib={m6_joblib}/5 epoch_log={m6_epoch}/5"
+
     visual_summary = RESULTS / "visual_evidence_package" / "visual_evidence_summary.json"
     visual_status = "partial"
     visual_next = "已生成coordinate-level thumbnail/attention/cluster证据；病理命名和rendered patch验证仍需人工确认"
@@ -339,10 +382,10 @@ def completion_matrix(registry: dict[str, Any], uni_cfg: dict[str, Any], brier: 
         {"item": "公开246例patient-slide-label-feature清单", "status": "complete", "path": "results/audit_first_stage/tcga_public_feature_matched_246_cohort_after_gpu_run.csv", "next_action": ""},
         {"item": "历史289例OOF队列原始slide_id/POLE", "status": "partial", "path": "results/audit_first_stage/final_289_patient_cohort.csv", "next_action": "需要历史训练用clinical或用公开246例替代说明"},
         {"item": "M1-M4 OOF/metrics/fold registry/per-fold权重", "status": "complete", "path": "results/oof_preds_M*_*.csv; results/fold_registry_M*.csv; models/per_fold/M1-M4", "next_action": ""},
-        {"item": "M1-M4逐epoch日志", "status": "script_ready_gpu_rerun_required", "path": "src/train_multitask.py; run_remaining_gpu_tasks.sh", "next_action": "GPU重跑RUN_M1_M4=1生成results/training_epoch_logs/M1-M4"},
+        {"item": "M1-M4逐epoch日志", "status": m1_m4_epoch_status, "path": "results/training_epoch_logs/M1-M4; src/train_multitask.py", "next_action": m1_m4_epoch_next},
         {"item": "M5临床变量/缺失率/per-fold pipeline", "status": "complete", "path": "results/M5_clinical_feature_missingness.csv; models/per_fold/M5_clinical", "next_action": ""},
         {"item": "M6 OOF/fold registry", "status": "complete", "path": "results/oof_preds_M6_survival.csv; results/fold_registry_M6_survival.csv", "next_action": ""},
-        {"item": "M6 per-fold survival权重", "status": "script_ready_gpu_rerun_required", "path": "src/train_survival.py; run_remaining_gpu_tasks.sh", "next_action": "GPU重跑RUN_M6=1生成models/per_fold/M6_survival"},
+        {"item": "M6 per-fold survival权重", "status": m6_status, "path": "models/per_fold/M6_survival; results/training_epoch_logs/M6_survival", "next_action": m6_next},
         {"item": "UNI2-h配置/权重hash", "status": "complete", "path": "results/audit_first_stage/uni2h_feature_extraction_config_current.json", "next_action": ""},
         {"item": "Brier score", "status": "complete", "path": "results/cpu_supplement/brier_scores.csv", "next_action": ""},
         {"item": "CPTAC推理/评估/图表", "status": "complete", "path": "results/external_cptac_feature_infer_20x256_4gpu", "next_action": "注意可评估QC标签42例，完整推理167例/666 slides"},

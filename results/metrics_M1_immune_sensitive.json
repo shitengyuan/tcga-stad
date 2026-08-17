@@ -41,5 +41,6 @@
     "weight_decay": 1e-05,
     "min_site_for_val": 8
   },
-  "per_fold_checkpoint_dir": "models/per_fold/M1_immune_sensitive"
+  "per_fold_checkpoint_dir": "models/per_fold/M1_immune_sensitive",
+  "epoch_log_dir": "results/training_epoch_logs/M1_immune_sensitive"
 }

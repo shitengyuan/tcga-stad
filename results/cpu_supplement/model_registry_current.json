@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-17T00:52:54",
-  "git_commit": "d9fd184fc1c0e586da5840feb899454262879555",
-  "git_status_short": "M .gitignore\n M models/M1_immune_sensitive.pt\n M models/M2_msi.pt\n M models/M3_ebv.pt\n M models/M4_subtype4.pt\n M results/cpu_supplement/model_registry_current.json\n M results/metrics_M1_immune_sensitive.json\n M results/metrics_M2_msi.json\n M results/metrics_M3_ebv.json\n M results/metrics_M4_subtype4.json\n M results/metrics_M5_clinical.json\n M results/metrics_M6_survival.json\n M results/oof_preds_M1_immune_sensitive.csv\n M results/oof_preds_M2_msi.csv\n M results/oof_preds_M3_ebv.csv\n M results/oof_preds_M4_subtype4.csv\n M results/oof_preds_M5_clinical.csv\n M run_cptac_feature_inference_4gpu.sh\n M src/feature_loader.py\n M src/train_clinical.py\n M src/train_multitask.py\n M src/train_survival.py\n?? attach_gdc_slide_metadata.py\n?? audit_tcga_feature_h5.py\n?? build_clinical_from_cbioportal.py\n?? finalize_delivery_materials.py\n?? generate_cluster_numeric_evidence.py\n?? generate_missing_materials_followup.py\n?? generate_visual_evidence_package.py\n?? models/per_fold/\n?? \"reports/\\344\\270\\215\\345\\217\\257\\344\\272\\244\\344\\273\\230\\346\\235\\220\\346\\226\\231\\344\\273\\273\\345\\212\\241\\346\\270\\205\\345\\215\\225\\344\\270\\216\\346\\211\\247\\350\\241\\214\\350\\277\\233\\345\\261\\225.md\"\n?? \"reports/\\344\\272\\244\\344\\273\\230\\346\\235\\220\\346\\226\\231\\346\\234\\200\\347\\273\\210\\346\\240\\270\\345\\257\\271\\344\\270\\216\\350\\241\\245\\351\\275\\220\\350\\277\\233\\345\\261\\225_20260817.md\"\n?? \"reports/\\346\\235\\220\\346\\226\\231\\351\\234\\200\\346\\261\\202\\351\\200\\220\\351\\241\\271\\345\\257\\271\\347\\205\\247\\344\\272\\244\\344\\273\\230\\350\\257\\264\\346\\230\\216.md\"\n?? \"reports/\\346\\235\\220\\346\\226\\231\\351\\275\\220\\345\\244\\207\\346\\200\\247\\346\\240\\270\\345\\257\\271_20260816.md\"\n?? results/M5_clinical_feature_missingness.csv\n?? results/audit_first_stage/tcga_case_flow_from_cbioportal_clinical.json\n?? results/audit_first_stage/tcga_case_flow_from_cbioportal_clinical_with_gdc_slides.json\n?? results/audit_first_stage/tcga_case_flow_from_cbioportal_clinical_with_gdc_slides_and_features.json\n?? results/audit_first_stage/tcga_case_flow_from_cbioportal_clinical_with_gdc_slides_and_features_after_gpu_run.json\n?? results/audit_first_stage/tcga_label_table_from_cbioportal_clinical.csv\n?? results/audit_first_stage/tcga_label_table_from_cbioportal_clinical_with_gdc_slides.csv\n?? results/audit_first_stage/tcga_label_table_from_cbioportal_clinical_with_gdc_slides_and_features.csv\n?? results/audit_first_stage/tcga_label_table_from_cbioportal_clinical_with_gdc_slides_and_features_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_M5_clinical_feature_missingness.csv\n?? results/audit_first_stage/tcga_public_M5_clinical_preprocessing_summary.json\n?? results/audit_first_stage/tcga_public_feature_matched_246_cohort.csv\n?? results/audit_first_stage/tcga_public_feature_matched_246_cohort_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_feature_matched_audit_summary.json\n?? results/audit_first_stage/tcga_public_feature_matched_audit_summary_after_gpu_run.json\n?? results/audit_first_stage/tcga_public_feature_matched_cv_fold_summary.csv\n?? results/audit_first_stage/tcga_public_feature_matched_cv_fold_summary_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_feature_matched_cv_folds.csv\n?? results/audit_first_stage/tcga_public_feature_matched_cv_folds_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_feature_qc_by_site.csv\n?? results/audit_first_stage/tcga_public_feature_qc_by_subtype.csv\n?? results/audit_first_stage/tcga_public_label_patients_missing_uni2h_features.csv\n?? results/audit_first_stage/tcga_public_label_patients_missing_uni2h_features_after_gpu_run.csv\n?? results/audit_first_stage/tcga_public_raw_clinical_missingness.csv\n?? results/audit_first_stage/tcga_uni2h_feature_manifest.csv\n?? results/audit_first_stage/tcga_uni2h_feature_manifest_after_gpu_run.csv\n?? results/audit_first_stage/tcga_uni2h_feature_manifest_after_gpu_run_summary.json\n?? results/audit_first_stage/tcga_uni2h_feature_manifest_summary.json\n?? results/audit_first_stage/uni2h_feature_extraction_config_current.json\n?? results/cpu_supplement/agent_no_leakage_outputs/\n?? results/cpu_supplement/brier_scores.csv\n?? results/cpu_supplement/brier_scores.json\n?? results/cpu_supplement/delivery_completion_matrix_20260817.csv\n?? results/cpu_supplement/delivery_completion_matrix_20260817.json\n?? results/cpu_supplement/high_sensitivity_thresholds_oof.csv\n?? results/cpu_supplement/high_sensitivity_thresholds_oof.json\n?? results/cpu_supplement/missing_materials_followup_manifest.json\n?? results/cpu_supplement/missing_materials_task_list.csv\n?? results/cpu_supplement/missing_materials_task_list.json\n?? results/cpu_supplement/public_source_download_manifest.json\n?? results/cpu_supplement/representative_case_candidate_package_20.csv\n?? results/cpu_supplement/representative_case_candidate_package_20_summary.json\n?? results/cpu_supplement/showcase_cases_evidence_with_h5_svs.csv\n?? results/cpu_supplement/showcase_cases_evidence_with_h5_svs.json\n?? results/cpu_supplement/showcase_cases_existing_evidence.csv\n?? results/cpu_supplement/showcase_cases_existing_evidence.json\n?? results/cpu_supplement/showcase_svs_tiffinfo_head.txt\n?? results/cpu_supplement/unsupervised_cluster_numeric_evidence/\n?? results/delivery_package/\n?? results/fold_registry_M1_immune_sensitive.csv\n?? results/fold_registry_M2_msi.csv\n?? results/fold_registry_M3_ebv.csv\n?? results/fold_registry_M4_subtype4.csv\n?? results/fold_registry_M5_clinical.csv\n?? results/fold_registry_M6_survival.csv\n?? results/gpu_deliverables/package/gpu_deliverables_20260815_040518.tar.gz\n?? results/logs/\n?? results/oof_preds_M6_survival.csv\n?? results/visual_evidence_package/\n?? run_agent_no_leakage.py\n?? run_all_gpu_tasks.sh\n?? run_internal_public_retrain.sh\n?? run_remaining_gpu_tasks.sh",
+  "generated_at": "2026-08-17T19:57:44",
+  "git_commit": "83f0b43231bc20bd5877f0d6b6e538d840c4b523",
+  "git_status_short": "M .gitignore\n M finalize_delivery_materials.py\n M \"reports/\\344\\272\\244\\344\\273\\230\\346\\235\\220\\346\\226\\231\\346\\234\\200\\347\\273\\210\\346\\240\\270\\345\\257\\271\\344\\270\\216\\350\\241\\245\\351\\275\\220\\350\\277\\233\\345\\261\\225_20260817.md\"\n M results/audit_first_stage/uni2h_feature_extraction_config_current.json\n M results/cpu_supplement/brier_scores.json\n M results/cpu_supplement/delivery_completion_matrix_20260817.csv\n M results/cpu_supplement/delivery_completion_matrix_20260817.json\n M results/cpu_supplement/model_registry_current.json\n M results/delivery_package/delivery_filelist_20260817.txt\n M results/delivery_package/latest_lightweight_delivery_package.json\n M results/fold_registry_M1_immune_sensitive.csv\n M results/fold_registry_M2_msi.csv\n M results/fold_registry_M3_ebv.csv\n M results/fold_registry_M4_subtype4.csv\n M results/fold_registry_M6_survival.csv\n M results/metrics_M1_immune_sensitive.json\n M results/metrics_M2_msi.json\n M results/metrics_M3_ebv.json\n M results/metrics_M4_subtype4.json\n M results/metrics_M6_survival.json\n M results/visual_evidence_package/TCGA-BR-6452/TCGA-BR-6452_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-BR-7707/TCGA-BR-7707_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-BR-8286/TCGA-BR-8286_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-BR-8366/TCGA-BR-8366_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-BR-8382/TCGA-BR-8382_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-BR-8588/TCGA-BR-8588_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-BR-A4J4/TCGA-BR-A4J4_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-CD-8536/TCGA-CD-8536_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-D7-5577/TCGA-D7-5577_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-D7-A4YV/TCGA-D7-A4YV_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-HU-A4G6/TCGA-HU-A4G6_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-RD-A8N4/TCGA-RD-A8N4_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-VQ-A8E0/TCGA-VQ-A8E0_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-VQ-A91A/TCGA-VQ-A91A_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-VQ-A91S/TCGA-VQ-A91S_M1_attention_coords.png\n M results/visual_evidence_package/TCGA-VQ-AA69/TCGA-VQ-AA69_M1_attention_coords.png\n M results/visual_evidence_package/visual_evidence_manifest.csv\n M results/visual_evidence_package/visual_evidence_summary.json\n?? models/per_fold/M6_survival/\n?? results/training_epoch_logs/",
   "is_clean_git_version": false,
   "latest_gpu_log_dir": "results/logs/all_gpu_tasks_20260816_223904",
   "models": [
@@ -510,12 +510,51 @@
         5
       ],
       "repeats": [],
-      "per_fold_artifacts": []
+      "per_fold_artifacts": [
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold1.pt",
+          "sha256": "185dfa9e1b0f6405f5fe57904ec714846215d4589462ed7f8b2eb4ada1cc634f"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold1_pca_cox.joblib",
+          "sha256": "098511bf44807f596b20d70b4331271a0bbffd642b9c9b97c47a222ad0c7f17b"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold2.pt",
+          "sha256": "1d660587cb2217f4cc0d6615d43a5641f0fda4ac8e92c392412c8620a16c8ea5"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold2_pca_cox.joblib",
+          "sha256": "4657c3763842c76b14ff7e0e246b6b0b43d406acec0275d8efc00695f7ba251d"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold3.pt",
+          "sha256": "8871cf481aafd3490b69a44e62b59501b1679eaea93b7fda36223ab34c2f1fbe"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold3_pca_cox.joblib",
+          "sha256": "18c133c794fa22abfea7deddc639df61ca80c94d73d895c3d242e3eb177cb7a9"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold4.pt",
+          "sha256": "7d801840e57160b1091c1b09623db6f53e5ef203ff00146555d60452b5cf0836"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold4_pca_cox.joblib",
+          "sha256": "847a36144a3523d606b72af1ab82c28c19cfc21fcfbc6ae04f6cc54b4d645161"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold5.pt",
+          "sha256": "397ea9b9d609187d5970531070d705fef5c3fdc601f8fc4ad9416466c1ae17ed"
+        },
+        {
+          "path": "models/per_fold/M6_survival/M6_survival_fold5_pca_cox.joblib",
+          "sha256": "05c5899a1d8ad2a86b650134ceb3113cf78265ab79bb36dbd93fac7667be123d"
+        }
+      ]
     }
   ],
   "remaining_model_gaps": [
-    "M6 per-fold survival artifacts are only complete after rerunning patched src/train_survival.py.",
-    "M1-M4 per-epoch CSV logs are only complete after rerunning patched src/train_multitask.py.",
     "No hyperparameter-search record is present.",
     "No multi-seed formal experiment registry is present."
   ]

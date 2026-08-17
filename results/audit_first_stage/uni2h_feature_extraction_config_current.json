@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T00:52:54",
+  "generated_at": "2026-08-17T19:57:47",
   "encoder": "UNI2-h",
   "weights_path": "/gpfsdata/home/shitengyuan/shitengyuan_lustre/medical/uni2-h-weights/pytorch_model.bin",
   "weights_sha256": "6e077eda234bebc595868d918d3458d9dd32a050199b0ff04443b2f46a0a3b1e",

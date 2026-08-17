@@ -43,3 +43,6 @@ Thumbs.db
 # —— 临时日志/缓存 ——
 *.log
 *_cache.json
+results/logs/
+results/gpu_deliverables/package/*.tar.gz
+results/delivery_package/*.tar.gz
