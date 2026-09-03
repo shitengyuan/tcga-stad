@@ -1,0 +1,13 @@
+{
+  "backend": "deepseek_no_leakage",
+  "model": "deepseek-v4-flash",
+  "temperature": 0.2,
+  "input_csv": "results/cpu_supplement/agent_no_leakage_inputs_289.csv",
+  "n_patients": 1,
+  "rule_repeats": 1,
+  "rule_stable_across_repeats": true,
+  "n_llm_fallback_to_rules": 0,
+  "output_jsonl": "results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_deepseek.jsonl",
+  "output_csv": "results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_deepseek.csv",
+  "important_note": "DeepSeek report generation used no-label-leakage inputs; final_pred is guardrailed to M1."
+}

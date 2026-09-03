@@ -1,0 +1,284 @@
+{
+  "generated_at": "2026-09-02T18:08:12",
+  "cohort": "TCGA",
+  "analysis_set": "same 231 center-isolated OOF patients and same folds as M1",
+  "clinical_variables": [
+    "age",
+    "ln_examined",
+    "lauren",
+    "sex",
+    "stage",
+    "primary_site"
+  ],
+  "clinical_preprocessing": "numeric median imputation + standardization; categorical most-frequent imputation + one-hot; all fitted inside train fold",
+  "model": "penalized LogisticRegression(class_weight='balanced', C=0.5)",
+  "late_fusion_note": "The fusion model is a fold-wise late-fusion/stacking comparator using cross-fitted M1 OOF probability plus clinical variables. It is not an end-to-end image-feature plus clinical network.",
+  "models": {
+    "Clinical_only_matched_231": {
+      "point": {
+        "n": 231,
+        "n_pos": 62,
+        "n_neg": 169,
+        "prevalence": 0.2683982683982684,
+        "threshold": 0.5,
+        "tn": 93,
+        "fp": 76,
+        "fn": 17,
+        "tp": 45,
+        "accuracy": 0.5974025974025974,
+        "sensitivity": 0.7258064516129032,
+        "specificity": 0.5502958579881657,
+        "ppv": 0.371900826446281,
+        "npv": 0.8454545454545455,
+        "f1": 0.4918032786885245,
+        "brier": 0.23595744232140986,
+        "auroc": 0.6189158236304638,
+        "average_precision": 0.33454943114885854,
+        "calibration_intercept": -0.9868074698151102,
+        "calibration_slope": 0.9029336085321956
+      },
+      "bootstrap_95ci": {
+        "n_boot_requested": 2000,
+        "n_boot_valid": 2000,
+        "auroc": [
+          0.5423084451665929,
+          0.6940815083538573
+        ],
+        "average_precision": [
+          0.2598781545745912,
+          0.4445653429209146
+        ],
+        "accuracy": [
+          0.5367965367965368,
+          0.658008658008658
+        ],
+        "sensitivity": [
+          0.609375,
+          0.8281665558510636
+        ],
+        "specificity": [
+          0.47646358543417366,
+          0.625
+        ],
+        "ppv": [
+          0.29103361398137517,
+          0.4565260184868195
+        ],
+        "npv": [
+          0.7741935483870968,
+          0.909837911682174
+        ],
+        "f1": [
+          0.40449131208939637,
+          0.5743902439024389
+        ],
+        "brier": [
+          0.22111824252193554,
+          0.25108323302072466
+        ],
+        "calibration_intercept": [
+          -1.3200394600215497,
+          -0.7045260365553278
+        ],
+        "calibration_slope": [
+          0.33330630465399586,
+          1.5862086290452264
+        ]
+      }
+    },
+    "Image_only_M1_matched_231": {
+      "point": {
+        "n": 231,
+        "n_pos": 62,
+        "n_neg": 169,
+        "prevalence": 0.2683982683982684,
+        "threshold": 0.5,
+        "tn": 159,
+        "fp": 10,
+        "fn": 20,
+        "tp": 42,
+        "accuracy": 0.8701298701298701,
+        "sensitivity": 0.6774193548387096,
+        "specificity": 0.9408284023668639,
+        "ppv": 0.8076923076923077,
+        "npv": 0.888268156424581,
+        "f1": 0.7368421052631579,
+        "brier": 0.11167328419913419,
+        "auroc": 0.9049436915441879,
+        "average_precision": 0.8394708231037881,
+        "calibration_intercept": -0.006310989443917946,
+        "calibration_slope": 0.2634696823819284
+      },
+      "bootstrap_95ci": {
+        "n_boot_requested": 2000,
+        "n_boot_valid": 2000,
+        "auroc": [
+          0.851123676009946,
+          0.9507480151013823
+        ],
+        "average_precision": [
+          0.7575031547595152,
+          0.9086022589625943
+        ],
+        "accuracy": [
+          0.8268398268398268,
+          0.9134199134199135
+        ],
+        "sensitivity": [
+          0.559322033898305,
+          0.7931171319102354
+        ],
+        "specificity": [
+          0.9041856964038026,
+          0.9753124289934105
+        ],
+        "ppv": [
+          0.6981132075471698,
+          0.9130622188905546
+        ],
+        "npv": [
+          0.8411764705882353,
+          0.9322129118263187
+        ],
+        "f1": [
+          0.6386554621848739,
+          0.8208955223880597
+        ],
+        "brier": [
+          0.07514010625216451,
+          0.14828623298593072
+        ],
+        "calibration_intercept": [
+          -0.4465410935466379,
+          0.5176276161603407
+        ],
+        "calibration_slope": [
+          0.2103268822725459,
+          0.3520763346432333
+        ]
+      }
+    },
+    "Image_plus_clinical_late_fusion_matched_231": {
+      "point": {
+        "n": 231,
+        "n_pos": 62,
+        "n_neg": 169,
+        "prevalence": 0.2683982683982684,
+        "threshold": 0.5,
+        "tn": 155,
+        "fp": 14,
+        "fn": 17,
+        "tp": 45,
+        "accuracy": 0.8658008658008658,
+        "sensitivity": 0.7258064516129032,
+        "specificity": 0.9171597633136095,
+        "ppv": 0.7627118644067796,
+        "npv": 0.9011627906976745,
+        "f1": 0.743801652892562,
+        "brier": 0.12764401195225913,
+        "auroc": 0.835273907234205,
+        "average_precision": 0.7090933344043843,
+        "calibration_intercept": -0.9226183594777049,
+        "calibration_slope": 0.8741191619155488
+      },
+      "bootstrap_95ci": {
+        "n_boot_requested": 2000,
+        "n_boot_valid": 2000,
+        "auroc": [
+          0.7656681866735765,
+          0.8950030957799906
+        ],
+        "average_precision": [
+          0.5857625124560838,
+          0.8197937651565982
+        ],
+        "accuracy": [
+          0.8181818181818182,
+          0.9090909090909091
+        ],
+        "sensitivity": [
+          0.6065573770491803,
+          0.8333333333333334
+        ],
+        "specificity": [
+          0.872093023255814,
+          0.9567901234567902
+        ],
+        "ppv": [
+          0.651497113997114,
+          0.8703703703703703
+        ],
+        "npv": [
+          0.8554703253125421,
+          0.9441340782122905
+        ],
+        "f1": [
+          0.65,
+          0.823529411764706
+        ],
+        "brier": [
+          0.10017910791292771,
+          0.15646934134174742
+        ],
+        "calibration_intercept": [
+          -1.3338523332278234,
+          -0.5464198173097152
+        ],
+        "calibration_slope": [
+          0.6794594429388586,
+          1.1522008139669304
+        ]
+      }
+    }
+  },
+  "paired_bootstrap_deltas": {
+    "Image_only_M1_minus_Clinical_only": {
+      "point": {
+        "delta_auroc": 0.28602786791372403,
+        "delta_average_precision": 0.5049213919549296
+      },
+      "bootstrap_95ci": {
+        "delta_auroc": [
+          0.20565590528487548,
+          0.3646730740541831
+        ],
+        "delta_average_precision": [
+          0.38851100071678824,
+          0.5921906914217713
+        ]
+      }
+    },
+    "Image_plus_clinical_late_fusion_minus_Image_only_M1": {
+      "point": {
+        "delta_auroc": -0.06966978430998283,
+        "delta_average_precision": -0.1303774886994038
+      },
+      "bootstrap_95ci": {
+        "delta_auroc": [
+          -0.11367828095425501,
+          -0.02554707213585951
+        ],
+        "delta_average_precision": [
+          -0.20553761916067334,
+          -0.05898948774829524
+        ]
+      }
+    },
+    "Image_plus_clinical_late_fusion_minus_Clinical_only": {
+      "point": {
+        "delta_auroc": 0.2163580836037412,
+        "delta_average_precision": 0.3745439032555257
+      },
+      "bootstrap_95ci": {
+        "delta_auroc": [
+          0.14003247148373113,
+          0.2945510550234522
+        ],
+        "delta_average_precision": [
+          0.2535923878006725,
+          0.47822710861667245
+        ]
+      }
+    }
+  }
+}

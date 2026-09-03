@@ -1,0 +1,92 @@
+[
+  {
+    "item": "冻结TCGA 246 patient_manifest.csv",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/patient_manifest.csv"
+  },
+  {
+    "item": "冻结fold_assignment.csv",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/fold_assignment.csv"
+  },
+  {
+    "item": "冻结TCGA 231 locked_predictions_tcga.csv",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/locked_predictions_tcga.csv"
+  },
+  {
+    "item": "冻结CPTAC 156 locked_predictions_cptac.csv",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/locked_predictions_cptac.csv"
+  },
+  {
+    "item": "CPTAC模型来源与固定阈值策略",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/inference_model_policy.json"
+  },
+  {
+    "item": "权重/代码SHA256清单",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/model_and_code_hash_manifest.csv"
+  },
+  {
+    "item": "训练配置摘要",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/training_config_summary.json"
+  },
+  {
+    "item": "TCGA 231 AUROC/AP/阈值指标/校准CI",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/tcga_231_metrics_with_ci.json"
+  },
+  {
+    "item": "CPTAC 156 阈值指标CI补充",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/cptac_156_metrics_with_ci.json"
+  },
+  {
+    "item": "ROC/PR/校准曲线",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/roc_pr_curves_tcga231_cptac156.png"
+  },
+  {
+    "item": "临床容量情景 20/30/40%",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/triage_capacity_tcga.csv; results/locked_release_20260902/triage_capacity_cptac.csv"
+  },
+  {
+    "item": "错误病例/低置信病理审阅模板",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/pathologist_annotation_template.csv"
+  },
+  {
+    "item": "Matched Clinical-only 231",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/matched_clinical_oof_predictions_231.csv"
+  },
+  {
+    "item": "Image+clinical融合模型",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/gpu_missing/fusion_M1_immune_sensitive/metrics_fusion_M1_immune_sensitive.json"
+  },
+  {
+    "item": "mean/max pooling最小基线",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/baselines/baseline_metrics.json"
+  },
+  {
+    "item": "CONCH第二编码器+ABMIL",
+    "status": "未完成",
+    "deliverable_or_reason": "已实现 run_conch_abmil_4gpu.sh；需下载TCGA原片并抽CONCH特征后训练"
+  },
+  {
+    "item": "Transformer aggregator",
+    "status": "完成",
+    "deliverable_or_reason": "results/locked_release_20260902/gpu_missing/transformer_*/metrics_transformer_*.json"
+  },
+  {
+    "item": "病理医生盲评/IHC验证",
+    "status": "不可由脚本完成",
+    "deliverable_or_reason": "需要病理同学在pathologist_annotation_template.csv上人工标注"
+  }
+]

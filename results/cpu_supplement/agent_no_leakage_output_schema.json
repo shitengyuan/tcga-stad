@@ -7,6 +7,8 @@
     "trusted_models",
     "conflicts",
     "ihc_suggest",
+    "screening_positioning",
+    "safety_flags",
     "report"
   ],
   "properties": {
@@ -46,9 +48,33 @@
         "none"
       ]
     },
+    "screening_positioning": {
+      "type": "string",
+      "description": "Must state molecular-test pre-screening only; not diagnosis or treatment decision."
+    },
+    "safety_flags": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "no_label_leakage",
+          "m1_fixed",
+          "no_unverified_morphology"
+        ]
+      },
+      "description": "Required guardrails: no true labels loaded, final_pred fixed to M1, no morphology claims without rendered pathology evidence."
+    },
     "report": {
       "type": "string",
-      "description": "No morphology claims unless real visual evidence is supplied."
+      "description": "Chinese text. No morphology claims unless real rendered patch evidence and pathologist validation are supplied."
+    },
+    "backend": {
+      "type": "string"
+    },
+    "deepseek_model": {
+      "type": "string"
+    },
+    "guardrails": {
+      "type": "object"
     }
   }
 }

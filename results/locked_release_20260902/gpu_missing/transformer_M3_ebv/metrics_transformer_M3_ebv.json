@@ -1,0 +1,42 @@
+{
+  "n": 231,
+  "n_pos": 23,
+  "auroc": 0.8718645484949832,
+  "average_precision": 0.6326088990281954,
+  "accuracy": 0.9264069264069265,
+  "f1": 0.45161290322580644,
+  "generated_at": "2026-09-02T18:27:30",
+  "model_kind": "transformer",
+  "task": "ebv",
+  "task_name": "M3_ebv",
+  "analysis_set": "TCGA 246 train / 231 center-isolated OOF using existing fold registries",
+  "fold_scores": [
+    0.8818027210884354,
+    1.0,
+    0.9431818181818181,
+    0.8693693693693694,
+    -1.0,
+    1.0,
+    -1.0,
+    0.8571428571428572,
+    0.944,
+    0.858843537414966
+  ],
+  "fold_mean": 0.5354340303197447,
+  "fold_std": 0.7693839855710181,
+  "config": {
+    "model_kind": "transformer",
+    "task": "ebv",
+    "device": "cuda",
+    "max_patches": 2048,
+    "hidden": 256,
+    "dropout": 0.25,
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "epochs": 30,
+    "n_repeats": 2,
+    "seed": 42,
+    "n_heads": 4,
+    "n_layers": 2
+  }
+}

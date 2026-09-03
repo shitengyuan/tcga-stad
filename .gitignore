@@ -11,6 +11,7 @@ data/
 dataset/
 tcga_stad_uni2h/
 external_downloads/
+external_models/
 *.h5
 *.svs
 *.tif
@@ -44,5 +45,11 @@ Thumbs.db
 *.log
 *_cache.json
 results/logs/
+results/visual_evidence_package_all_feature_slides_all_patches/
+results/visual_evidence_package_all_patches/
+results/visual_evidence_review/
+results/locked_release_20260902/baselines/*features_246.csv
+results/locked_release_20260902/gpu_missing/*/checkpoints/
+results/locked_release_20260902/second_encoder/*/checkpoints/
 results/gpu_deliverables/package/*.tar.gz
 results/delivery_package/*.tar.gz

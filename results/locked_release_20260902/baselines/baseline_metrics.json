@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-09-02T18:09:12",
+  "analysis_set": "TCGA 246 train / 231 center-isolated OOF, same fold registries as M1-M4",
+  "feature_source": "/share/home/shitengyuan_lustre/medical/tcga-stad/tcga_stad_uni2h/TCGA-STAD/features",
+  "model": "SimpleImputer + StandardScaler + penalized LogisticRegression(class_weight='balanced', C=0.5)",
+  "baselines": {
+    "uni2h_mean_pooling": {
+      "M1_immune_sensitive": {
+        "n": 231,
+        "n_pos": 62,
+        "auroc": 0.8855697652223706,
+        "average_precision": 0.7854967581197742,
+        "accuracy": 0.8528138528138528,
+        "f1": 0.6851851851851852
+      },
+      "M2_msi": {
+        "n": 231,
+        "n_pos": 39,
+        "auroc": 0.8839476495726496,
+        "average_precision": 0.6233707797439519,
+        "accuracy": 0.8528138528138528,
+        "f1": 0.5641025641025641
+      },
+      "M3_ebv": {
+        "n": 231,
+        "n_pos": 23,
+        "auroc": 0.8530518394648829,
+        "average_precision": 0.5724085516563486,
+        "accuracy": 0.9177489177489178,
+        "f1": 0.3870967741935484
+      },
+      "M4_subtype4": {
+        "n": 231,
+        "class_order": [
+          "EBV",
+          "MSI",
+          "GS",
+          "CIN"
+        ],
+        "class_counts": {
+          "EBV": 23,
+          "MSI": 39,
+          "GS": 50,
+          "CIN": 119
+        },
+        "macro_ovr_auroc": 0.8294770503508351,
+        "macro_average_precision": 0.6097349451639937,
+        "accuracy": 0.6017316017316018,
+        "macro_f1": 0.46631206049309504
+      }
+    },
+    "uni2h_max_pooling": {
+      "M1_immune_sensitive": {
+        "n": 231,
+        "n_pos": 62,
+        "auroc": 0.7964306165298721,
+        "average_precision": 0.644774292248979,
+        "accuracy": 0.7965367965367965,
+        "f1": 0.45977011494252873
+      },
+      "M2_msi": {
+        "n": 231,
+        "n_pos": 39,
+        "auroc": 0.8210470085470085,
+        "average_precision": 0.5042490391663411,
+        "accuracy": 0.8398268398268398,
+        "f1": 0.39344262295081966
+      },
+      "M3_ebv": {
+        "n": 231,
+        "n_pos": 23,
+        "auroc": 0.7508361204013377,
+        "average_precision": 0.3272192645242961,
+        "accuracy": 0.9047619047619048,
+        "f1": 0.15384615384615385
+      },
+      "M4_subtype4": {
+        "n": 231,
+        "class_order": [
+          "EBV",
+          "MSI",
+          "GS",
+          "CIN"
+        ],
+        "class_counts": {
+          "EBV": 23,
+          "MSI": 39,
+          "GS": 50,
+          "CIN": 119
+        },
+        "macro_ovr_auroc": 0.7478592439766054,
+        "macro_average_precision": 0.4990461937204095,
+        "accuracy": 0.5714285714285714,
+        "macro_f1": 0.3801644470294643
+      }
+    }
+  }
+}

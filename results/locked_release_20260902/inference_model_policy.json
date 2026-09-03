@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-09-02T18:06:31",
+  "git_commit": "288fcea34294880d4e29831df398cce6bdc34176",
+  "git_status_short": "M generate_visual_evidence_package.py\n M \"reports/\\344\\272\\244\\344\\273\\230\\346\\235\\220\\346\\226\\231\\346\\234\\200\\347\\273\\210\\346\\240\\270\\345\\257\\271\\344\\270\\216\\350\\241\\245\\351\\275\\220\\350\\277\\233\\345\\261\\225_20260817.md\"\n M \"reports/\\346\\212\\245\\345\\221\\212_\\351\\235\\242\\345\\220\\221\\345\\214\\273\\345\\255\\246\\347\\224\\237.md\"\n M results/cpu_supplement/agent_no_leakage_output_schema.json\n M results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_rules.csv\n M results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_rules.jsonl\n M results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_stability_rules.json\n M results/cpu_supplement/agent_no_leakage_prompt.txt\n M run_agent_no_leakage.py\n M src/agent.py\n?? complete_computer_improvement_deliverables.py\n?? \"reports/\\344\\270\\273\\345\\210\\206\\346\\236\\220\\345\\217\\243\\345\\276\\204\\344\\270\\216Agent\\346\\233\\264\\346\\226\\260_20260901.md\"\n?? results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_deepseek.csv\n?? results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_deepseek.jsonl\n?? results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_deepseek_deepseek-chat.csv\n?? results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_outputs_deepseek_deepseek-chat.jsonl\n?? results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_stability_deepseek.json\n?? results/cpu_supplement/agent_no_leakage_outputs/agent_no_leakage_stability_deepseek_deepseek-chat.json\n?? results/locked_release_20260902/\n?? results/visual_evidence_package_all_feature_slides_all_patches/\n?? results/visual_evidence_package_all_patches/\n?? results/visual_evidence_review/\n?? run_missing_materials_4gpu.sh\n?? run_pooling_baselines.py\n?? src/deepseek_client.py\n?? train_missing_gpu_models.py",
+  "tcga_internal_policy": {
+    "analysis_cohort": "246 TCGA patients with UNI2-h features",
+    "reported_oof_set": "231 center-isolated validation patients",
+    "folding": "patient-level, site/group isolated validation folds; sites with <8 patients are train-only",
+    "repeats": 2,
+    "folds": 5,
+    "binary_threshold": 0.5
+  },
+  "cptac_external_policy": {
+    "analysis_cohort": "156 labeled evaluable CPTAC patients after QC and label matching",
+    "feature_dir": "results/external_cptac_features_20x256",
+    "inference_scripts": [
+      "eval_cptac_features.py",
+      "run_cptac_feature_inference_4gpu.sh"
+    ],
+    "model_files_used_by_current_fixed_threshold_outputs": [
+      "models/M1_immune_sensitive.pt",
+      "models/M2_msi.pt",
+      "models/M3_ebv.pt",
+      "models/M4_subtype4.pt"
+    ],
+    "patient_aggregation": "arithmetic mean of slide-level probabilities",
+    "threshold_policy": "fixed 0.5; no CPTAC threshold tuning",
+    "note": "The current frozen CPTAC table records outputs generated from the saved model files. It is not documented as a per-fold ensemble unless the inference command is explicitly changed."
+  },
+  "M4_class_order": [
+    "EBV",
+    "MSI",
+    "GS",
+    "CIN"
+  ]
+}

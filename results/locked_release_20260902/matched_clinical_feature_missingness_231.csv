@@ -1,0 +1,7 @@
+variable,missing_rate,n_missing,n_total
+age,0.0,0,231
+lauren,0.0,0,231
+sex,0.0,0,231
+stage,0.0,0,231
+primary_site,0.0,0,231
+ln_examined,1.0,231,231

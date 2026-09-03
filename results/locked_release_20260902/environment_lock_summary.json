@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-09-02T18:06:32",
+  "python": "3.10.20",
+  "platform": "Linux-4.15.0-213-generic-x86_64-with-glibc2.27",
+  "executable": "/gpfsdata/home/shitengyuan/miniconda3/envs/gastric_msi_pathai/bin/python",
+  "numpy": "2.2.5",
+  "pandas": "2.3.3",
+  "sklearn": "1.7.2",
+  "torch": "2.4.0",
+  "h5py": "3.16.0",
+  "matplotlib": "3.10.9"
+}

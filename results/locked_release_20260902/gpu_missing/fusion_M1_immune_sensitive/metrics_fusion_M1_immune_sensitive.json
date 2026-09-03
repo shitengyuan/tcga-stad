@@ -1,0 +1,42 @@
+{
+  "n": 231,
+  "n_pos": 62,
+  "auroc": 0.9082840236686391,
+  "average_precision": 0.8356671077795488,
+  "accuracy": 0.8831168831168831,
+  "f1": 0.7804878048780488,
+  "generated_at": "2026-09-02T19:34:21",
+  "model_kind": "fusion",
+  "task": "immune_sensitive",
+  "task_name": "M1_immune_sensitive",
+  "analysis_set": "TCGA 246 train / 231 center-isolated OOF using existing fold registries",
+  "fold_scores": [
+    0.9404761904761905,
+    0.8083333333333333,
+    0.905448717948718,
+    1.0,
+    0.9576719576719577,
+    1.0,
+    0.9605263157894738,
+    1.0,
+    0.8166666666666667,
+    0.9155138339920948
+  ],
+  "fold_mean": 0.9304637015878436,
+  "fold_std": 0.06705596934691008,
+  "config": {
+    "model_kind": "fusion",
+    "task": "immune_sensitive",
+    "device": "cuda",
+    "max_patches": 4096,
+    "hidden": 256,
+    "dropout": 0.25,
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "epochs": 30,
+    "n_repeats": 2,
+    "seed": 42,
+    "n_heads": 4,
+    "n_layers": 2
+  }
+}

@@ -1,0 +1,12 @@
+patient_id,final_pred,confidence,trusted_models,conflicts,ihc_suggest,screening_positioning,report,safety_flags,backend,deepseek_model,temperature,raw_response,guardrails
+TCGA-BR-6452,nonsensitive,medium,"['M1', 'M2', 'M3', 'M4']",[],none,本结果为分子检测前初筛参考，不替代MSI/EBV确认或治疗决策。,基于多模型概率分析，M1判定为非敏感型，M2、M3、M4均不支持MSI/EBV高风险，M5临床概率接近阈值，综合可信度中等。建议结合临床和分子检测进一步评估。,"['no_label_leakage', 'm1_fixed', 'no_unverified_morphology']",deepseek_no_leakage,deepseek-v4-flash,0.2,"{
+  ""patient_id"": ""TCGA-BR-6452"",
+  ""final_pred"": ""nonsensitive"",
+  ""confidence"": ""medium"",
+  ""trusted_models"": [""M1"", ""M2"", ""M3"", ""M4""],
+  ""conflicts"": [],
+  ""ihc_suggest"": ""none"",
+  ""screening_positioning"": ""本结果为分子检测前初筛参考，不替代MSI/EBV确认或治疗决策。"",
+  ""report"": ""基于多模型概率分析，M1判定为非敏感型，M2、M3、M4均不支持MSI/EBV高风险，M5临床概率接近阈值，综合可信度中等。建议结合临床和分子检测进一步评估。"",
+  ""safety_flags"": [""no_label_leakage"", ""m1_fixed"", ""no_unverified_morphology""]
+}","{'final_pred_fixed_to_M1': True, 'forbidden_fields_not_loaded': ['label', 'MSI', 'EBV', 'subtype', 'M4_subtype', 'M4_label', 'POLE'], 'no_unverified_morphology': True}"

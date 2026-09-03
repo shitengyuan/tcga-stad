@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-09-02T18:06:32",
+  "source_metrics_configs": {
+    "M1_immune_sensitive": {
+      "max_patches": 8000,
+      "epochs": 30,
+      "n_repeats": 2,
+      "n_folds": 5,
+      "seed": 42,
+      "hidden": 256,
+      "dropout": 0.25,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "min_site_for_val": 8
+    },
+    "M2_msi": {
+      "max_patches": 8000,
+      "epochs": 30,
+      "n_repeats": 2,
+      "n_folds": 5,
+      "seed": 42,
+      "hidden": 256,
+      "dropout": 0.25,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "min_site_for_val": 8
+    },
+    "M3_ebv": {
+      "max_patches": 8000,
+      "epochs": 30,
+      "n_repeats": 2,
+      "n_folds": 5,
+      "seed": 42,
+      "hidden": 256,
+      "dropout": 0.25,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "min_site_for_val": 8
+    },
+    "M4_subtype4": {
+      "max_patches": 8000,
+      "epochs": 30,
+      "n_repeats": 2,
+      "n_folds": 5,
+      "seed": 42,
+      "hidden": 256,
+      "dropout": 0.25,
+      "lr": 0.0001,
+      "weight_decay": 1e-05,
+      "min_site_for_val": 8
+    }
+  },
+  "human_readable_training_config": {
+    "encoder_feature_dim": 1536,
+    "aggregator": "ABMIL",
+    "hidden_dim": 256,
+    "dropout": 0.25,
+    "attention_dim": 128,
+    "classifier_head": "Linear(256,64)+ReLU+Dropout+Linear(64,n_classes)",
+    "loss": "torch.nn.functional.cross_entropy",
+    "class_weighting": "inverse-frequency class weights computed inside each training fold",
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "weight_decay": 1e-05,
+    "epochs": 30,
+    "best_checkpoint_policy": "select epoch with best validation AUROC/macro-AUROC; training loop still runs full configured epochs",
+    "early_stopping": "no hard early stop in the current script",
+    "seed": 42,
+    "n_repeats": 2,
+    "n_folds": 5,
+    "min_site_for_val": 8,
+    "max_patches_per_slide_bag": 8000
+  }
+}

@@ -1,0 +1,19 @@
+item,status,deliverable_or_reason
+冻结TCGA 246 patient_manifest.csv,完成,results/locked_release_20260902/patient_manifest.csv
+冻结fold_assignment.csv,完成,results/locked_release_20260902/fold_assignment.csv
+冻结TCGA 231 locked_predictions_tcga.csv,完成,results/locked_release_20260902/locked_predictions_tcga.csv
+冻结CPTAC 156 locked_predictions_cptac.csv,完成,results/locked_release_20260902/locked_predictions_cptac.csv
+CPTAC模型来源与固定阈值策略,完成,results/locked_release_20260902/inference_model_policy.json
+权重/代码SHA256清单,完成,results/locked_release_20260902/model_and_code_hash_manifest.csv
+训练配置摘要,完成,results/locked_release_20260902/training_config_summary.json
+TCGA 231 AUROC/AP/阈值指标/校准CI,完成,results/locked_release_20260902/tcga_231_metrics_with_ci.json
+CPTAC 156 阈值指标CI补充,完成,results/locked_release_20260902/cptac_156_metrics_with_ci.json
+ROC/PR/校准曲线,完成,results/locked_release_20260902/roc_pr_curves_tcga231_cptac156.png
+临床容量情景 20/30/40%,完成,results/locked_release_20260902/triage_capacity_tcga.csv; results/locked_release_20260902/triage_capacity_cptac.csv
+错误病例/低置信病理审阅模板,完成,results/locked_release_20260902/pathologist_annotation_template.csv
+Matched Clinical-only 231,完成,results/locked_release_20260902/matched_clinical_oof_predictions_231.csv
+Image+clinical融合模型,完成,results/locked_release_20260902/gpu_missing/fusion_M1_immune_sensitive/metrics_fusion_M1_immune_sensitive.json
+mean/max pooling最小基线,完成,results/locked_release_20260902/baselines/baseline_metrics.json
+CONCH第二编码器+ABMIL,未完成,已实现 run_conch_abmil_4gpu.sh；需下载TCGA原片并抽CONCH特征后训练
+Transformer aggregator,完成,results/locked_release_20260902/gpu_missing/transformer_*/metrics_transformer_*.json
+病理医生盲评/IHC验证,不可由脚本完成,需要病理同学在pathologist_annotation_template.csv上人工标注

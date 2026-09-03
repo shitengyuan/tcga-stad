@@ -1,0 +1,42 @@
+{
+  "n": 231,
+  "n_pos": 39,
+  "auroc": 0.9085202991452992,
+  "average_precision": 0.6877745661350422,
+  "accuracy": 0.8917748917748918,
+  "f1": 0.6987951807228916,
+  "generated_at": "2026-09-02T18:27:32",
+  "model_kind": "transformer",
+  "task": "msi",
+  "task_name": "M2_msi",
+  "analysis_set": "TCGA 246 train / 231 center-isolated OOF using existing fold registries",
+  "fold_scores": [
+    0.9283333333333333,
+    0.9305555555555556,
+    0.91,
+    0.9333333333333333,
+    0.9605263157894738,
+    1.0,
+    0.9833333333333334,
+    0.9473684210526316,
+    0.9031007751937985,
+    0.9227777777777777
+  ],
+  "fold_mean": 0.9419328845369238,
+  "fold_std": 0.029570173209054786,
+  "config": {
+    "model_kind": "transformer",
+    "task": "msi",
+    "device": "cuda",
+    "max_patches": 2048,
+    "hidden": 256,
+    "dropout": 0.25,
+    "lr": 0.0001,
+    "weight_decay": 1e-05,
+    "epochs": 30,
+    "n_repeats": 2,
+    "seed": 42,
+    "n_heads": 4,
+    "n_layers": 2
+  }
+}
