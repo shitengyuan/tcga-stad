@@ -48,6 +48,10 @@ results/logs/
 results/visual_evidence_package_all_feature_slides_all_patches/
 results/visual_evidence_package_all_patches/
 results/visual_evidence_review/
+results/visual_evidence_attention_overlap_all_available/
+results/visual_evidence_attention_overlap_tcga_downloaded/
+results/visual_evidence_attention_overlap_cptac_downloaded/
+results/_smoke_attention_overlap_*/
 results/locked_release_20260902/baselines/*features_246.csv
 results/locked_release_20260902/gpu_missing/*/checkpoints/
 results/locked_release_20260902/second_encoder/*/checkpoints/

@@ -50,6 +50,7 @@ TCGA_WORKERS="${TCGA_WORKERS:-12}"
 TCGA_RETRIES="${TCGA_RETRIES:-5}"
 TCGA_TIMEOUT="${TCGA_TIMEOUT:-180}"
 TCGA_LIMIT="${TCGA_LIMIT:-0}"
+TCGA_RESOLVE_ONLY="${TCGA_RESOLVE_ONLY:-0}"
 
 step() {
   echo
@@ -96,6 +97,7 @@ echo "CONCH_OUT_DIR=$CONCH_OUT_DIR"
 echo "TCGA_MANIFEST=$TCGA_MANIFEST"
 echo "TCGA_OUT_DIR=$TCGA_OUT_DIR"
 echo "TCGA_WORKERS=$TCGA_WORKERS"
+echo "TCGA_RESOLVE_ONLY=$TCGA_RESOLVE_ONLY"
 "$PY" - <<'PY'
 import importlib.util
 for mod in ["huggingface_hub", "pandas"]:
@@ -134,6 +136,9 @@ if [[ "$RUN_TCGA" == "1" ]]; then
   )
   if [[ "$TCGA_LIMIT" != "0" ]]; then
     tcga_args+=(--limit "$TCGA_LIMIT")
+  fi
+  if [[ "$TCGA_RESOLVE_ONLY" == "1" ]]; then
+    tcga_args+=(--resolve_only)
   fi
   if [[ "$FORCE_DOWNLOAD" == "1" ]]; then
     tcga_args+=(--overwrite)

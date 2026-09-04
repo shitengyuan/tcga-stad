@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
-"""Download locked TCGA slide images from GDC using slide UUIDs in slide_id.
+"""Download locked TCGA slide images from GDC using slide filenames.
 
 The locked patient manifest stores slide IDs like:
 TCGA-B7-5816-01Z-00-DX1.1B05F96A-D5E2-4366-A098-A861313F3461
 
-The suffix after the last dot is the GDC file UUID. This script downloads the
-corresponding SVS to a local directory and writes an audit manifest.
+The suffix after the last dot is embedded in the SVS filename, but is not the
+current GDC file_id. This script resolves each filename through the GDC files
+endpoint, downloads the corresponding SVS, and writes an audit manifest.
 """
 from __future__ import annotations
 
 import argparse
 import concurrent.futures as cf
 import csv
+import json
 import os
 import time
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -25,6 +28,7 @@ ROOT = Path(__file__).resolve().parent
 DEFAULT_MANIFEST = ROOT / "results" / "locked_release_20260902" / "patient_manifest.csv"
 DEFAULT_OUT = ROOT / "external_downloads" / "tcga_stad" / "locked_246_svs"
 GDC_DATA_URL = "https://api.gdc.cancer.gov/data/{uuid}"
+GDC_FILES_URL = "https://api.gdc.cancer.gov/files"
 
 
 def slide_uuid(slide_id: str) -> str:
@@ -33,15 +37,50 @@ def slide_uuid(slide_id: str) -> str:
     return slide_id.rsplit(".", 1)[1]
 
 
-def download_one(row: dict[str, Any], out_dir: Path, retries: int, timeout: int, overwrite: bool) -> dict[str, Any]:
+def resolve_file_id(slide_id: str, timeout: int) -> tuple[str | None, str]:
+    file_name = f"{slide_id}.svs"
+    filters = {"op": "=", "content": {"field": "file_name", "value": [file_name]}}
+    params = urllib.parse.urlencode(
+        {
+            "filters": json.dumps(filters),
+            "fields": "file_id,file_name,state,access,data_format,data_type",
+            "format": "JSON",
+            "size": "2",
+        }
+    )
+    try:
+        with urllib.request.urlopen(f"{GDC_FILES_URL}?{params}", timeout=timeout) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+        hits = payload.get("data", {}).get("hits", [])
+        if not hits:
+            return None, "no_file_name_match"
+        hit = hits[0]
+        return hit.get("file_id"), json.dumps(hit, ensure_ascii=False, sort_keys=True)
+    except Exception as exc:
+        return None, f"resolve_failed:{type(exc).__name__}:{exc}"
+
+
+def download_one(
+    row: dict[str, Any],
+    out_dir: Path,
+    retries: int,
+    timeout: int,
+    overwrite: bool,
+    skip_resolve: bool,
+    resolve_only: bool,
+) -> dict[str, Any]:
     slide_id = str(row["slide_id"])
-    uuid = slide_uuid(slide_id)
+    uuid_suffix = slide_uuid(slide_id)
+    file_id = uuid_suffix if skip_resolve else None
+    file_meta = "used_slide_id_suffix_as_file_id" if skip_resolve else ""
     out_path = out_dir / f"{slide_id}.svs"
     tmp_path = out_path.with_suffix(out_path.suffix + f".tmp.{os.getpid()}")
     rec = {
         "patient_id": row.get("patient_id", ""),
         "slide_id": slide_id,
-        "gdc_file_uuid": uuid,
+        "gdc_file_uuid_suffix": uuid_suffix,
+        "gdc_file_id": "",
+        "gdc_file_meta": "",
         "out_path": str(out_path),
         "status": "",
         "bytes": 0,
@@ -51,7 +90,20 @@ def download_one(row: dict[str, Any], out_dir: Path, retries: int, timeout: int,
         rec["status"] = "skipped_existing"
         rec["bytes"] = int(out_path.stat().st_size)
         return rec
-    url = GDC_DATA_URL.format(uuid=uuid)
+    if not file_id:
+        file_id, file_meta = resolve_file_id(slide_id, timeout)
+        rec["gdc_file_meta"] = file_meta
+        if not file_id:
+            rec["status"] = "failed_resolve"
+            rec["error"] = file_meta
+            return rec
+    rec["gdc_file_id"] = file_id
+    if file_meta:
+        rec["gdc_file_meta"] = file_meta
+    if resolve_only:
+        rec["status"] = "resolved"
+        return rec
+    url = GDC_DATA_URL.format(uuid=file_id)
     for attempt in range(1, retries + 1):
         try:
             if tmp_path.exists():
@@ -83,6 +135,8 @@ def main() -> None:
     parser.add_argument("--retries", type=int, default=3)
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--skip_resolve", action="store_true", help="Use slide_id suffix as GDC file_id. Mostly for debugging; normal TCGA filenames need resolution.")
+    parser.add_argument("--resolve_only", action="store_true", help="Resolve GDC file_id and write manifest without downloading SVS bytes.")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--dry_run", action="store_true", help="Only write the planned download manifest; do not download files.")
     args = parser.parse_args()
@@ -103,7 +157,9 @@ def main() -> None:
                 {
                     "patient_id": r.get("patient_id", ""),
                     "slide_id": slide_id,
-                    "gdc_file_uuid": slide_uuid(slide_id),
+                    "gdc_file_uuid_suffix": slide_uuid(slide_id),
+                    "gdc_file_id": "",
+                    "gdc_file_meta": "",
                     "out_path": str(out_path),
                     "status": "dry_run",
                     "bytes": int(out_path.stat().st_size) if out_path.exists() else 0,
@@ -114,7 +170,10 @@ def main() -> None:
         print({"manifest": str(manifest_path), "rows": len(results), "status_counts": {"dry_run": len(results)}})
         return
     with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
-        futs = [ex.submit(download_one, r, args.out_dir, args.retries, args.timeout, args.overwrite) for r in rows]
+        futs = [
+            ex.submit(download_one, r, args.out_dir, args.retries, args.timeout, args.overwrite, args.skip_resolve, args.resolve_only)
+            for r in rows
+        ]
         for i, fut in enumerate(cf.as_completed(futs), 1):
             rec = fut.result()
             results.append(rec)
