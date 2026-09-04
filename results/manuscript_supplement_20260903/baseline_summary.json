@@ -1,0 +1,68 @@
+{
+  "TCGA_246": {
+    "n": 246,
+    "clinical_match_n": 243,
+    "age_years": {
+      "n_available": 243,
+      "median": 67.06,
+      "q1": 58.38,
+      "q3": 72.99
+    },
+    "female": {
+      "n": 88,
+      "percent": 35.8
+    },
+    "lauren_intestinal": {
+      "n": 163,
+      "percent": 66.3
+    },
+    "pathologic_stage": {
+      "n_available": 246,
+      "counts": {
+        "I": 29,
+        "II": 106,
+        "III": 95,
+        "IV": 16
+      },
+      "percents": {
+        "I": 11.8,
+        "II": 43.1,
+        "III": 38.6,
+        "IV": 6.5
+      }
+    }
+  },
+  "CPTAC_156": {
+    "n": 156,
+    "clinical_match_n": 156,
+    "age_years": {
+      "n_available": 156,
+      "median": 69.0,
+      "q1": 61.0,
+      "q3": 74.0
+    },
+    "female": {
+      "n": 63,
+      "percent": 40.4
+    },
+    "lauren_intestinal": {
+      "n": 94,
+      "percent": 60.3
+    },
+    "pathologic_stage": {
+      "n_available": 156,
+      "counts": {
+        "I": 12,
+        "II": 47,
+        "III": 85,
+        "IV": 12
+      },
+      "percents": {
+        "I": 7.7,
+        "II": 30.1,
+        "III": 54.5,
+        "IV": 7.7
+      }
+    }
+  }
+}
